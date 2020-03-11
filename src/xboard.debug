@@ -1,0 +1,250 @@
+recognized 'normal' (-1) as variant normal
+recognized 'normal' (-1) as variant normal
+recognized 'normal' (-1) as variant normal
+shuffleOpenings = 0
+Requested font set for list -*-helvetica-medium-r-normal--12-*-*-*-*-*-*-*,-misc-fixed-medium-r-normal--12-*-*-*-*-*-*-*,-*-*-*-*-*-*-12-*-*-*-*-*-*-*
+ got list -*-helvetica-medium-r-normal--12-*-*-*-*-*-*-*,-misc-fixed-medium-r-normal--12-*-*-*-*-*-*-*,-*-*-*-*-*-*-12-*-*-*-*-*-*-*, locale en_US.UTF-8
+ got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso8859-1
+ got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso8859-1
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-2
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-3
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-4
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-5
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-koi8-r
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-7
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-9
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-13
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-14
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-15
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-jisx0208.1983-0
+ got charset -daewoo-gothic-medium-r-normal--12-87-100-100-c-0-ksc5601.1987-0
+ got charset -isas-fangsong ti-medium-r-normal--12-87-100-100-c-0-gb2312.1980-0
+ got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-jisx0201.1976-0
+ got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso10646-1
+Requested font set for list -*-helvetica-bold-r-normal--24-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--24-*-*-*-*-*-*-*,-*-*-*-*-*-*-24-*-*-*-*-*-*-*
+ got list -*-helvetica-bold-r-normal--24-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--24-*-*-*-*-*-*-*,-*-*-*-*-*-*-24-*-*-*-*-*-*-*, locale en_US.UTF-8
+ got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso8859-1
+ got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso8859-1
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-2
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-3
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-4
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-5
+ got charset -misc-fixed-medium-r-normal--24-173-100-100-c-0-koi8-r
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-7
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-9
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-13
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-14
+ got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-15
+ got charset -jis-fixed-medium-r-normal--24-170-100-100-c-240-jisx0208.1983-0
+ got charset -daewoo-mincho-medium-r-normal--24-170-100-100-c-240-ksc5601.1987-0
+ got charset -isas-song ti-medium-r-normal--24-240-72-72-c-240-gb2312.1980-0
+ got charset -sony-fixed-medium-r-normal--24-170-100-100-c-120-jisx0201.1976-0
+ got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso10646-1
+Requested font set for list -*-helvetica-bold-r-normal--10-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--10-*-*-*-*-*-*-*,-*-*-*-*-*-*-10-*-*-*-*-*-*-*
+ got list -*-helvetica-bold-r-normal--10-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--10-*-*-*-*-*-*-*,-*-*-*-*-*-*-10-*-*-*-*-*-*-*, locale en_US.UTF-8
+ got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso8859-1
+ got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso8859-1
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-2
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-3
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-4
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-5
+ got charset -misc-fixed-medium-r-normal--10-100-75-75-c-60-koi8-r
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-7
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-9
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-13
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-14
+ got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-15
+ got charset -jis-fixed-medium-r-normal--10-72-100-100-c-0-jisx0208.1983-0
+ got charset -daewoo-gothic-medium-r-normal--10-72-100-100-c-0-ksc5601.1987-0
+ got charset -isas-fangsong ti-medium-r-normal--10-72-100-100-c-0-gb2312.1980-0
+ got charset -misc-fixed-medium-r-normal--10-72-100-100-c-0-jisx0201.1976-0
+ got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso10646-1
+shuffleOpenings = 0
+Version: xboard 4.8.0 + fairymax ()
+Reset(1, 0) from gameMode 0
+recognized 'normal' (-1) as variant normal
+GameEnds(0, (null), 2)
+shuffleOpenings = 0
+StartChildProcess (dir=".") fairymax
+370 >first : xboard
+protover 2
+440 <first : tellics say     Fairy-Max 5.0b
+440 <first : tellics say     by H.G. Muller
+440 <first : feature myname="Fairy-Max 5.0b"
+440 >first : accepted myname
+440 <first : feature memory=1 exclude=1
+440 >first : accepted memory
+440 >first : accepted exclude
+440 <first : feature setboard=0 xedit=1 ping=1 done=0
+440 >first : accepted setboard
+440 >first : accepted xedit
+440 >first : accepted ping
+440 >first : accepted done
+440 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,janus,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,los-alamos,ciccolini,mexican,grande-acedrex,roman,almost-wildebeest,fairy"
+440 >first : accepted variants
+440 <first : feature option="Resign -check 0"
+440 >first : accepted option
+440 <first : feature option="Resign Threshold -spin 800 200 1200"
+440 >first : accepted option
+440 <first : feature option="Claim draw after -spin 50 0 200"
+440 >first : accepted option
+440 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
+440 >first : accepted option
+440 <first : feature option="Multi-PV Margin -spin 0 0 1000"
+440 >first : accepted option
+440 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers /// Nutters-Rookies /// Rookies-Nutters"
+440 >first : accepted option
+440 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
+440 >first : accepted option
+440 <first : feature option="Dummy Slider Example -slider 20 0 100"
+440 >first : accepted option
+440 <first : feature option="Dummy String Example -string happy birthday!"
+440 >first : accepted option
+440 <first : feature option="Dummy Path Example -path ."
+440 >first : accepted option
+440 <first : feature option="Automatic persistent-hash dialog -check 0"
+440 >first : accepted option
+440 <first : feature option="Info -button"
+440 >first : accepted option
+440 <first : feature option="Save in hash file -button"
+440 >first : accepted option
+440 <first : feature option="Clear Hash -button"
+440 >first : accepted option
+440 <first : feature done=1
+440 >first : accepted done
+441 >first : memory 68
+441 >first : new
+random
+441 >first : level 40 5 0
+441 >first : post
+441 >first : hard
+441 >first : ping 1
+462 <first : pong 1
+2321 >first : quit
+Unload first
+StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
+2323 >first : xboard
+protover 2
+3534 <first : feature done=1 usermove=1 sigint=0
+3534 >first : accepted done
+3534 >first : accepted usermove
+3534 >first : accepted sigint
+3534 <first : accepted
+3534 <first : accepted
+3534 <first : accepted
+recognized 'normal' (-1) as variant normal
+3535 >first : new
+random
+3535 >first : level 40 5 0
+3535 >first : post
+3535 >first : hard
+3926 <first : 1 2 3 4 e1b2
+nps: w=-1, b=-1
+nps: w=-1, b=-1
+7402 >first : time 30000
+7402 >first : otim 30000
+book hit = (NULL)
+7402 >first : usermove 7402 >first : h2h3
+8820 <first : move a7a6
+10344 >first : time 29858
+10344 >first : otim 29847
+book hit = (NULL)
+10344 >first : usermove 10344 >first : h3h4
+11517 <first : move a6a5
+12779 >first : time 29740
+12779 >first : otim 29721
+book hit = (NULL)
+12779 >first : usermove 12779 >first : h4h5
+14000 <first : move a5a4
+15235 >first : time 29618
+15235 >first : otim 29597
+book hit = (NULL)
+15235 >first : usermove 15235 >first : h5h6
+16375 <first : move a4a3
+17972 >first : time 29504
+17972 >first : otim 29438
+book hit = (NULL)
+17972 >first : usermove 17972 >first : g2g3
+19618 <first : move a3b2
+25009 >first : time 29340
+25009 >first : otim 28899
+book hit = (NULL)
+25009 >first : usermove 25009 >first : f2f3
+26105 <first : move b2c1
+32801 >first : time 29230
+32801 >first : otim 28229
+book hit = (NULL)
+32801 >first : usermove 32801 >first : e2e3
+34311 <first : move b7b6
+35915 >first : time 29079
+35916 >first : otim 28069
+book hit = (NULL)
+35916 >first : usermove 35916 >first : d2d3
+37099 <first : move b6b5
+38309 >first : time 28961
+38309 >first : otim 27948
+book hit = (NULL)
+38309 >first : usermove 38309 >first : c2c3
+39414 <first : move b5b4
+40589 >first : time 28850
+40589 >first : otim 27830
+book hit = (NULL)
+40589 >first : usermove 40589 >first : e3e4
+41721 <first : move b4b3
+43881 >first : time 28737
+43881 >first : otim 27614
+book hit = (NULL)
+43881 >first : usermove 43881 >first : d1c1
+45349 <first : move b3b2
+49276 >first : time 28590
+49276 >first : otim 27222
+book hit = (NULL)
+49276 >first : usermove 49276 >first : c1b2
+50465 <first : move c7c6
+51814 >first : time 28471
+51814 >first : otim 27087
+book hit = (NULL)
+51814 >first : usermove 51814 >first : d3d4
+53096 <first : move c6c5
+54393 >first : time 28343
+54393 >first : otim 26957
+book hit = (NULL)
+54393 >first : usermove 54393 >first : d4c5
+55471 <first : move c5c4
+Reset(1, 1) from gameMode 2
+recognized 'normal' (-1) as variant normal
+GameEnds(0, (null), 2)
+79352 >first : force
+shuffleOpenings = 0
+79357 >first : new
+random
+79357 >first : level 40 5 0
+79357 >first : post
+79357 >first : hard
+80613 <first : 1 2 3 4 e1b2
+nps: w=-1, b=-1
+nps: w=-1, b=-1
+82038 >first : time 30000
+82038 >first : otim 30000
+book hit = (NULL)
+82039 >first : usermove 82039 >first : b2b3
+83258 <first : move a7a6
+84625 >first : time 29878
+84625 >first : otim 29863
+book hit = (NULL)
+84625 >first : usermove 84625 >first : b3b4
+86369 <first : move a6a5
+87714 >first : time 29703
+87714 >first : otim 29728
+book hit = (NULL)
+87714 >first : usermove 87714 >first : a2a3
+89053 <first : move a5a4
+91303 >first : time 29568
+91303 >first : otim 29505
+book hit = (NULL)
+91303 >first : usermove 91303 >first : c2c3
+92458 <first : move a4a3
+GameEnds(29, xboard exit, 2)
+103996 >first : result * {xboard exit}
+103997 >first : force
+103997 >first : quit
