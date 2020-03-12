@@ -5,6 +5,12 @@ import java.util.Arrays;
 public class Engine {
     private static Engine engine = null;
     public BoardCell[][] board;
+    private String side = "black";
+    private int engineTime = 0;
+    private int opponentTime = 0;
+    private int movesPerTime = 0;
+    private int timeInControl = 0;
+    private String lastSide = "";
 
     private Engine() {
     }
@@ -56,7 +62,7 @@ public class Engine {
 
     public void printBoard() {
         for (int i = 0; i < 8; i++) {
-            System.out.println(Arrays.toString(board[i]));
+            System.out.println("# " + Arrays.toString(board[i]));
         }
     }
 
@@ -147,12 +153,48 @@ public class Engine {
     }
     public void xboardMoves(String move) {
         int startYPos = Utils.getIndexOfLetter(move.charAt(0));
-        int startXPos = move.charAt(1) - '0';
+        int startXPos = move.charAt(1) - '0' - 1;
         int finishYPos = Utils.getIndexOfLetter(move.charAt(2));
-        int finishXPos = move.charAt(3) - '0';
+        int finishXPos = move.charAt(3) - '0' - 1;
 
-        Piece tempPiece = board[startXPos][startYPos].piece;
-        board[startXPos][startYPos].piece = null;
-        board[finishXPos][finishYPos].piece = tempPiece;
+        System.out.println("# " + startXPos + " " + startYPos + " " + finishXPos + " " + finishYPos);
+
+        if (board[startXPos][startYPos].piece != null) {
+            Piece tempPiece = board[startXPos][startYPos].piece;
+            board[startXPos][startYPos].piece = null;
+            board[finishXPos][finishYPos].piece = tempPiece;
+        }
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public String getSide() {
+        return this.side;
+    }
+
+    public void setEngineTime(int time) {
+        this.engineTime = time;
+    }
+
+    public void setOpponentTime(int time) {
+        this.opponentTime = time;
+    }
+
+    public void setMovesPerTime(int moves) {
+        this.movesPerTime = moves;
+    }
+
+    public void setTimeInControl(int time) {
+        this.timeInControl = time;
+    }
+
+    public String getLastSide() {
+        return this.lastSide;
+    }
+
+    public void setLastSide(String side) {
+        this.lastSide = side;
     }
 }
