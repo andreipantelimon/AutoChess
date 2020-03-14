@@ -103,50 +103,97 @@ public class Engine {
     }
 
     public void generateMove() {
-        String move;
+        int k = 0;
+        String move = "0";
+        String color = getSide();
+        char side = '0';
+        if (color == "black") {
+            side = 'B';
+        } else {
+            if (color == "white") {
+                side = 'W';
+            }
+        }
         boolean moveDone = false;
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece temp = board[i][j].piece;
                 if (board[i][j].piece instanceof Pawn) {
-                    //System.out.println("SALUT");
-                    if (board[i][j].piece.color == 'B') {
-                        //System.out.println("i = " + i + "j = " + j);
-                        if (board[i - 1][j].piece == null) {
-                            //System.out.println("SALUT");
-                            board[i - 1][j].setPiece(temp);
-                            board[i][j].setPiece(null);
-                            move = toXboard(j) + (i + 1) + toXboard(j) + (i - 1 + 1);
-                            System.out.println("move " + move);
-                            moveDone = true;
-                            break;
-                        } else {
-                            if (j < 7) {
-                                if (board[i - 1][j + 1].piece.color == 'W') {
-                                    board[i - 1][j + 1].setPiece(temp);
+                    if (board[i][j].piece.color == side) {
+                        if (side == 'B') {
+                            //if (i > 0) {
+                                if (board[i - 1][j].piece == null) {
+                                    board[i - 1][j].setPiece(temp);
                                     board[i][j].setPiece(null);
-                                    move = toXboard(j) + (i + 1) + toXboard(j + 1) + (i - 1 + 1);
-                                    System.out.println("move " + move);
+                                    move = toXboard(j) + (i + 1) + toXboard(j) + (i - 1 + 1);
                                     moveDone = true;
                                     break;
+                                } else {
+                                    if (j < 7) {
+                                        if (board[i - 1][j + 1].piece != null) {
+                                            if (board[i - 1][j + 1].piece.color != side) {
+                                                board[i - 1][j + 1].setPiece(temp);
+                                                board[i][j].setPiece(null);
+                                                move = toXboard(j) + (i + 1) + toXboard(j + 1) + (i - 1 + 1);
+                                                moveDone = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (j > 0) {
+                                        if (board[i - 1][j - 1].piece != null) {
+                                            if (board[i - 1][j - 1].piece.color != side) {
+                                                board[i - 1][j - 1].setPiece(temp);
+                                                board[i][j].setPiece(null);
+                                                move = toXboard(j) + (i + 1) + toXboard(j - 1) + (i - 1 + 1);
+                                                moveDone = true;
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
-                            } else {
-                                if (j > 0) {
-                                    if (board[i - 1][j - 1].piece.color == 'W') {
-                                        board[i - 1][j - 1].setPiece(temp);
+                        } else {
+                            if (side == 'W') {
+                                if (i < 7) {
+                                    if (board[i + 1][j].piece == null) {
+                                        board[i + 1][j].setPiece(temp);
                                         board[i][j].setPiece(null);
-                                        move = toXboard(j) + (i + 1) + toXboard(j - 1) + (i - 1 + 1);
-                                        System.out.println("move " + move);
+                                        move = toXboard(j) + (i + 1) + toXboard(j) + (i + 1 + 1);
                                         moveDone = true;
                                         break;
+                                    } else {
+                                        if (j < 7) {
+                                            if (board[i + 1][j + 1].piece != null) {
+                                                if (board[i + 1][j + 1].piece.color != side) {
+                                                    board[i + 1][j + 1].setPiece(temp);
+                                                    board[i][j].setPiece(null);
+                                                    move = toXboard(j) + (i + 1) + toXboard(j + 1) + (i + 1 + 1);
+                                                    moveDone = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (j > 0) {
+                                            if (board[i + 1][j - 1].piece != null) {
+                                                if (board[i + 1][j - 1].piece.color != side) {
+                                                    board[i + 1][j - 1].setPiece(temp);
+                                                    board[i][j].setPiece(null);
+                                                    move = toXboard(j) + (i + 1) + toXboard(j - 1) + (i + 1 + 1);
+                                                    moveDone = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
+
                         }
                     }
                 }
             }
             if (moveDone) {
+                System.out.println("move " + move);
                 break;
             }
         }
