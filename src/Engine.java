@@ -103,7 +103,6 @@ public class Engine {
     }
 
     public void generateMove() {
-        int k = 0;
         String move = "0";
         String color = getSide();
         char side = '0';
@@ -121,7 +120,6 @@ public class Engine {
                 if (board[i][j].piece instanceof Pawn) {
                     if (board[i][j].piece.color == side) {
                         if (side == 'B') {
-                            //if (i > 0) {
                                 if (board[i - 1][j].piece == null) {
                                     board[i - 1][j].setPiece(temp);
                                     board[i][j].setPiece(null);
@@ -196,6 +194,9 @@ public class Engine {
                 System.out.println("move " + move);
                 break;
             }
+        }
+        if (!moveDone) {
+            System.out.println("resign");
         }
     }
     public void xboardMoves(String move) {
