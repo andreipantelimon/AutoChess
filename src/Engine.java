@@ -102,85 +102,42 @@ public class Engine {
         return str;
     }
 
-    public void generateMove() {
-        String move = "0";
-        String color = getSide();
-        char side = '0';
-        if (color.equals("black")) {
-            side = 'B';
-        } else {
-            if (color.equals("white")) {
-                side = 'W';
-            }
-        }
-        boolean moveDone = false;
-        for (int i = 1; i < 8; i++) {
+    public boolean check() {
+        char color = getColor();
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Piece temp = board[i][j].piece;
-                if (board[i][j].piece instanceof Pawn) {
-                    if (board[i][j].piece.color == side) {
-                        if (side == 'B') {
-                                if (board[i - 1][j].piece == null) {
-                                    board[i - 1][j].setPiece(temp);
-                                    board[i][j].setPiece(null);
-                                    move = toXboard(j) + (i + 1) + toXboard(j) + (i - 1 + 1);
-                                    moveDone = true;
-                                    break;
-                                } else {
-                                    if (j < 7) {
-                                        if (board[i - 1][j + 1].piece != null) {
-                                            if (board[i - 1][j + 1].piece.color != side) {
-                                                board[i - 1][j + 1].setPiece(temp);
-                                                board[i][j].setPiece(null);
-                                                move = toXboard(j) + (i + 1) + toXboard(j + 1) + (i - 1 + 1);
-                                                moveDone = true;
-                                                break;
-                                            }
-                                        }
+                if (board[i][j].piece instanceof King) {
+                    if (color == 'B') {
+                        if (i > 0) {
+                            if (j > 0) {
+                                if (board[i - 1][j - 1].piece != null) {
+                                    if (board[i - 1][j - 1].piece.color != color && board[i - 1][j - 1].piece instanceof Pawn) {
+                                        return true;
                                     }
-                                    if (j > 0) {
-                                        if (board[i - 1][j - 1].piece != null) {
-                                            if (board[i - 1][j - 1].piece.color != side) {
-                                                board[i - 1][j - 1].setPiece(temp);
-                                                board[i][j].setPiece(null);
-                                                move = toXboard(j) + (i + 1) + toXboard(j - 1) + (i - 1 + 1);
-                                                moveDone = true;
-                                                break;
-                                            }
+                                }
+                            }
+                            if (j < 7) {
+                                if (board[i - 1][j + 1].piece != null) {
+                                    if (board[i - 1][j + 1].piece.color != color && board[i - 1][j + 1].piece instanceof Pawn) {
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        if (color == 'W') {
+                            if (i < 7) {
+                                if (j > 0) {
+                                    if (board[i + 1][j - 1].piece != null) {
+                                        if (board[i + 1][j - 1].piece.color != color && board[i + 1][j - 1].piece instanceof Pawn) {
+                                            return true;
                                         }
                                     }
                                 }
-                        } else {
-                            if (side == 'W') {
-                                if (i < 7) {
-                                    if (board[i + 1][j].piece == null) {
-                                        board[i + 1][j].setPiece(temp);
-                                        board[i][j].setPiece(null);
-                                        move = toXboard(j) + (i + 1) + toXboard(j) + (i + 1 + 1);
-                                        moveDone = true;
-                                        break;
-                                    } else {
-                                        if (j < 7) {
-                                            if (board[i + 1][j + 1].piece != null) {
-                                                if (board[i + 1][j + 1].piece.color != side) {
-                                                    board[i + 1][j + 1].setPiece(temp);
-                                                    board[i][j].setPiece(null);
-                                                    move = toXboard(j) + (i + 1) + toXboard(j + 1) + (i + 1 + 1);
-                                                    moveDone = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (j > 0) {
-                                            if (board[i + 1][j - 1].piece != null) {
-                                                if (board[i + 1][j - 1].piece.color != side) {
-                                                    board[i + 1][j - 1].setPiece(temp);
-                                                    board[i][j].setPiece(null);
-                                                    move = toXboard(j) + (i + 1) + toXboard(j - 1) + (i + 1 + 1);
-                                                    moveDone = true;
-                                                    break;
-                                                }
-                                            }
+                                if (j < 7) {
+                                    if (board[i + 1][j + 1].piece != null) {
+                                        if (board[i + 1][j + 1].piece.color != color && board[i + 1][j + 1].piece instanceof Pawn) {
+                                            return true;
                                         }
                                     }
                                 }
@@ -190,8 +147,109 @@ public class Engine {
                     }
                 }
             }
-            if (moveDone) {
+        }
+        return false;
+    }
+
+    public boolean eatPawn(int firstx, int firsty, int lastx, int lasty) {
+        String move;
+        char color = getColor();
+        Piece temp = board[firstx][firsty].piece;
+        if (board[lastx][lasty].piece != null) {
+            if (board[lastx][lasty].piece.color != color) {
+                move = toXboard(firsty) + (firstx + 1) + toXboard(lasty) + (lastx + 1);
                 System.out.println("move " + move);
+                board[firstx][firsty].setPiece(null);
+                board[lastx][lasty].setPiece(temp);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public boolean movePawn(int firstx, int firsty, int lastx, int lasty) {
+        String move;
+        Piece temp = board[firstx][firsty].piece;
+        if (board[lastx][lasty].piece == null) {
+            move = toXboard(firsty) + (firstx + 1) + toXboard(lasty) + (lastx + 1);
+            System.out.println("move " + move);
+            board[firstx][firsty].setPiece(null);
+            board[lastx][lasty].setPiece(temp);
+            return true;
+        }
+        return false;
+    }
+
+    public char getColor() {
+        String side = getSide();
+        char color = '0';
+        if (side.equals("black")) {
+            color = 'B';
+        } else {
+            if (side.equals("white")) {
+                color = 'W';
+            }
+        }
+        return color;
+    }
+
+    public void generateMove() {
+        char color = getColor();
+        boolean moveDone = false;
+        for (int i = 1; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (check()) {
+                    break;
+                }
+                if (board[i][j].piece instanceof Pawn) {
+                    if (board[i][j].piece.color == color) {
+                        if (color == 'B') {
+                            if (movePawn(i, j, i - 1, j)) {
+                                moveDone = true;
+                                break;
+                            } else {
+                                if (j < 7) {
+                                    if (eatPawn(i, j, i - 1, j + 1)) {
+                                        moveDone = true;
+                                        break;
+                                    }
+                                }
+                                if (j > 0) {
+                                    if (eatPawn(i, j, i - 1, j - 1)) {
+                                        moveDone = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        } else {
+                            if (color == 'W') {
+                                if (i < 7) {
+                                    if (movePawn(i, j, i + 1, j)) {
+                                        moveDone = true;
+                                        break;
+                                    } else {
+                                        if (j < 7) {
+                                            if (eatPawn(i, j, i + 1, j + 1)) {
+                                                moveDone = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if (j > 0) {
+                                            if (eatPawn(i, j, i + 1, j - 1)) {
+                                                moveDone = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (moveDone) {
                 break;
             }
         }
@@ -199,6 +257,7 @@ public class Engine {
             System.out.println("resign");
         }
     }
+
     public void xboardMoves(String move) {
         int startYPos = Utils.getIndexOfLetter(move.charAt(0));
         int startXPos = move.charAt(1) - '0' - 1;

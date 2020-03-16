@@ -1,458 +1,99 @@
+locale = LC_CTYPE=en_US.UTF-8;LC_NUMERIC=ro_RO.UTF-8;LC_TIME=ro_RO.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=ro_RO.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=ro_RO.UTF-8;LC_NAME=ro_RO.UTF-8;LC_ADDRESS=ro_RO.UTF-8;LC_TELEPHONE=ro_RO.UTF-8;LC_MEASUREMENT=ro_RO.UTF-8;LC_IDENTIFICATION=ro_RO.UTF-8
 recognized 'normal' (-1) as variant normal
 recognized 'normal' (-1) as variant normal
 recognized 'normal' (-1) as variant normal
 shuffleOpenings = 0
-Requested font set for list -*-helvetica-medium-r-normal--12-*-*-*-*-*-*-*,-misc-fixed-medium-r-normal--12-*-*-*-*-*-*-*,-*-*-*-*-*-*-12-*-*-*-*-*-*-*
- got list -*-helvetica-medium-r-normal--12-*-*-*-*-*-*-*,-misc-fixed-medium-r-normal--12-*-*-*-*-*-*-*,-*-*-*-*-*-*-12-*-*-*-*-*-*-*, locale en_US.UTF-8
- got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso8859-1
- got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso8859-1
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-2
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-3
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-4
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-5
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-koi8-r
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-7
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-9
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-13
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-14
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-iso8859-15
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-jisx0208.1983-0
- got charset -daewoo-gothic-medium-r-normal--12-87-100-100-c-0-ksc5601.1987-0
- got charset -isas-fangsong ti-medium-r-normal--12-87-100-100-c-0-gb2312.1980-0
- got charset -misc-fixed-medium-r-normal--12-87-100-100-c-0-jisx0201.1976-0
- got charset -adobe-helvetica-medium-r-normal--12-87-100-100-p-0-iso10646-1
-Requested font set for list -*-helvetica-bold-r-normal--24-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--24-*-*-*-*-*-*-*,-*-*-*-*-*-*-24-*-*-*-*-*-*-*
- got list -*-helvetica-bold-r-normal--24-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--24-*-*-*-*-*-*-*,-*-*-*-*-*-*-24-*-*-*-*-*-*-*, locale en_US.UTF-8
- got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso8859-1
- got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso8859-1
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-2
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-3
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-4
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-5
- got charset -misc-fixed-medium-r-normal--24-173-100-100-c-0-koi8-r
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-7
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-9
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-13
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-14
- got charset -misc-fixed-bold-r-normal--24-173-100-100-c-0-iso8859-15
- got charset -jis-fixed-medium-r-normal--24-170-100-100-c-240-jisx0208.1983-0
- got charset -daewoo-mincho-medium-r-normal--24-170-100-100-c-240-ksc5601.1987-0
- got charset -isas-song ti-medium-r-normal--24-240-72-72-c-240-gb2312.1980-0
- got charset -sony-fixed-medium-r-normal--24-170-100-100-c-120-jisx0201.1976-0
- got charset -adobe-helvetica-bold-r-normal--24-173-100-100-p-0-iso10646-1
-Requested font set for list -*-helvetica-bold-r-normal--10-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--10-*-*-*-*-*-*-*,-*-*-*-*-*-*-10-*-*-*-*-*-*-*
- got list -*-helvetica-bold-r-normal--10-*-*-*-*-*-*-*,-misc-fixed-bold-r-normal--10-*-*-*-*-*-*-*,-*-*-*-*-*-*-10-*-*-*-*-*-*-*, locale en_US.UTF-8
- got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso8859-1
- got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso8859-1
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-2
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-3
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-4
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-5
- got charset -misc-fixed-medium-r-normal--10-100-75-75-c-60-koi8-r
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-7
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-9
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-13
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-14
- got charset -misc-fixed-bold-r-normal--10-72-100-100-c-0-iso8859-15
- got charset -jis-fixed-medium-r-normal--10-72-100-100-c-0-jisx0208.1983-0
- got charset -daewoo-gothic-medium-r-normal--10-72-100-100-c-0-ksc5601.1987-0
- got charset -isas-fangsong ti-medium-r-normal--10-72-100-100-c-0-gb2312.1980-0
- got charset -misc-fixed-medium-r-normal--10-72-100-100-c-0-jisx0201.1976-0
- got charset -adobe-helvetica-bold-r-normal--10-72-100-100-p-0-iso10646-1
 shuffleOpenings = 0
-Version: xboard 4.8.0 + fairymax ()
+Version: xboard 4.9.1 + fairymax ()
 Reset(1, 0) from gameMode 0
 recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
 StartChildProcess (dir=".") fairymax
-373 >first : xboard
+130 >first : xboard
 protover 2
-412 <first : tellics say     Fairy-Max 5.0b
-412 <first : tellics say     by H.G. Muller
-412 <first : feature myname="Fairy-Max 5.0b"
-412 >first : accepted myname
-412 <first : feature memory=1 exclude=1
-412 >first : accepted memory
-412 >first : accepted exclude
-412 <first : feature setboard=0 xedit=1 ping=1 done=0
-412 >first : accepted setboard
-412 >first : accepted xedit
-412 >first : accepted ping
-412 >first : accepted done
-412 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,janus,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,los-alamos,ciccolini,mexican,grande-acedrex,roman,almost-wildebeest,fairy"
-412 >first : accepted variants
-412 <first : feature option="Resign -check 0"
-412 >first : accepted option
-412 <first : feature option="Resign Threshold -spin 800 200 1200"
-412 >first : accepted option
-412 <first : feature option="Claim draw after -spin 50 0 200"
-412 >first : accepted option
-412 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
-412 >first : accepted option
-412 <first : feature option="Multi-PV Margin -spin 0 0 1000"
-412 >first : accepted option
-412 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers /// Nutters-Rookies /// Rookies-Nutters"
-412 >first : accepted option
-412 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
-412 >first : accepted option
-412 <first : feature option="Dummy Slider Example -slider 20 0 100"
-412 >first : accepted option
-412 <first : feature option="Dummy String Example -string happy birthday!"
-412 >first : accepted option
-412 <first : feature option="Dummy Path Example -path ."
-412 >first : accepted option
-412 <first : feature option="Automatic persistent-hash dialog -check 0"
-412 >first : accepted option
-412 <first : feature option="Info -button"
-412 >first : accepted option
-412 <first : feature option="Save in hash file -button"
-412 >first : accepted option
-412 <first : feature option="Clear Hash -button"
-412 >first : accepted option
-412 <first : feature done=1
-412 >first : accepted done
-413 >first : memory 68
-413 >first : new
+177 <first : tellics say     Fairy-Max 5.0b
+177 <first : tellics say     by H.G. Muller
+177 <first : feature myname="Fairy-Max 5.0b"
+177 >first : accepted myname
+177 <first : feature memory=1 exclude=1
+177 >first : accepted memory
+177 >first : accepted exclude
+177 <first : feature setboard=0 xedit=1 ping=1 done=0
+177 >first : accepted setboard
+177 >first : accepted xedit
+177 >first : accepted ping
+177 >first : accepted done
+177 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,janus,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,los-alamos,ciccolini,mexican,grande-acedrex,roman,almost-wildebeest,fairy"
+177 >first : accepted variants
+177 <first : feature option="Resign -check 0"
+177 >first : accepted option
+177 <first : feature option="Resign Threshold -spin 800 200 1200"
+177 >first : accepted option
+177 <first : feature option="Claim draw after -spin 50 0 200"
+177 >first : accepted option
+177 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
+177 >first : accepted option
+177 <first : feature option="Multi-PV Margin -spin 0 0 1000"
+177 >first : accepted option
+177 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers /// Nutters-Rookies /// Rookies-Nutters"
+177 >first : accepted option
+177 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
+177 >first : accepted option
+177 <first : feature option="Dummy Slider Example -slider 20 0 100"
+177 >first : accepted option
+177 <first : feature option="Dummy String Example -string happy birthday!"
+177 >first : accepted option
+177 <first : feature option="Dummy Path Example -path ."
+177 >first : accepted option
+177 <first : feature option="Automatic persistent-hash dialog -check 0"
+177 >first : accepted option
+177 <first : feature option="Info -button"
+177 >first : accepted option
+177 <first : feature option="Save in hash file -button"
+177 >first : accepted option
+177 <first : feature option="Clear Hash -button"
+177 >first : accepted option
+177 <first : feature done=1
+177 >first : accepted done
+180 >first : memory 68
+180 >first : new
 random
-413 >first : level 40 5 0
-413 >first : post
-413 >first : hard
-413 >first : ping 1
-Impossible move , type = 0
-435 <first : pong 1
-2245 >first : quit
+180 >first : level 40 5 0
+180 >first : post
+180 >first : hard
+180 >first : ping 1
+203 <first : pong 1
+2753 >first : quit
 Unload first
-StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
-2247 >first : xboard
+StartChildProcess (dir="/home/petru/Documents/AutoChess/src") java Main
+2755 >first : xboard
 protover 2
-2311 <first : feature done=1 usermove=1 sigint=0
-2311 >first : accepted done
-2311 >first : accepted usermove
-2311 >first : accepted sigint
-2311 <first : accepted
-2311 <first : accepted
-2311 <first : accepted
+2820 <first : feature done=1 usermove=1 sigint=0
+2820 >first : accepted done
+2820 >first : accepted usermove
+2820 >first : accepted sigint
+2820 <first : accepted
+2820 <first : accepted
+2820 <first : accepted
 recognized 'normal' (-1) as variant normal
-2312 >first : new
+2823 >first : new
 random
-2312 >first : level 40 5 0
-2312 >first : post
-2312 >first : hard
-Impossible move , type = 0
+2823 >first : level 40 5 0
+2823 >first : post
+2823 >first : hard
+5514 >first : black
+5514 >first : time 30000
+5514 >first : otim 30000
+5514 >first : white
+book hit = (NULL)
+5514 >first : go
 nps: w=-1, b=-1
-nps: w=-1, b=-1
-4017 >first : time 30000
-4017 >first : otim 30000
-book hit = (NULL)
-4017 >first : usermove 4017 >first : b1c3
-4050 <first : # 0 1 2 2
-4070 <first : move a7a6
-4146 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-4146 <first : # [WP, WP, WP, WP, WP, WP, WP, WP]
-4146 <first : # [xx, xx, WH, xx, xx, xx, xx, xx]
-4146 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-4146 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-4146 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-4146 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-4146 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-5476 >first : time 29994
-5476 >first : otim 29859
-book hit = (NULL)
-5476 >first : usermove 5476 >first : e2e3
-5477 <first : # 1 4 2 4
-5477 <first : move a6a5
-5556 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-5556 <first : # [WP, WP, WP, WP, xx, WP, WP, WP]
-5556 <first : # [xx, xx, WH, xx, WP, xx, xx, xx]
-5556 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-5556 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-5556 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-5556 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-5556 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-5981 >first : time 29994
-5981 >first : otim 29809
-book hit = (NULL)
-5981 >first : usermove 5981 >first : f2f3
-5982 <first : # 1 5 2 5
-5982 <first : move a5a4
-6061 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-6061 <first : # [WP, WP, WP, WP, xx, xx, WP, WP]
-6061 <first : # [xx, xx, WH, xx, WP, WP, xx, xx]
-6061 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-6061 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-6061 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-6061 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-6061 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-6429 >first : time 29994
-6430 >first : otim 29764
-book hit = (NULL)
-6430 >first : usermove 6430 >first : g2g3
-6432 <first : # 1 6 2 6
-6432 <first : move a4a3
-6512 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-6512 <first : # [WP, WP, WP, WP, xx, xx, xx, WP]
-6512 <first : # [BP, xx, WH, xx, WP, WP, WP, xx]
-6512 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-6512 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-6512 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-6512 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-6512 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-8235 >first : time 29994
-8235 >first : otim 29584
-book hit = (NULL)
-8235 >first : usermove 8235 >first : b2a3
-8237 <first : # 1 1 2 0
-8237 <first : move b7b6
-8315 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-8315 <first : # [WP, xx, WP, WP, xx, xx, xx, WP]
-8315 <first : # [WP, xx, WH, xx, WP, WP, WP, xx]
-8315 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-8315 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-8315 <first : # [xx, BP, xx, xx, xx, xx, xx, xx]
-8315 <first : # [xx, xx, BP, BP, BP, BP, BP, BP]
-8315 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-9787 >first : time 29993
-9787 >first : otim 29429
-book hit = (NULL)
-9787 >first : usermove 9787 >first : d2d3
-9791 <first : # 1 3 2 3
-9791 <first : move b6b5
-9872 <first : # [WR, xx, WB, WQ, WK, WB, WH, WR]
-9872 <first : # [WP, xx, WP, xx, xx, xx, xx, WP]
-9872 <first : # [WP, xx, WH, WP, WP, WP, WP, xx]
-9872 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-9872 <first : # [xx, BP, xx, xx, xx, xx, xx, xx]
-9872 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-9872 <first : # [xx, xx, BP, BP, BP, BP, BP, BP]
-9872 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-10887 >first : time 29993
-10887 >first : otim 29319
-book hit = (NULL)
-10887 >first : usermove 10887 >first : d1d2
-10889 <first : # 0 3 1 3
-10889 <first : move b5b4
-10968 <first : # [WR, xx, WB, xx, WK, WB, WH, WR]
-10968 <first : # [WP, xx, WP, WQ, xx, xx, xx, WP]
-10968 <first : # [WP, xx, WH, WP, WP, WP, WP, xx]
-10968 <first : # [xx, BP, xx, xx, xx, xx, xx, xx]
-10968 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-10968 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-10968 <first : # [xx, xx, BP, BP, BP, BP, BP, BP]
-10968 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-13230 >first : time 29993
-13230 >first : otim 29085
-book hit = (NULL)
-13230 >first : usermove 13230 >first : a3b4
-13232 <first : # 2 0 3 1
-13232 <first : move c7c6
-13312 <first : # [WR, xx, WB, xx, WK, WB, WH, WR]
-13312 <first : # [WP, xx, WP, WQ, xx, xx, xx, WP]
-13312 <first : # [xx, xx, WH, WP, WP, WP, WP, xx]
-13312 <first : # [xx, WP, xx, xx, xx, xx, xx, xx]
-13312 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-13312 <first : # [xx, xx, BP, xx, xx, xx, xx, xx]
-13312 <first : # [xx, xx, xx, BP, BP, BP, BP, BP]
-13312 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-13976 >first : time 29993
-13976 >first : otim 29011
-book hit = (NULL)
-13976 >first : usermove 13976 >first : d3d4
-13978 <first : # 2 3 3 3
-13978 <first : move c6c5
-14072 <first : # [WR, xx, WB, xx, WK, WB, WH, WR]
-14072 <first : # [WP, xx, WP, WQ, xx, xx, xx, WP]
-14072 <first : # [xx, xx, WH, xx, WP, WP, WP, xx]
-14072 <first : # [xx, WP, xx, WP, xx, xx, xx, xx]
-14072 <first : # [xx, xx, BP, xx, xx, xx, xx, xx]
-14072 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-14072 <first : # [xx, xx, xx, BP, BP, BP, BP, BP]
-14072 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-14469 >first : time 29992
-14469 >first : otim 28962
-book hit = (NULL)
-14469 >first : usermove 14469 >first : e3e4
-14470 <first : # 2 4 3 4
-14470 <first : move c5c4
-14551 <first : # [WR, xx, WB, xx, WK, WB, WH, WR]
-14551 <first : # [WP, xx, WP, WQ, xx, xx, xx, WP]
-14551 <first : # [xx, xx, WH, xx, xx, WP, WP, xx]
-14551 <first : # [xx, WP, BP, WP, WP, xx, xx, xx]
-14551 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-14551 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-14551 <first : # [xx, xx, xx, BP, BP, BP, BP, BP]
-14551 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-16362 >first : time 29992
-16362 >first : otim 28772
-book hit = (NULL)
-16362 >first : usermove 16362 >first : d2d3
-16363 <first : # 1 3 2 3
-16363 <first : move c4d3
-16440 <first : # [WR, xx, WB, xx, WK, WB, WH, WR]
-16440 <first : # [WP, xx, WP, xx, xx, xx, xx, WP]
-16440 <first : # [xx, xx, WH, BP, xx, WP, WP, xx]
-16440 <first : # [xx, WP, xx, WP, WP, xx, xx, xx]
-16440 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-16440 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-16440 <first : # [xx, xx, xx, BP, BP, BP, BP, BP]
-16440 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-19066 >first : time 29992
-19066 >first : otim 28502
-book hit = (NULL)
-19066 >first : usermove 19066 >first : e1d1
-19068 <first : # 0 4 0 3
-19068 <first : move d3d2
-19152 <first : # [WR, xx, WB, WK, xx, WB, WH, WR]
-19152 <first : # [WP, xx, WP, BP, xx, xx, xx, WP]
-19152 <first : # [xx, xx, WH, xx, xx, WP, WP, xx]
-19152 <first : # [xx, WP, xx, WP, WP, xx, xx, xx]
-19152 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-19152 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-19152 <first : # [xx, xx, xx, BP, BP, BP, BP, BP]
-19152 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-20449 >first : time 29992
-20449 >first : otim 28364
-book hit = (NULL)
-20449 >first : usermove 20449 >first : d1d2
-20450 <first : # 0 3 1 3
-20450 <first : move d7d6
-20537 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-20537 <first : # [WP, xx, WP, WK, xx, xx, xx, WP]
-20537 <first : # [xx, xx, WH, xx, xx, WP, WP, xx]
-20537 <first : # [xx, WP, xx, WP, WP, xx, xx, xx]
-20537 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-20537 <first : # [xx, xx, xx, BP, xx, xx, xx, xx]
-20537 <first : # [xx, xx, xx, xx, BP, BP, BP, BP]
-20537 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-22414 >first : time 29992
-22414 >first : otim 28168
-book hit = (NULL)
-22414 >first : usermove 22414 >first : d4d5
-22415 <first : # 3 3 4 3
-22415 <first : move e7e6
-22496 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-22496 <first : # [WP, xx, WP, WK, xx, xx, xx, WP]
-22496 <first : # [xx, xx, WH, xx, xx, WP, WP, xx]
-22496 <first : # [xx, WP, xx, xx, WP, xx, xx, xx]
-22496 <first : # [xx, xx, xx, WP, xx, xx, xx, xx]
-22496 <first : # [xx, xx, xx, BP, BP, xx, xx, xx]
-22496 <first : # [xx, xx, xx, xx, xx, BP, BP, BP]
-22496 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-23899 >first : time 29992
-23899 >first : otim 28019
-book hit = (NULL)
-23899 >first : usermove 23899 >first : f3f4
-23900 <first : # 2 5 3 5
-23900 <first : move e6e5
-23983 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-23983 <first : # [WP, xx, WP, WK, xx, xx, xx, WP]
-23983 <first : # [xx, xx, WH, xx, xx, xx, WP, xx]
-23983 <first : # [xx, WP, xx, xx, WP, WP, xx, xx]
-23983 <first : # [xx, xx, xx, WP, BP, xx, xx, xx]
-23983 <first : # [xx, xx, xx, BP, xx, xx, xx, xx]
-23983 <first : # [xx, xx, xx, xx, xx, BP, BP, BP]
-23983 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-24882 >first : time 29992
-24882 >first : otim 27921
-book hit = (NULL)
-24882 >first : usermove 24882 >first : f4e5
-24884 <first : # 3 5 4 4
-24884 <first : move d6e5
-24961 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-24961 <first : # [WP, xx, WP, WK, xx, xx, xx, WP]
-24961 <first : # [xx, xx, WH, xx, xx, xx, WP, xx]
-24961 <first : # [xx, WP, xx, xx, WP, xx, xx, xx]
-24961 <first : # [xx, xx, xx, WP, BP, xx, xx, xx]
-24961 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-24961 <first : # [xx, xx, xx, xx, xx, BP, BP, BP]
-24961 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-28300 >first : time 29991
-28300 >first : otim 27579
-book hit = (NULL)
-28300 >first : usermove 28300 >first : g3g4
-28301 <first : # 2 6 3 6
-28301 <first : move f7f6
-28393 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-28393 <first : # [WP, xx, WP, WK, xx, xx, xx, WP]
-28393 <first : # [xx, xx, WH, xx, xx, xx, xx, xx]
-28393 <first : # [xx, WP, xx, xx, WP, xx, WP, xx]
-28393 <first : # [xx, xx, xx, WP, BP, xx, xx, xx]
-28393 <first : # [xx, xx, xx, xx, xx, BP, xx, xx]
-28393 <first : # [xx, xx, xx, xx, xx, xx, BP, BP]
-28393 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-29197 >first : time 29991
-29197 >first : otim 27490
-book hit = (NULL)
-29197 >first : usermove 29197 >first : h2h3
-29198 <first : # 1 7 2 7
-29198 <first : move f6f5
-29288 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-29288 <first : # [WP, xx, WP, WK, xx, xx, xx, xx]
-29288 <first : # [xx, xx, WH, xx, xx, xx, xx, WP]
-29288 <first : # [xx, WP, xx, xx, WP, xx, WP, xx]
-29288 <first : # [xx, xx, xx, WP, BP, BP, xx, xx]
-29288 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-29288 <first : # [xx, xx, xx, xx, xx, xx, BP, BP]
-29288 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-30180 >first : time 29991
-30180 >first : otim 27392
-book hit = (NULL)
-30180 >first : usermove 30180 >first : g4f5
-30181 <first : # 3 6 4 5
-30181 <first : move g7g6
-30272 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-30272 <first : # [WP, xx, WP, WK, xx, xx, xx, xx]
-30272 <first : # [xx, xx, WH, xx, xx, xx, xx, WP]
-30272 <first : # [xx, WP, xx, xx, WP, xx, xx, xx]
-30272 <first : # [xx, xx, xx, WP, BP, WP, xx, xx]
-30272 <first : # [xx, xx, xx, xx, xx, xx, BP, xx]
-30272 <first : # [xx, xx, xx, xx, xx, xx, xx, BP]
-30272 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-31961 >first : time 29991
-31961 >first : otim 27214
-book hit = (NULL)
-31961 >first : usermove 31961 >first : f5g6
-31962 <first : # 4 5 5 6
-31962 <first : move h7h6
-32041 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-32041 <first : # [WP, xx, WP, WK, xx, xx, xx, xx]
-32041 <first : # [xx, xx, WH, xx, xx, xx, xx, WP]
-32041 <first : # [xx, WP, xx, xx, WP, xx, xx, xx]
-32041 <first : # [xx, xx, xx, WP, BP, xx, xx, xx]
-32041 <first : # [xx, xx, xx, xx, xx, xx, WP, BP]
-32041 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-32041 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-32953 >first : time 29991
-32954 >first : otim 27114
-book hit = (NULL)
-32954 >first : usermove 32954 >first : h3h4
-32955 <first : # 2 7 3 7
-32955 <first : move h6h5
-33044 <first : # [WR, xx, WB, xx, xx, WB, WH, WR]
-33044 <first : # [WP, xx, WP, WK, xx, xx, xx, xx]
-33044 <first : # [xx, xx, WH, xx, xx, xx, xx, xx]
-33044 <first : # [xx, WP, xx, xx, WP, xx, xx, WP]
-33044 <first : # [xx, xx, xx, WP, BP, xx, xx, BP]
-33044 <first : # [xx, xx, xx, xx, xx, xx, WP, xx]
-33044 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-33044 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-35314 >first : time 29991
-35314 >first : otim 26879
-book hit = (NULL)
-35314 >first : usermove 35314 >first : g1f3
-35316 <first : # 0 6 2 5
-35316 <first : resign
-GameEnds(26, Black resigns, 1)
-35316 >first : result 1-0 {Black resigns}
-35316 >first : force
-35316 <first : # [WR, xx, WB, xx, xx, WB, xx, WR]
-35316 <first : # [WP, xx, WP, WK, xx, xx, xx, xx]
-35316 <first : # [xx, xx, WH, xx, xx, WH, xx, xx]
-35316 <first : # [xx, WP, xx, xx, WP, xx, xx, WP]
-35316 <first : # [xx, xx, xx, WP, BP, xx, xx, BP]
-35316 <first : # [xx, xx, xx, xx, xx, xx, WP, xx]
-35316 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-35316 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-35316 <first : Error (unknown): result 1-0 {Black resigns}
-GameEnds(26, Black resigns, 2)
-42292 >first : quit
+5515 <first : Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8
+5516 <first : 	at Engine.check(Engine.java:123)
+5516 <first : 	at Engine.generateMove(Engine.java:157)
+5516 <first : 	at Main.main(Main.java:35)
+GameEnds(29, xboard exit, 2)
+10029 >first : result * {xboard exit}
+10029 >first : force
+10029 >first : quit
