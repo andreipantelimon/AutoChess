@@ -10,7 +10,6 @@ public class Engine {
     private int opponentTime = 0;
     private int movesPerTime = 0;
     private int timeInControl = 0;
-    private String lastSide = "";
 
     private Engine() {
     }
@@ -67,39 +66,8 @@ public class Engine {
     }
 
     public String toXboard(int x) {
-        String str = "0";
-        if (x == 0) {
-            str = "a";
-        } else {
-            if (x == 1) {
-                str = "b";
-            } else {
-                if (x == 2) {
-                    str = "c";
-                } else {
-                    if (x == 3) {
-                        str = "d";
-                    } else {
-                        if (x == 4) {
-                            str = "e";
-                        } else {
-                            if (x == 5) {
-                                str = "f";
-                            } else {
-                                if (x == 6) {
-                                    str = "g";
-                                } else {
-                                    if (x == 7) {
-                                        str = "h";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return str;
+        String board = "abcdefgh";
+        return String.valueOf(board.charAt(x));
     }
 
     public boolean check() {
@@ -109,11 +77,9 @@ public class Engine {
                 if (board[i][j].piece instanceof King) {
                     if (color == 'B') {
                         if (i > 0) {
-                            if (j > 0) {
-                                if (board[i - 1][j - 1].piece != null) {
-                                    if (board[i - 1][j - 1].piece.color != color && board[i - 1][j - 1].piece instanceof Pawn) {
-                                        return true;
-                                    }
+                            if (board[i - 1][j - 1].piece != null) {
+                                if (board[i - 1][j - 1].piece.color != color && board[i - 1][j - 1].piece instanceof Pawn) {
+                                    return true;
                                 }
                             }
                             if (j < 7) {
@@ -124,26 +90,23 @@ public class Engine {
                                 }
                             }
                         }
-                    } else {
-                        if (color == 'W') {
-                            if (i < 7) {
-                                if (j > 0) {
-                                    if (board[i + 1][j - 1].piece != null) {
-                                        if (board[i + 1][j - 1].piece.color != color && board[i + 1][j - 1].piece instanceof Pawn) {
-                                            return true;
-                                        }
-                                    }
+                    }
+                    if (color == 'W') {
+                        if (i < 7) {
+                            if (board[i + 1][j - 1].piece != null) {
+                                if (board[i + 1][j - 1].piece.color != color && board[i + 1][j - 1].piece instanceof Pawn) {
+                                    return true;
                                 }
-                                if (j < 7) {
-                                    if (board[i + 1][j + 1].piece != null) {
-                                        if (board[i + 1][j + 1].piece.color != color && board[i + 1][j + 1].piece instanceof Pawn) {
-                                            return true;
-                                        }
+                            }
+                            if (j < 7) {
+                                if (board[i + 1][j + 1].piece != null) {
+                                    if (board[i + 1][j + 1].piece.color != color && board[i + 1][j + 1].piece instanceof Pawn) {
+                                        return true;
                                     }
                                 }
                             }
-
                         }
+
                     }
                 }
             }
@@ -182,67 +145,41 @@ public class Engine {
     }
 
     public char getColor() {
-        String side = getSide();
-        char color = '0';
-        if (side.equals("black")) {
-            color = 'B';
-        } else {
-            if (side.equals("white")) {
-                color = 'W';
-            }
-        }
-        return color;
+        return (getSide().equals("black")? 'B':'W');
     }
 
     public void generateMove() {
-        char color = getColor();
         boolean moveDone = false;
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (check()) {
                     break;
                 }
-                if (board[i][j].piece instanceof Pawn) {
-                    if (board[i][j].piece.color == color) {
-                        if (color == 'B') {
-                            if (movePawn(i, j, i - 1, j)) {
-                                moveDone = true;
-                                break;
-                            } else {
-                                if (j < 7) {
-                                    if (eatPawn(i, j, i - 1, j + 1)) {
-                                        moveDone = true;
-                                        break;
-                                    }
-                                }
-                                if (j > 0) {
-                                    if (eatPawn(i, j, i - 1, j - 1)) {
-                                        moveDone = true;
-                                        break;
-                                    }
-                                }
+                if (board[i][j].piece != null) {
+                    if (board[i][j].piece instanceof Pawn && board[i][j].piece.color == getColor()) {
+                        if (getColor() == 'B') {
+                            moveDone = movePawn(i, j, i - 1, j);
+                            if (!moveDone && j < 7) {
+                                moveDone = eatPawn(i, j, i - 1, j + 1);
                             }
-                        } else {
-                            if (color == 'W') {
-                                if (i < 7) {
-                                    if (movePawn(i, j, i + 1, j)) {
-                                        moveDone = true;
-                                        break;
-                                    } else {
-                                        if (j < 7) {
-                                            if (eatPawn(i, j, i + 1, j + 1)) {
-                                                moveDone = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (j > 0) {
-                                            if (eatPawn(i, j, i + 1, j - 1)) {
-                                                moveDone = true;
-                                                break;
-                                            }
-                                        }
-                                    }
+                            if (!moveDone && j > 0) {
+                                moveDone = eatPawn(i, j, i - 1, j - 1);
+                            }
+                            if (moveDone) {
+                                break;
+                            }
+                        }
+                        if (getColor() == 'W') {
+                            if (i < 7) {
+                                moveDone = movePawn(i, j, i + 1, j);
+                                if (!moveDone && j < 7) {
+                                    moveDone = eatPawn(i, j, i + 1, j + 1);
+                                }
+                                if (!moveDone && j > 0) {
+                                    moveDone = eatPawn(i, j, i + 1, j - 1);
+                                }
+                                if (moveDone) {
+                                    break;
                                 }
                             }
                         }
@@ -271,12 +208,12 @@ public class Engine {
         }
     }
 
-    public void setSide(String side) {
-        this.side = side;
-    }
-
     public String getSide() {
         return this.side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
     }
 
     public void setEngineTime(int time) {
@@ -293,13 +230,5 @@ public class Engine {
 
     public void setTimeInControl(int time) {
         this.timeInControl = time;
-    }
-
-    public String getLastSide() {
-        return this.lastSide;
-    }
-
-    public void setLastSide(String side) {
-        this.lastSide = side;
     }
 }
