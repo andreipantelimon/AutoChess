@@ -106,10 +106,10 @@ public class Engine {
         String move = "0";
         String color = getSide();
         char side = '0';
-        if (color == "black") {
+        if (color.equals("black")) {
             side = 'B';
         } else {
-            if (color == "white") {
+            if (color.equals("white")) {
                 side = 'W';
             }
         }
@@ -204,8 +204,6 @@ public class Engine {
         int startXPos = move.charAt(1) - '0' - 1;
         int finishYPos = Utils.getIndexOfLetter(move.charAt(2));
         int finishXPos = move.charAt(3) - '0' - 1;
-
-        System.out.println("# " + startXPos + " " + startYPos + " " + finishXPos + " " + finishYPos);
 
         if (board[startXPos][startYPos].piece != null) {
             Piece tempPiece = board[startXPos][startYPos].piece;

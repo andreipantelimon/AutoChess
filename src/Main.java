@@ -15,8 +15,6 @@ public class Main {
         while(true) {
             input = scanner.nextLine();
 
-            //infoBox("input: " + input, "still works");
-
             if (input.equals("xboard")) {
                 Engine.getInstance().initializeBoard();
 
@@ -77,13 +75,11 @@ public class Main {
             } else if (input.startsWith("usermove") && analyzeMode) {
                 String move = input.split(" ")[1];
                 Engine.getInstance().xboardMoves(move);
-                Engine.getInstance().printBoard();
 
             } else if (input.startsWith("usermove") && !Engine.getInstance().getSide().equals("both")) {
                 String move = input.split(" ")[1];
                 Engine.getInstance().xboardMoves(move);
                 Engine.getInstance().generateMove();
-                Engine.getInstance().printBoard();
 
             } else if (input.equals(".")) {
                 continue;
