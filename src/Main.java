@@ -80,13 +80,13 @@ public class Main {
                 String move = input.split(" ")[1];
                 Engine.getInstance().xboardMoves(move);
                 Engine.getInstance().generateMove();
+                Engine.getInstance().printBoard();
 
             } else if (input.equals(".")) {
                 continue;
 
             } else {
                 System.out.println("Error (unknown): " + input);
-
             }
         }
     }

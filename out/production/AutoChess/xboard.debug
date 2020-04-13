@@ -66,131 +66,203 @@ recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
 StartChildProcess (dir=".") fairymax
-379 >first : xboard
+365 >first : xboard
 protover 2
-424 <first : tellics say     Fairy-Max 5.0b
-424 <first : tellics say     by H.G. Muller
-424 <first : feature myname="Fairy-Max 5.0b"
-424 >first : accepted myname
-424 <first : feature memory=1 exclude=1
-424 >first : accepted memory
-424 >first : accepted exclude
-424 <first : feature setboard=0 xedit=1 ping=1 done=0
-424 >first : accepted setboard
-424 >first : accepted xedit
-424 >first : accepted ping
-424 >first : accepted done
-424 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,janus,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,los-alamos,ciccolini,mexican,grande-acedrex,roman,almost-wildebeest,fairy"
-424 >first : accepted variants
-424 <first : feature option="Resign -check 0"
-424 >first : accepted option
-424 <first : feature option="Resign Threshold -spin 800 200 1200"
-424 >first : accepted option
-424 <first : feature option="Claim draw after -spin 50 0 200"
-424 >first : accepted option
-424 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
-424 >first : accepted option
-424 <first : feature option="Multi-PV Margin -spin 0 0 1000"
-424 >first : accepted option
-424 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers /// Nutters-Rookies /// Rookies-Nutters"
-424 >first : accepted option
-424 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
-424 >first : accepted option
-424 <first : feature option="Dummy Slider Example -slider 20 0 100"
-424 >first : accepted option
-424 <first : feature option="Dummy String Example -string happy birthday!"
-424 >first : accepted option
-424 <first : feature option="Dummy Path Example -path ."
-424 >first : accepted option
-424 <first : feature option="Automatic persistent-hash dialog -check 0"
-424 >first : accepted option
-424 <first : feature option="Info -button"
-424 >first : accepted option
-424 <first : feature option="Save in hash file -button"
-424 >first : accepted option
-424 <first : feature option="Clear Hash -button"
-424 >first : accepted option
-424 <first : feature done=1
-424 >first : accepted done
-425 >first : memory 68
-425 >first : new
+427 <first : tellics say     Fairy-Max 5.0b
+430 <first : tellics say     by H.G. Muller
+430 <first : feature myname="Fairy-Max 5.0b"
+430 >first : accepted myname
+430 <first : feature memory=1 exclude=1
+430 >first : accepted memory
+430 >first : accepted exclude
+430 <first : feature setboard=0 xedit=1 ping=1 done=0
+430 >first : accepted setboard
+430 >first : accepted xedit
+430 >first : accepted ping
+430 >first : accepted done
+430 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,janus,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,los-alamos,ciccolini,mexican,grande-acedrex,roman,almost-wildebeest,fairy"
+430 >first : accepted variants
+430 <first : feature option="Resign -check 0"
+430 >first : accepted option
+430 <first : feature option="Resign Threshold -spin 800 200 1200"
+430 >first : accepted option
+430 <first : feature option="Claim draw after -spin 50 0 200"
+430 >first : accepted option
+430 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
+430 >first : accepted option
+430 <first : feature option="Multi-PV Margin -spin 0 0 1000"
+430 >first : accepted option
+430 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers /// Nutters-Rookies /// Rookies-Nutters"
+430 >first : accepted option
+430 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
+430 >first : accepted option
+430 <first : feature option="Dummy Slider Example -slider 20 0 100"
+430 >first : accepted option
+430 <first : feature option="Dummy String Example -string happy birthday!"
+430 >first : accepted option
+430 <first : feature option="Dummy Path Example -path ."
+430 >first : accepted option
+430 <first : feature option="Automatic persistent-hash dialog -check 0"
+430 >first : accepted option
+430 <first : feature option="Info -button"
+430 >first : accepted option
+430 <first : feature option="Save in hash file -button"
+430 >first : accepted option
+430 <first : feature option="Clear Hash -button"
+430 >first : accepted option
+430 <first : feature done=1
+430 >first : accepted done
+431 >first : memory 68
+432 >first : new
 random
-425 >first : level 40 5 0
-425 >first : post
-425 >first : hard
-425 >first : ping 1
-Impossible move , type = 0
-450 <first : pong 1
-2213 >first : quit
+432 >first : level 40 5 0
+432 >first : post
+432 >first : hard
+432 >first : ping 1
+458 <first : pong 1
+4113 >first : quit
 Unload first
 StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
-2215 >first : xboard
+4115 >first : xboard
 protover 2
-3441 <first : feature done=1 usermove=1 sigint=0
-3441 >first : accepted done
-3441 >first : accepted usermove
-3441 >first : accepted sigint
+4196 <first : feature done=1 usermove=1 sigint=0
+4196 >first : accepted done
+4196 >first : accepted usermove
+4196 >first : accepted sigint
+4197 <first : accepted
+4197 <first : accepted
+4197 <first : accepted
 recognized 'normal' (-1) as variant normal
-3442 >first : new
+4197 >first : new
 random
-3442 >first : level 40 5 0
-3442 >first : post
-3442 >first : hard
-Impossible move , type = 0
-3696 <first : accepted
-3929 <first : accepted
-4173 <first : accepted
-nps: w=-1, b=-1
-nps: w=-1, b=-1
-6929 >first : time 30000
-6929 >first : otim 30000
+4197 >first : level 40 5 0
+4197 >first : post
+4197 >first : hard
+Unload second
+9158 >first : force
+StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
+9159 >second: xboard
+protover 2
+9237 <second: feature done=1 usermove=1 sigint=0
+9237 >second: accepted done
+9237 >second: accepted usermove
+9237 >second: accepted sigint
+9237 <second: accepted
+9237 <second: accepted
+9237 <second: accepted
+9238 >second: new
+random
+9238 >second: level 40 5 0
+9238 >second: post
+9238 >second: hard
+9238 >second: force
+New game (0): java-java (w)
+9249 >first : computer
+9249 >second: computer
+9249 >first : black
+9249 >first : time 30000
+9249 >first : otim 30000
+9249 >first : white
 book hit = (NULL)
-6929 >first : usermove 6929 >first : e2e3
-7845 <first : # 1 4 2 4
-7851 <first : move a7a6
-7931 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
-7931 <first : # [WP, WP, WP, WP, xx, WP, WP, WP]
-7931 <first : # [xx, xx, xx, xx, WP, xx, xx, xx]
-7931 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-7931 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-7931 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-7931 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-7931 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-11376 >first : force
-11378 >first : analyze
-Impossible move a7a6, type = 0
-13379 >first : .
-13614 >first : usermove 13614 >first : d2d3
-15147 <first : # 1 3 2 3
-15147 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
-15147 <first : # [WP, WP, WP, xx, xx, WP, WP, WP]
-15147 <first : # [xx, xx, xx, WP, WP, xx, xx, xx]
-15148 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-15148 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-15148 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-15148 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
-15148 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-17543 >first : usermove 17543 >first : e7e5
-18373 <first : # 6 4 4 4
-18373 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
-18373 <first : # [WP, WP, WP, xx, xx, WP, WP, WP]
-18373 <first : # [xx, xx, xx, WP, WP, xx, xx, xx]
-18373 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
-18373 <first : # [xx, xx, xx, xx, BP, xx, xx, xx]
-18373 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
-18373 <first : # [xx, BP, BP, BP, xx, BP, BP, BP]
-18373 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
-20362 >first : exit
-20362 >first : force
-20363 >first : black
-20363 >first : time 30000
-20363 >first : otim 29907
-20363 >first : white
-book hit = (NULL)
-20363 >first : go
+9249 >first : go
 nps: w=-1, b=-1
-26561 <first : move e5e4
-GameEnds(29, xboard exit, 2)
-31182 >first : result * {xboard exit}
-31182 >first : force
-31183 >first : quit
+9270 <second: Error (unknown): computer
+9277 <first : Error (unknown): computer
+9309 <first : move a2a3
+9309 >second: time 30000
+9309 >second: otim 29994
+book hit = (NULL)
+9309 >second: usermove 9309 >second: a2a3
+9309 >second: black
+9309 >second: go
+9388 <second: Error (unknown): usermove a2a3
+9388 <second: move a7a6
+9388 >first : time 29994
+9388 >first : otim 29992
+book hit = (NULL)
+9388 >first : usermove 9388 >first : a7a6
+9472 <first : move b2b3
+9472 >second: time 29992
+9472 >second: otim 29985
+book hit = (NULL)
+9472 >second: usermove 9472 >second: b2b3
+9551 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9551 <first : # [xx, xx, WP, WP, WP, WP, WP, WP]
+9551 <first : # [WP, WP, xx, xx, xx, xx, xx, xx]
+9551 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9551 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9551 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
+9551 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
+9551 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9551 <second: move a6a5
+9551 >first : time 29985
+9551 >first : otim 29984
+book hit = (NULL)
+9551 >first : usermove 9551 >first : a6a5
+9628 <second: # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9628 <second: # [WP, xx, WP, WP, WP, WP, WP, WP]
+9628 <second: # [xx, WP, xx, xx, xx, xx, xx, xx]
+9628 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9628 <second: # [BP, xx, xx, xx, xx, xx, xx, xx]
+9628 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9628 <second: # [xx, BP, BP, BP, BP, BP, BP, BP]
+9628 <second: # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9628 <first : move c2c3
+9628 >second: time 29984
+9628 >second: otim 29977
+book hit = (NULL)
+9628 >second: usermove 9628 >second: c2c3
+9705 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9705 <first : # [xx, xx, xx, WP, WP, WP, WP, WP]
+9705 <first : # [WP, WP, WP, xx, xx, xx, xx, xx]
+9705 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9705 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
+9705 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9705 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
+9705 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9705 <second: move a5a4
+9705 >first : time 29977
+9705 >first : otim 29976
+book hit = (NULL)
+9705 >first : usermove 9705 >first : a5a4
+9781 <second: # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9782 <second: # [WP, xx, xx, WP, WP, WP, WP, WP]
+9782 <second: # [xx, WP, WP, xx, xx, xx, xx, xx]
+9782 <second: # [BP, xx, xx, xx, xx, xx, xx, xx]
+9782 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9782 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9782 <second: # [xx, BP, BP, BP, BP, BP, BP, BP]
+9782 <second: # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9782 <first : move d2d3
+9782 >second: time 29976
+9782 >second: otim 29970
+book hit = (NULL)
+9782 >second: usermove 9782 >second: d2d3
+9867 <first : # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9867 <first : # [xx, xx, xx, xx, WP, WP, WP, WP]
+9867 <first : # [WP, WP, WP, WP, xx, xx, xx, xx]
+9867 <first : # [BP, xx, xx, xx, xx, xx, xx, xx]
+9867 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9867 <first : # [xx, xx, xx, xx, xx, xx, xx, xx]
+9867 <first : # [xx, BP, BP, BP, BP, BP, BP, BP]
+9867 <first : # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9867 <second: move a4a3
+GameEnds(26, Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24, 4)
+GE(26, Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24, 4) bare king k=16 color=0
+9869 >first : result 1-0 {Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24}
+9869 >second: result 1-0 {Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24}
+9869 >first : force
+9870 >second: force
+9870 <second: # [WR, WH, WB, WQ, WK, WB, WH, WR]
+9870 <second: # [WP, xx, xx, xx, WP, WP, WP, WP]
+9870 <second: # [BP, WP, WP, WP, xx, xx, xx, xx]
+9870 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9870 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9870 <second: # [xx, xx, xx, xx, xx, xx, xx, xx]
+9870 <second: # [xx, BP, BP, BP, BP, BP, BP, BP]
+9870 <second: # [BR, BH, BB, BQ, BK, BB, BH, BR]
+9870 <second: Error (unknown): result 1-0 {Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24}
+9870 <first : Error (unknown): result 1-0 {Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24}
+GameEnds(26, Xboard: Forfeit due to invalid move: a4a3 (a4a3 via `0) res=24, 2)
+11309 >first : quit
+11313 >second: quit

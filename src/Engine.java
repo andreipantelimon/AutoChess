@@ -1,11 +1,13 @@
 import Pieces.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Engine {
     private static Engine engine = null;
     public BoardCell[][] board;
     private String side = "black";
+    private ArrayList<Move> allMoves;
     private int engineTime = 0;
     private int opponentTime = 0;
     private int movesPerTime = 0;
@@ -142,6 +144,77 @@ public class Engine {
             return true;
         }
         return false;
+    }
+
+    public boolean checkMate() {
+        return false;
+    }
+
+    public void generateAllMoves() {
+
+    }
+
+    public int evaluate() {
+        return 0;
+    }
+
+    public void applyMove(Move move) {
+        int startY = Utils.getIndexOfLetter(move.string.charAt(0));
+        int startX = Character.getNumericValue(move.string.charAt(1));
+
+        int finalY = Utils.getIndexOfLetter(move.string.charAt(2));
+        int finalX = Character.getNumericValue(move.string.charAt(3));
+
+        Piece temp = board[startX][startY].piece;
+        if (board[finalX][finalY].piece != null) {
+            board[finalX][finalY].setPreviousPiece(board[finalX][finalY].getPiece());
+        }
+
+        board[startX][startY].piece = null;
+        board[finalX][finalY].setPiece(temp);
+    }
+
+    public void undoMove(Move move) {
+        int finalY = Utils.getIndexOfLetter(move.string.charAt(0));
+        int finalX = Character.getNumericValue(move.string.charAt(1));
+
+        int startY = Utils.getIndexOfLetter(move.string.charAt(2));
+        int startX = Character.getNumericValue(move.string.charAt(3));
+
+        Piece temp = board[startX][startY].piece;
+        if (board[startX][startY].previousPiece != null) {
+            board[startX][startY].setPiece(board[startX][startY].previousPiece);
+            board[startX][startY].previousPiece = null;
+        } else {
+            board[startX][startY].setPiece(null);
+        }
+
+        board[finalX][finalY].setPiece(temp);
+
+    }
+
+    public int negamax(int depth) {
+        if (checkMate() || depth == 0) {
+            return evaluate();
+        }
+
+        int max = Integer.MIN_VALUE;
+
+        generateAllMoves();
+
+        for (Move move : allMoves) {
+            applyMove(move);
+
+            int score = - negamax(depth - 1);
+
+            if (score > max) {
+                max = score;
+            }
+
+            undoMove(move);
+        }
+
+        return max;
     }
 
     public char getColor() {
