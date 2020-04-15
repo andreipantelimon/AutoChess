@@ -1,3 +1,5 @@
+package Main;
+
 import Pieces.Piece;
 
 public class BoardCell {

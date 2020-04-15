@@ -122,7 +122,7 @@ random
 458 <first : pong 1
 4113 >first : quit
 Unload first
-StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
+StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main.Main
 4115 >first : xboard
 protover 2
 4196 <first : feature done=1 usermove=1 sigint=0
@@ -140,7 +140,7 @@ random
 4197 >first : hard
 Unload second
 9158 >first : force
-StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main
+StartChildProcess (dir="/home/k1r0n/AutoChess/src") java Main.Main
 9159 >second: xboard
 protover 2
 9237 <second: feature done=1 usermove=1 sigint=0

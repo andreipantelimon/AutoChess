@@ -7,7 +7,7 @@ JC = javac
 	$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
-		  src/Main.java
+		  src/Main.Main.java
 
 default: classes
 
@@ -20,4 +20,4 @@ clean:
 	$(RM) src/Pieces/*.class
 	
 run:
-	java -cp src/ Main
+	java -cp src/ Main.Main

@@ -1,3 +1,5 @@
+package Main;
+
 public class Utils {
     public static int getIndexOfLetter(char letter) {
         int tempInt = 96;

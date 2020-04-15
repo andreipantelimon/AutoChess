@@ -1,3 +1,5 @@
+package Main;
+
 import Pieces.*;
 
 import java.util.ArrayList;
@@ -150,7 +152,7 @@ public class Engine {
         return false;
     }
 
-    public void generateAllMoves() {
+    public void generateAllMoves(String side) {
 
     }
 
@@ -193,19 +195,25 @@ public class Engine {
 
     }
 
-    public int negamax(int depth) {
+    public Move negamax(String side, int depth) {
         if (checkMate() || depth == 0) {
-            return evaluate();
+            return new Move(evaluate());
         }
 
         int max = Integer.MIN_VALUE;
+        Move bestMove = new Move();
 
-        generateAllMoves();
+        generateAllMoves(side);
 
         for (Move move : allMoves) {
             applyMove(move);
 
-            int score = - negamax(depth - 1);
+            int score;
+            if (side.equals("black")) {
+                score = - negamax("white", depth - 1).score;
+            } else {
+                score = - negamax("black", depth - 1).score;
+            }
 
             if (score > max) {
                 max = score;
