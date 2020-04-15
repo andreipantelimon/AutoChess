@@ -2,6 +2,7 @@ package Main;
 
 import Pieces.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -10,7 +11,7 @@ public class Engine {
     private static Engine engine = null;
     public BoardCell[][] board;
     private String side = "black";
-    private ArrayList<Move> allMoves = new ArrayList<Move>();
+    //private ArrayList<Move> allMoves = new ArrayList<Move>();
     private int engineTime = 0;
     private int opponentTime = 0;
     private int movesPerTime = 0;
@@ -74,7 +75,7 @@ public class Engine {
         return false;
     }
 
-    public void generateAllMoves(String side) {
+    public void generateAllMoves(ArrayList<Move> allMoves, String side) {
         int color = ' ';
         if (side.equals("black")) {
             color = 'B';
@@ -107,10 +108,10 @@ public class Engine {
 
     public void applyMove(Move move) {
         int startY = Utils.getIndexOfLetter(move.string.charAt(0));
-        int startX = Character.getNumericValue(move.string.charAt(1));
+        int startX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
         int finalY = Utils.getIndexOfLetter(move.string.charAt(2));
-        int finalX = Character.getNumericValue(move.string.charAt(3));
+        int finalX = Character.getNumericValue(move.string.charAt(3)) - 1;
 
         Piece temp = board[startX][startY].piece;
         if (board[finalX][finalY].piece != null) {
@@ -123,10 +124,10 @@ public class Engine {
 
     public void undoMove(Move move) {
         int finalY = Utils.getIndexOfLetter(move.string.charAt(0));
-        int finalX = Character.getNumericValue(move.string.charAt(1));
+        int finalX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
         int startY = Utils.getIndexOfLetter(move.string.charAt(2));
-        int startX = Character.getNumericValue(move.string.charAt(3));
+        int startX = Character.getNumericValue(move.string.charAt(3)) - 1;
 
         Piece temp = board[startX][startY].piece;
         if (board[startX][startY].previousPiece != null) {
@@ -141,6 +142,7 @@ public class Engine {
     }
 
     public Move negamax(String side, int depth) {
+
         if (checkMate() || depth == 0) {
             return new Move(evaluate());
         }
@@ -148,11 +150,9 @@ public class Engine {
         int max = Integer.MIN_VALUE;
         Move bestMove = null;
 
-        if (allMoves.size() != 0) {
-            allMoves.clear();
-        }
+        ArrayList<Move> allMoves = new ArrayList<Move>();
 
-        generateAllMoves(side);
+        generateAllMoves(allMoves, side);
 
         for (Move move : allMoves) {
             applyMove(move);
@@ -190,52 +190,6 @@ public class Engine {
             System.out.println("resign");
         }
     }
-//    public void generateMove() {
-//        boolean moveDone = false;
-//        for (int i = 1; i < 8; i++) {
-//            for (int j = 0; j < 8; j++) {
-//                if (check()) {
-//                    break;
-//                }
-//                if (board[i][j].piece != null) {
-//                    if (board[i][j].piece instanceof Pawn && board[i][j].piece.color == getColor()) {
-//                        if (getColor() == 'B') {
-//                            moveDone = movePawn(i, j, i - 1, j);
-//                            if (!moveDone && j < 7) {
-//                                moveDone = eatPawn(i, j, i - 1, j + 1);
-//                            }
-//                            if (!moveDone && j > 0) {
-//                                moveDone = eatPawn(i, j, i - 1, j - 1);
-//                            }
-//                            if (moveDone) {
-//                                break;
-//                            }
-//                        }
-//                        if (getColor() == 'W') {
-//                            if (i < 7) {
-//                                moveDone = movePawn(i, j, i + 1, j);
-//                                if (!moveDone && j < 7) {
-//                                    moveDone = eatPawn(i, j, i + 1, j + 1);
-//                                }
-//                                if (!moveDone && j > 0) {
-//                                    moveDone = eatPawn(i, j, i + 1, j - 1);
-//                                }
-//                                if (moveDone) {
-//                                    break;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            if (moveDone) {
-//                break;
-//            }
-//        }
-//        if (!moveDone) {
-//            System.out.println("resign");
-//        }
-//    }
 
     public String getSide() {
         return this.side;
@@ -261,7 +215,7 @@ public class Engine {
         this.timeInControl = time;
     }
 
-    public ArrayList<Move> getAllMoves() {
-        return allMoves;
-    }
+//    //public ArrayList<Move> getAllMoves() {
+//        return allMoves;
+//    }
 }

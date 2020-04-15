@@ -20,4 +20,4 @@ clean:
 	$(RM) src/Pieces/*.class
 	
 run:
-	java -cp src/ Main/ Main
+	java -cp ./src Main.Main

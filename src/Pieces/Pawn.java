@@ -19,7 +19,9 @@ public class Pawn extends Piece {
     public ArrayList<Move> generateMove(int x, int y, BoardCell[][] board) {
         ArrayList<Move> moves = new ArrayList<>();
         if (board[x][y].piece.color == 'W') {
-            moves.add(genPiece(x, y, board, x + 1, y));
+            if (board[x + 1][y].piece == null) {
+                moves.add(genPiece(x, y, board, x + 1, y));
+            }
             if (x < 7) {
                 if (y > 0) {
                     if (board[x + 1][y - 1].piece != null) {
@@ -34,7 +36,9 @@ public class Pawn extends Piece {
             }
         } else
             if (board[x][y].piece.color == 'B') {
-            moves.add(genPiece(x, y, board, x - 1, y));
+                if (board[x - 1][y].piece == null) {
+                    moves.add(genPiece(x, y, board, x - 1, y));
+                }
             if (x > 0) {
                 if (y > 0) {
                     if (board[x - 1][y - 1].piece != null) {

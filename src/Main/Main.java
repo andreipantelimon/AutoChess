@@ -88,8 +88,8 @@ public class Main {
             } else if (input.equals(".")) {
                 continue;
             } else if (input.equals("generateMove")) {
-                Engine.getInstance().generateAllMoves("black");
-                System.out.println(Engine.getInstance().getAllMoves());
+                //Engine.getInstance().generateAllMoves("black");
+                //System.out.println(Engine.getInstance().getAllMoves());
 
             } else {
                 System.out.println("Error (unknown): " + input);
