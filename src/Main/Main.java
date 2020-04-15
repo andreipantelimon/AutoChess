@@ -76,16 +76,20 @@ public class Main {
 
             } else if (input.startsWith("usermove") && analyzeMode) {
                 String move = input.split(" ")[1];
-                Engine.getInstance().xboardMoves(move);
+                Utils.xboardMoves(Engine.getInstance().getBoard(), move);
 
             } else if (input.startsWith("usermove") && !Engine.getInstance().getSide().equals("both")) {
                 String move = input.split(" ")[1];
-                Engine.getInstance().xboardMoves(move);
+                //Engine.getInstance().xboardMoves(move);
+                Utils.xboardMoves(Engine.getInstance().getBoard(), move);
                 Engine.getInstance().generateMove();
                 Engine.getInstance().printBoard();
 
             } else if (input.equals(".")) {
                 continue;
+            } else if (input.equals("generateMove")) {
+                Engine.getInstance().generateAllMoves("black");
+                System.out.println(Engine.getInstance().getAllMoves());
 
             } else {
                 System.out.println("Error (unknown): " + input);

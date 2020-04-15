@@ -4,12 +4,13 @@ import Pieces.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Engine {
     private static Engine engine = null;
     public BoardCell[][] board;
     private String side = "black";
-    private ArrayList<Move> allMoves;
+    private ArrayList<Move> allMoves = new ArrayList<Move>();
     private int engineTime = 0;
     private int opponentTime = 0;
     private int movesPerTime = 0;
@@ -69,95 +70,39 @@ public class Engine {
         }
     }
 
-    public String toXboard(int x) {
-        String board = "abcdefgh";
-        return String.valueOf(board.charAt(x));
-    }
-
-    public boolean check() {
-        char color = getColor();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j].piece instanceof King) {
-                    if (color == 'B') {
-                        if (i > 0) {
-                            if (board[i - 1][j - 1].piece != null) {
-                                if (board[i - 1][j - 1].piece.color != color && board[i - 1][j - 1].piece instanceof Pawn) {
-                                    return true;
-                                }
-                            }
-                            if (j < 7) {
-                                if (board[i - 1][j + 1].piece != null) {
-                                    if (board[i - 1][j + 1].piece.color != color && board[i - 1][j + 1].piece instanceof Pawn) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (color == 'W') {
-                        if (i < 7) {
-                            if (board[i + 1][j - 1].piece != null) {
-                                if (board[i + 1][j - 1].piece.color != color && board[i + 1][j - 1].piece instanceof Pawn) {
-                                    return true;
-                                }
-                            }
-                            if (j < 7) {
-                                if (board[i + 1][j + 1].piece != null) {
-                                    if (board[i + 1][j + 1].piece.color != color && board[i + 1][j + 1].piece instanceof Pawn) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean eatPawn(int firstx, int firsty, int lastx, int lasty) {
-        String move;
-        char color = getColor();
-        Piece temp = board[firstx][firsty].piece;
-        if (board[lastx][lasty].piece != null) {
-            if (board[lastx][lasty].piece.color != color) {
-                move = toXboard(firsty) + (firstx + 1) + toXboard(lasty) + (lastx + 1);
-                System.out.println("move " + move);
-                board[firstx][firsty].setPiece(null);
-                board[lastx][lasty].setPiece(temp);
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    public boolean movePawn(int firstx, int firsty, int lastx, int lasty) {
-        String move;
-        Piece temp = board[firstx][firsty].piece;
-        if (board[lastx][lasty].piece == null) {
-            move = toXboard(firsty) + (firstx + 1) + toXboard(lasty) + (lastx + 1);
-            System.out.println("move " + move);
-            board[firstx][firsty].setPiece(null);
-            board[lastx][lasty].setPiece(temp);
-            return true;
-        }
-        return false;
-    }
-
     public boolean checkMate() {
         return false;
     }
 
     public void generateAllMoves(String side) {
+        int color = ' ';
+        if (side.equals("black")) {
+            color = 'B';
+        }
+        if (side.equals("white")) {
+            color = 'W';
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].piece != null) {
+                    if (board[i][j].piece.color == color) {
+                        allMoves.addAll(board[i][j].piece.generateMove(i, j, board));
+                    }
+                }
+            }
+        }
 
+        Iterator<Move> it = allMoves.iterator();
+        while (it.hasNext()) {
+            Move temp = (Move) it.next();
+            if (temp == null) {
+                it.remove();
+            }
+        }
     }
 
     public int evaluate() {
-        return 0;
+        return 1;
     }
 
     public void applyMove(Move move) {
@@ -201,7 +146,11 @@ public class Engine {
         }
 
         int max = Integer.MIN_VALUE;
-        Move bestMove = new Move();
+        Move bestMove = null;
+
+        if (allMoves.size() != 0) {
+            allMoves.clear();
+        }
 
         generateAllMoves(side);
 
@@ -217,12 +166,14 @@ public class Engine {
 
             if (score > max) {
                 max = score;
+                bestMove = new Move(move);
+                bestMove.score = max;
             }
 
             undoMove(move);
         }
 
-        return max;
+        return bestMove;
     }
 
     public char getColor() {
@@ -230,64 +181,61 @@ public class Engine {
     }
 
     public void generateMove() {
-        boolean moveDone = false;
-        for (int i = 1; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (check()) {
-                    break;
-                }
-                if (board[i][j].piece != null) {
-                    if (board[i][j].piece instanceof Pawn && board[i][j].piece.color == getColor()) {
-                        if (getColor() == 'B') {
-                            moveDone = movePawn(i, j, i - 1, j);
-                            if (!moveDone && j < 7) {
-                                moveDone = eatPawn(i, j, i - 1, j + 1);
-                            }
-                            if (!moveDone && j > 0) {
-                                moveDone = eatPawn(i, j, i - 1, j - 1);
-                            }
-                            if (moveDone) {
-                                break;
-                            }
-                        }
-                        if (getColor() == 'W') {
-                            if (i < 7) {
-                                moveDone = movePawn(i, j, i + 1, j);
-                                if (!moveDone && j < 7) {
-                                    moveDone = eatPawn(i, j, i + 1, j + 1);
-                                }
-                                if (!moveDone && j > 0) {
-                                    moveDone = eatPawn(i, j, i + 1, j - 1);
-                                }
-                                if (moveDone) {
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if (moveDone) {
-                break;
-            }
-        }
-        if (!moveDone) {
+        Move move;
+        move = negamax(this.side, 2);
+        if (move != null) {
+            System.out.println("move " + move.string);
+            Utils.xboardMoves(board, move.string);
+        } else {
             System.out.println("resign");
         }
     }
-
-    public void xboardMoves(String move) {
-        int startYPos = Utils.getIndexOfLetter(move.charAt(0));
-        int startXPos = move.charAt(1) - '0' - 1;
-        int finishYPos = Utils.getIndexOfLetter(move.charAt(2));
-        int finishXPos = move.charAt(3) - '0' - 1;
-
-        if (board[startXPos][startYPos].piece != null) {
-            Piece tempPiece = board[startXPos][startYPos].piece;
-            board[startXPos][startYPos].piece = null;
-            board[finishXPos][finishYPos].piece = tempPiece;
-        }
-    }
+//    public void generateMove() {
+//        boolean moveDone = false;
+//        for (int i = 1; i < 8; i++) {
+//            for (int j = 0; j < 8; j++) {
+//                if (check()) {
+//                    break;
+//                }
+//                if (board[i][j].piece != null) {
+//                    if (board[i][j].piece instanceof Pawn && board[i][j].piece.color == getColor()) {
+//                        if (getColor() == 'B') {
+//                            moveDone = movePawn(i, j, i - 1, j);
+//                            if (!moveDone && j < 7) {
+//                                moveDone = eatPawn(i, j, i - 1, j + 1);
+//                            }
+//                            if (!moveDone && j > 0) {
+//                                moveDone = eatPawn(i, j, i - 1, j - 1);
+//                            }
+//                            if (moveDone) {
+//                                break;
+//                            }
+//                        }
+//                        if (getColor() == 'W') {
+//                            if (i < 7) {
+//                                moveDone = movePawn(i, j, i + 1, j);
+//                                if (!moveDone && j < 7) {
+//                                    moveDone = eatPawn(i, j, i + 1, j + 1);
+//                                }
+//                                if (!moveDone && j > 0) {
+//                                    moveDone = eatPawn(i, j, i + 1, j - 1);
+//                                }
+//                                if (moveDone) {
+//                                    break;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            if (moveDone) {
+//                break;
+//            }
+//        }
+//        if (!moveDone) {
+//            System.out.println("resign");
+//        }
+//    }
 
     public String getSide() {
         return this.side;
@@ -311,5 +259,9 @@ public class Engine {
 
     public void setTimeInControl(int time) {
         this.timeInControl = time;
+    }
+
+    public ArrayList<Move> getAllMoves() {
+        return allMoves;
     }
 }
