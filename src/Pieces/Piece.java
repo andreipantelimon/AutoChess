@@ -2,6 +2,7 @@ package Pieces;
 
 import Main.BoardCell;
 import Main.Move;
+import Main.Utils;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,9 @@ public abstract class Piece {
     }
 
     public Move genPiece(int x, int y, BoardCell[][] board, int lastx, int lasty) {
+        if (Utils.check(board)) {
+            return null;
+        }
         Move move = new Move();
         Piece piece = board[x][y].piece;
         if (checkInTable(lastx, lasty) && (board[lastx][lasty].piece == null || board[lastx][lasty].piece.color != piece.color)) {

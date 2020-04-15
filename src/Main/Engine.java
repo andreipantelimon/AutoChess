@@ -74,6 +74,95 @@ public class Engine {
     public boolean checkMate() {
         return false;
     }
+    public boolean checkLines(int i, int ik, int j, int jk, King king) {
+        for (int k = 1; k < 7; k++) {
+            if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
+                if (board[i + ik * k][j + jk * k].piece != null) {
+                    if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
+                            board[i + ik * k][j + jk * k].piece instanceof Bishop ||
+                            board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
+                        return true;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkDiag(int i, int ik, int j, int jk, King king) {
+        for (int k = 1; k < 7; k++) {
+            if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
+                if (board[i + ik * k][j + jk * k].piece != null) {
+                    if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
+                            board[i + ik * k][j + jk * k].piece instanceof Rook ||
+                            board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
+                        return true;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkPawn(int i, int j, King king) {
+        if (board[i][j + 1].piece != null) {
+            if (board[i][j + 1].piece.color != king.color && !(board[i][j + 1].piece instanceof Horse || board[i][j + 1].piece instanceof Rook)) {
+                return true;
+            }
+        }
+        if (board[i][j - 1].piece != null) {
+            if (board[i][j - 1].piece.color != king.color && !(board[i][j - 1].piece instanceof Horse || board[i][j - 1].piece instanceof Rook)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean check() {
+        char color;
+        if (getSide().equals("black")) {
+             color = 'B';
+        } else {
+             color = 'W';
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].piece != null) {
+                    if (board[i][j].piece instanceof King && board[i][j].piece.color == color) {
+                        King king = (King) board[i][j].piece;
+                        if (color == 'B') {
+                            if (checkPawn(i + 1, j, king))
+                                return true;
+                        } else {
+                            if (checkPawn(i - 1, j, king))
+                                return true;
+                        }
+                        if (checkLines(i, 1, j, 0, king))
+                            return true;
+                        if (checkLines(i, -1, j, 0, king))
+                            return true;
+                        if (checkLines(i, 0, j, 1, king))
+                            return true;
+                        if (checkLines(i, 0, j, -1, king))
+                            return true;
+                        if (checkDiag(i , 1, j, 1, king))
+                            return true;
+                        if (checkDiag(i, 1, j, -1, king))
+                            return true;
+                        if (checkDiag(i, -1, j, 1, king))
+                            return true;
+                        if (checkDiag(i, -1, j, -1, king))
+                            return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     public void generateAllMoves(ArrayList<Move> allMoves, String side) {
         int color = ' ';
