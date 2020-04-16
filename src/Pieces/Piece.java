@@ -1,6 +1,7 @@
 package Pieces;
 
 import Main.BoardCell;
+import Main.Engine;
 import Main.Move;
 import Main.Utils;
 
@@ -29,6 +30,11 @@ public abstract class Piece {
     public Move genPiece(int x, int y, BoardCell[][] board, int lastx, int lasty) {
         Move move = new Move();
         if (Utils.check(board)) {
+            Utils.infoBox("SAH", "DAR NU E");
+            System.out.println("print");
+            System.out.println("\n --------------------------------------------------------------------------------------------------------------");
+            Engine.getInstance().printBoard();
+            //System.out.println("resign");
             return null;
         }
         Piece piece = board[x][y].piece;

@@ -196,11 +196,13 @@ public class Engine {
     public void generateMove() {
         Move move;
         move = negamax(this.side, 3);
-        if (move != null) {
-            System.out.println("move " + move.string);
-            Utils.xboardMoves(board, move.string);
-        } else {
-            System.out.println("resign");
+        if (negamax(this.side, 3) != null) {
+            if (move != null) {
+                System.out.println("move " + move.string);
+                Utils.xboardMoves(board, move.string);
+            } else {
+                System.out.println("resign");
+            }
         }
     }
 

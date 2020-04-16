@@ -17,14 +17,30 @@ public class Horse extends Piece {
     @Override
     public ArrayList<Move> generateMove(int x, int y, BoardCell[][] board) {
         ArrayList<Move> moves = new ArrayList<>();
-        moves.add(genPiece(x, y, board, x - 1, y + 2));
-        moves.add(genPiece(x, y, board, x - 1, y - 2));
-        moves.add(genPiece(x, y, board, x + 1, y + 2));
-        moves.add(genPiece(x, y, board, x + 1, y - 2));
-        moves.add(genPiece(x, y, board, x + 2, y + 1));
-        moves.add(genPiece(x, y, board, x + 2, y - 1));
-        moves.add(genPiece(x, y, board, x - 2, y + 1));
-        moves.add(genPiece(x, y, board, x - 2, y - 1));
+        if (genPiece(x, y, board, x - 1, y + 2) != null) {
+            moves.add(genPiece(x, y, board, x - 1, y + 2));
+        }
+        if (genPiece(x, y, board, x - 1, y - 2) != null) {
+            moves.add(genPiece(x, y, board, x - 1, y - 2));
+        }
+        if (genPiece(x, y, board, x + 1, y + 2) != null) {
+            moves.add(genPiece(x, y, board, x + 1, y + 2));
+        }
+        if (genPiece(x, y, board, x + 1, y - 2) != null) {
+            moves.add(genPiece(x, y, board, x + 1, y - 2));
+        }
+        if (genPiece(x, y, board, x + 2, y + 1) != null) {
+            moves.add(genPiece(x, y, board, x + 2, y + 1));
+        }
+        if (genPiece(x, y, board, x + 2, y - 1) != null) {
+            moves.add(genPiece(x, y, board, x + 2, y - 1));
+        }
+        if (genPiece(x, y, board, x - 2, y + 1) != null) {
+            moves.add(genPiece(x, y, board, x - 2, y + 1));
+        }
+        if (genPiece(x, y, board, x - 2, y - 1) != null) {
+            moves.add(genPiece(x, y, board, x - 2, y - 1));
+        }
 
         return moves;
     }

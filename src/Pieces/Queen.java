@@ -16,12 +16,63 @@ public class Queen extends Piece {
 
     @Override
     public ArrayList<Move> generateMove(int x, int y, BoardCell[][] board) {
-        ArrayList<Move> moves;
-        Bishop bishop = new Bishop(board[x][y].piece.color);
-        moves = bishop.generateMove(x, y, board);
-        Rook rook = new Rook(board[x][y].piece.color);
-        ArrayList<Move> moves1 = rook.generateMove(x, y, board);
-        moves.addAll(moves1);
+        ArrayList<Move> moves = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x + i, y) != null) {
+                moves.add(genPiece(x, y, board, x + i, y));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x - i, y) != null) {
+                moves.add(genPiece(x, y, board, x - i, y));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x, y - i) != null) {
+                moves.add(genPiece(x, y, board, x, y - i));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x, y + i) != null) {
+                moves.add(genPiece(x, y, board, x, y + i));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x + i, y + i) != null) {
+                moves.add(genPiece(x, y, board, x + i, y + i));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x - i, y - i) != null) {
+                moves.add(genPiece(x, y, board, x - i, y - i));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x - i, y + i) != null) {
+                moves.add(genPiece(x, y, board, x - i, y + i));
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (genPiece(x, y, board, x + i, y - i) != null) {
+                moves.add(genPiece(x, y, board, x + i, y - i));
+            } else {
+                break;
+            }
+        }
         return moves;
     }
 }
