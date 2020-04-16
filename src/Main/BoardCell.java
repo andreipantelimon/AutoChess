@@ -11,6 +11,11 @@ public class BoardCell {
         this.previousPiece = null;
     }
 
+    public BoardCell(BoardCell b) {
+        this.piece = b.piece;
+        this.previousPiece = b.previousPiece;
+    }
+
     public void setPiece(Piece piece) {
         this.piece = piece;
     }

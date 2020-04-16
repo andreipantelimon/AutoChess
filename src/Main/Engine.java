@@ -11,7 +11,6 @@ public class Engine {
     private static Engine engine = null;
     public BoardCell[][] board;
     private String side = "black";
-    //private ArrayList<Move> allMoves = new ArrayList<Move>();
     private int engineTime = 0;
     private int opponentTime = 0;
     private int movesPerTime = 0;
@@ -34,6 +33,7 @@ public class Engine {
                 this.board[i][j] = new BoardCell();
             }
         }
+
         board[0][0].setPiece(new Rook('W'));
         board[0][1].setPiece(new Horse('W'));
         board[0][2].setPiece(new Bishop('W'));
@@ -74,99 +74,6 @@ public class Engine {
     public boolean checkMate() {
         return false;
     }
-    public boolean checkLines(int i, int ik, int j, int jk, King king) {
-        boolean OK = false;
-        for (int k = 1; k < 7; k++) {
-            if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
-                if (board[i + ik * k][j + jk * k].piece != null) {
-                    if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
-                            board[i + ik * k][j + jk * k].piece instanceof Bishop ||
-                            board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
-                        OK = true;
-                    } else {
-                        OK = false;
-                        return OK;
-                    }
-                }
-            }
-        }
-        return OK;
-    }
-
-    public boolean checkDiag(int i, int ik, int j, int jk, King king) {
-        boolean OK = false;
-        for (int k = 1; k < 7; k++) {
-            if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
-                if (board[i + ik * k][j + jk * k].piece != null) {
-                    if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
-                            board[i + ik * k][j + jk * k].piece instanceof Rook ||
-                            board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
-                        OK = true;
-                    } else {
-                        OK = false;
-                        return OK;
-                    }
-                }
-            }
-        }
-        return OK;
-    }
-
-    public boolean checkPawn(int i, int j, King king) {
-        if (board[i][j + 1].piece != null) {
-            if (board[i][j + 1].piece.color != king.color && !(board[i][j + 1].piece instanceof Horse || board[i][j + 1].piece instanceof Rook)) {
-                return true;
-            }
-        }
-        if (board[i][j - 1].piece != null) {
-            if (board[i][j - 1].piece.color != king.color && !(board[i][j - 1].piece instanceof Horse || board[i][j - 1].piece instanceof Rook)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean check() {
-        char color;
-        if (getSide().equals("black")) {
-             color = 'B';
-        } else {
-             color = 'W';
-        }
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j].piece != null) {
-                    if (board[i][j].piece instanceof King && board[i][j].piece.color == color) {
-                        King king = (King) board[i][j].piece;
-                        if (color == 'W') {
-                            if (checkPawn(i + 1, j, king))
-                                return true;
-                        } else {
-                            if (checkPawn(i - 1, j, king))
-                                return true;
-                        }
-                        if (checkLines(i, 1, j, 0, king))
-                            return true;
-                        if (checkLines(i, -1, j, 0, king))
-                            return true;
-                        if (checkLines(i, 0, j, 1, king))
-                            return true;
-                        if (checkLines(i, 0, j, -1, king))
-                            return true;
-                        if (checkDiag(i , 1, j, 1, king))
-                            return true;
-                        if (checkDiag(i, 1, j, -1, king))
-                            return true;
-                        if (checkDiag(i, -1, j, 1, king))
-                            return true;
-                        if (checkDiag(i, -1, j, -1, king))
-                            return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
 
     public void generateAllMoves(ArrayList<Move> allMoves, String side) {
         int color = ' ';
@@ -195,11 +102,28 @@ public class Engine {
         }
     }
 
-    public int evaluate() {
-        return 1;
+    public int evaluate(String side) {
+        int blackCount = 0, whiteCount = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].piece != null) {
+                    if (board[i][j].piece.color == 'B') {
+                        blackCount++;
+                    } else {
+                        whiteCount++;
+                    }
+                }
+            }
+        }
+
+        if (side.equals("black")) {
+            return blackCount - whiteCount;
+        } else {
+            return whiteCount - blackCount;
+        }
     }
 
-    public void applyMove(Move move) {
+    public void applyMove(BoardCell[][] board, Move move) {
         int startY = Utils.getIndexOfLetter(move.string.charAt(0));
         int startX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
@@ -215,7 +139,7 @@ public class Engine {
         board[finalX][finalY].setPiece(temp);
     }
 
-    public void undoMove(Move move) {
+    public void undoMove(BoardCell[][] board, Move move) {
         int finalY = Utils.getIndexOfLetter(move.string.charAt(0));
         int finalX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
@@ -237,24 +161,20 @@ public class Engine {
     public Move negamax(String side, int depth) {
 
         if (checkMate() || depth == 0) {
-            return new Move(evaluate());
+            return new Move(evaluate(side));
         }
 
         int max = Integer.MIN_VALUE;
         Move bestMove = null;
 
-        ArrayList<Move> allMoves = new ArrayList<Move>();
-
-        generateAllMoves(allMoves, side);
-
-        for (Move move : allMoves) {
-            applyMove(move);
+        for (Move move : getAllCurrentMoves(side)) {
+            applyMove(this.board, move);
 
             int score;
             if (side.equals("black")) {
-                score = - negamax("white", depth - 1).score;
+                score = - (negamax("white", depth - 1).score);
             } else {
-                score = - negamax("black", depth - 1).score;
+                score = - (negamax("black", depth - 1).score);
             }
 
             if (score > max) {
@@ -263,7 +183,7 @@ public class Engine {
                 bestMove.score = max;
             }
 
-            undoMove(move);
+            undoMove(this.board, move);
         }
 
         return bestMove;
@@ -275,11 +195,10 @@ public class Engine {
 
     public void generateMove() {
         Move move;
-        move = negamax(this.side, 2);
+        move = negamax(this.side, 3);
         if (move != null) {
             System.out.println("move " + move.string);
             Utils.xboardMoves(board, move.string);
-            //Utils.infoBox(" " "PLS");
         } else {
             System.out.println("resign");
         }
@@ -309,7 +228,10 @@ public class Engine {
         this.timeInControl = time;
     }
 
-//    //public ArrayList<Move> getAllMoves() {
-//        return allMoves;
-//    }
+    public ArrayList<Move> getAllCurrentMoves(String side) {
+        ArrayList<Move> allMoves = new ArrayList<Move>();
+        generateAllMoves(allMoves, side);
+        System.out.println("# " + allMoves);
+        return allMoves;
+    }
 }

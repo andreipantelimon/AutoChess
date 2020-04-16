@@ -44,7 +44,7 @@ public class Utils {
                     if (board[i + ik * k][j + jk * k].piece.color != king.color && ((board[i + ik * k][j + jk * k].piece instanceof Rook) ||
                             (board[i + ik * k][j + jk * k].piece instanceof Queen))) {
                         OK = true;
-                        infoBox("Sah Linie", "SAL");
+                        //infoBox("Sah Linie", "SAL");
                     } else {
                         OK = false;
                         break;
@@ -63,9 +63,9 @@ public class Utils {
                     if (board[i + ik * k][j + jk * k].piece.color != king.color && ((board[i + ik * k][j + jk * k].piece instanceof Queen) ||
                             (board[i + ik * k][j + jk * k].piece instanceof Bishop))) {
                         OK = true;
-                        infoBox("Sah Diagonala " + (i + ik * k) + " " +  (j + jk * k), " " + (board[i + ik * k][j + jk * k].piece.color != king.color)
-                                + " " + ((board[i + ik * k][j + jk * k].piece instanceof Queen) ||
-                                (board[i + ik * k][j + jk * k].piece instanceof Bishop)));
+//                        infoBox("Sah Diagonala " + (i + ik * k) + " " +  (j + jk * k), " " + (board[i + ik * k][j + jk * k].piece.color != king.color)
+//                                + " " + ((board[i + ik * k][j + jk * k].piece instanceof Queen) ||
+//                                (board[i + ik * k][j + jk * k].piece instanceof Bishop)));
                     } else {
                         OK = false;
                         break;
@@ -80,7 +80,7 @@ public class Utils {
         if (j + 1 <= 7 && i + k <= 7 && i + k >= 0) {
             if (board[i + k][j + 1].piece != null) {
                 if (board[i + k][j + 1].piece.color != king.color && (board[i + k][j + 1].piece instanceof Pawn)) {
-                    infoBox("Sah Pion", "SAL");
+                    //infoBox("Sah Pion", "SAL");
                     return true;
                 }
             }
@@ -88,7 +88,7 @@ public class Utils {
         if (j - 1 >= 0 && i + k <= 7 && i + k >= 0) {
             if (board[i + k][j - 1].piece != null) {
                 if (board[i + k][j - 1].piece.color != king.color && (board[i + k][j - 1].piece instanceof Pawn)) {
-                    infoBox("Sah Pion", "SAL");
+                    //infoBox("Sah Pion", "SAL");
                     return true;
                 }
             }
@@ -111,7 +111,7 @@ public class Utils {
                 if (board[i][j].piece != null) {
                     if ((board[i][j].piece instanceof Horse) && board[i][j].piece.color != color) {
                         if (kingHorse(board, color, i - 1, j + 2)) {
-                            infoBox("Sah Cal", "SAL");
+                            //infoBox("Sah Cal", "SAL");
                             return true;
                         }
                         if (kingHorse(board, color, i - 1, j - 2)) {
@@ -178,19 +178,15 @@ public class Utils {
                             return true;
                         }
                         if (checkDiag(i , 1, j, 1, king, board)) {
-                           // infoBox("Sah Diagonala 1 1", "SAL");
                             return true;
                         }
                         if (checkDiag(i, 1, j, -1, king, board)) {
-                            //infoBox("Sah Diagonala 1 -1", "SAL");
                             return true;
                         }
                         if (checkDiag(i, -1, j, 1, king, board)) {
-                           // infoBox("Sah Diagonala -1 1", "SAL");
                             return true;
                         }
                         if (checkDiag(i, -1, j, -1, king, board)) {
-                            //infoBox("Sah Diagonala -1 -1", "SAL");
                             return true;
                         }
                     }

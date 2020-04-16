@@ -27,16 +27,16 @@ public abstract class Piece {
     }
 
     public Move genPiece(int x, int y, BoardCell[][] board, int lastx, int lasty) {
+        Move move = new Move();
         if (Utils.check(board)) {
             return null;
         }
-        Move move = new Move();
         Piece piece = board[x][y].piece;
-        if (checkInTable(lastx, lasty) && (board[lastx][lasty].piece == null || board[lastx][lasty].piece.color != piece.color)) {
-           // Utils.infoBox("Culoare" + board[x][y].piece.color + " mananca pe " + board[lastx][lasty].piece.color, "PLS");
-            move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-            //Utils.infoBox(" " + move.string, "PLS");
-            return move;
+        if (checkInTable(lastx, lasty)) {
+            if (board[lastx][lasty].piece == null || board[lastx][lasty].piece.color != piece.color) {
+                move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                return move;
+            }
         }
         return null;
     }
