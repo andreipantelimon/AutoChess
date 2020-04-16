@@ -12,6 +12,11 @@ public class King extends Piece {
         super(color, x, y, 'K');
     }
 
+    @Override
+    public Boolean check() {
+        return null;
+    }
+
     private void checkMove(BoardCell[][] copy, Move move) {
         if (move != null) {
 //            Engine.getInstance().applyMove(copy, move);

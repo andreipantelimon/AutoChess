@@ -66,6 +66,8 @@ public abstract class Piece {
         return null;
     }
 
+    public abstract Boolean check ();
+
     public abstract ArrayList<Move> generateMove ();
 
     public void setX (int x) {

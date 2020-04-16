@@ -11,6 +11,46 @@ public class Pawn extends Piece {
         super(color, x, y, 'P');
     }
 
+    public Boolean check() {
+        if (this.color == 'W') {
+            if (x < 7) {
+                if (y > 0) {
+                    if (Engine.getInstance().getBoard()[x + 1][y - 1].piece != null) {
+                        if ((Engine.getInstance().getBoard()[x + 1][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y - 1].piece.color != this.color) {
+                            return true;
+                        }
+                    }
+                }
+                if (y < 7) {
+                    if (Engine.getInstance().getBoard()[x + 1][y + 1].piece != null) {
+                        if ((Engine.getInstance().getBoard()[x + 1][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y + 1].piece.color != this.color) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        if (this.color == 'B') {
+            if (x > 0) {
+                if (y > 0) {
+                    if (Engine.getInstance().getBoard()[x - 1][y - 1].piece != null) {
+                        if ((Engine.getInstance().getBoard()[x - 1][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y - 1].piece.color != this.color) {
+                            return true;
+                        }
+                    }
+                }
+                if (y < 7) {
+                    if (Engine.getInstance().getBoard()[x - 1][y + 1].piece != null) {
+                        if ((Engine.getInstance().getBoard()[x - 1][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y + 1].piece.color != this.color) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
         if (this.color == 'W') {

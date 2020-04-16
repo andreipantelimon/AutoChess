@@ -40,6 +40,7 @@ public class Utils {
         String board = "abcdefgh";
         return String.valueOf(board.charAt(x));
     }
+
 //    public static boolean checkLines(int i, int ik, int j, int jk, King king, BoardCell[][] board) {
 //        boolean OK = false;
 //        for (int k = 1; k <= 7; k++) {

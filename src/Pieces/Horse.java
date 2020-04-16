@@ -11,6 +11,51 @@ public class Horse extends Piece {
         super(color, x, y, 'H');
     }
 
+    @Override
+    public Boolean check() {
+        if (Engine.getInstance().getBoard()[x - 1][y + 2].piece != null) {
+            if ((Engine.getInstance().getBoard()[x - 1][y + 2].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y + 2].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x - 1][y - 2].piece != null) {
+            if ((Engine.getInstance().getBoard()[x - 1][y - 2].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y - 2].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x + 1][y + 2].piece != null) {
+            if ((Engine.getInstance().getBoard()[x + 1][y + 2].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y + 2].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x + 1][y - 2].piece != null) {
+            if ((Engine.getInstance().getBoard()[x + 1][y - 2].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y - 2].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x + 2][y + 1].piece != null) {
+            if ((Engine.getInstance().getBoard()[x + 2][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 2][y + 1].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x + 2][y - 1].piece != null) {
+            if ((Engine.getInstance().getBoard()[x + 2][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 2][y - 1].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x - 2][y + 1].piece != null) {
+            if ((Engine.getInstance().getBoard()[x - 2][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 2][y + 1].piece.color != this.color) {
+                return true;
+            }
+        }
+        if (Engine.getInstance().getBoard()[x - 2][y - 1].piece != null) {
+            if ((Engine.getInstance().getBoard()[x - 2][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 2][y - 1].piece.color != this.color) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
         if (genPiece(x - 1, y + 2) != null) {

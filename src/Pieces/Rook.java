@@ -10,6 +10,47 @@ public class Rook extends Piece {
         super(color, x, y, 'R');
     }
 
+    @Override
+    public Boolean check() {
+        for (int i = 0; i < 7; i++) {
+            if (Engine.getInstance().getBoard()[x + i][y].piece != null) {
+                if ((Engine.getInstance().getBoard()[x + i][y].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y].piece.color != this.color){
+                    return true;
+                } else {
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (Engine.getInstance().getBoard()[x - i][y].piece != null) {
+                if ((Engine.getInstance().getBoard()[x - i][y].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y].piece.color != this.color){
+                    return true;
+                } else {
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (Engine.getInstance().getBoard()[x][y + i].piece != null) {
+                if ((Engine.getInstance().getBoard()[x][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y + 1].piece.color != this.color ){
+                    return true;
+                } else {
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            if (Engine.getInstance().getBoard()[x][y - i].piece != null) {
+                if ((Engine.getInstance().getBoard()[x][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y - 1].piece.color != this.color) {
+                    return true;
+                } else {
+                    break;
+                }
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
