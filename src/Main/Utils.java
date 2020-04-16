@@ -3,6 +3,7 @@ package Main;
 import Pieces.*;
 
 import javax.swing.*;
+import java.util.Iterator;
 
 public class Utils {
 
@@ -25,10 +26,13 @@ public class Utils {
         int finishYPos = Utils.getIndexOfLetter(move.charAt(2));
         int finishXPos = move.charAt(3) - '0' - 1;
 
-        if (board[startXPos][startYPos].piece != null) {
-            Piece tempPiece = board[startXPos][startYPos].piece;
-            board[startXPos][startYPos].piece = null;
-            board[finishXPos][finishYPos].piece = tempPiece;
+        if (board[startXPos][startYPos].getPiece() != null) {
+            Piece tempPiece = board[startXPos][startYPos].getPiece();
+
+            board[startXPos][startYPos].setPiece(null);
+            tempPiece.setX(finishXPos);
+            tempPiece.setY(finishYPos);
+            board[finishXPos][finishYPos].setPiece(tempPiece);
         }
     }
 

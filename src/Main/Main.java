@@ -37,9 +37,15 @@ public class Main {
                 Engine.getInstance().generateMove();
 
             } else if(input.equals("black")) {
+                if (Engine.getInstance().getSide().equals("white")) {
+                    Engine.getInstance().switchSides();
+                }
                 Engine.getInstance().setSide("black");
 
             } else if(input.equals("white")) {
+                if (Engine.getInstance().getSide().equals("black")) {
+                    Engine.getInstance().switchSides();
+                }
                 Engine.getInstance().setSide("white");
 
             } else if (input.equals("print")) {
@@ -80,17 +86,12 @@ public class Main {
 
             } else if (input.startsWith("usermove") && !Engine.getInstance().getSide().equals("both")) {
                 String move = input.split(" ")[1];
-                //Engine.getInstance().xboardMoves(move);
                 Utils.xboardMoves(Engine.getInstance().getBoard(), move);
-                Engine.getInstance().generateMove();
                 Engine.getInstance().printBoard();
+                Engine.getInstance().generateMove();
 
             } else if (input.equals(".")) {
                 continue;
-            } else if (input.equals("generateMove")) {
-                //Engine.getInstance().generateAllMoves("black");
-                //System.out.println(Engine.getInstance().getAllMoves());
-
             } else {
                 System.out.println("Error (unknown): " + input);
             }

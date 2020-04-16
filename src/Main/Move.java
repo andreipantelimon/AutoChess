@@ -2,7 +2,7 @@ package Main;
 
 public class Move {
     public String string;
-    public int score;
+    public double score;
 
     public Move() {
         this.string = null;
@@ -14,7 +14,7 @@ public class Move {
         this.string = m.string;
     }
 
-    public Move(int x) {
+    public Move(double x) {
         this.string = "";
         this.score = x;
     }

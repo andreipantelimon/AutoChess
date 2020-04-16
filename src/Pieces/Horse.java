@@ -1,45 +1,41 @@
 package Pieces;
 
 import Main.BoardCell;
+import Main.Engine;
 import Main.Move;
 
 import java.util.ArrayList;
 
 public class Horse extends Piece {
-    public Horse(char color) {
-        super(color);
+    public Horse(char color, int x, int y) {
+        super(color, x, y, 'H');
     }
 
-    public String toString() {
-        return this.color + "H";
-    }
-
-    @Override
-    public ArrayList<Move> generateMove(int x, int y, BoardCell[][] board) {
+    public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        if (genPiece(x, y, board, x - 1, y + 2) != null) {
-            moves.add(genPiece(x, y, board, x - 1, y + 2));
+        if (genPiece(x - 1, y + 2) != null) {
+            moves.add(genPiece(x - 1, y + 2));
         }
-        if (genPiece(x, y, board, x - 1, y - 2) != null) {
-            moves.add(genPiece(x, y, board, x - 1, y - 2));
+        if (genPiece(x - 1, y - 2) != null) {
+            moves.add(genPiece(x - 1, y - 2));
         }
-        if (genPiece(x, y, board, x + 1, y + 2) != null) {
-            moves.add(genPiece(x, y, board, x + 1, y + 2));
+        if (genPiece(x + 1, y + 2) != null) {
+            moves.add(genPiece(x + 1, y + 2));
         }
-        if (genPiece(x, y, board, x + 1, y - 2) != null) {
-            moves.add(genPiece(x, y, board, x + 1, y - 2));
+        if (genPiece(x + 1, y - 2) != null) {
+            moves.add(genPiece(x + 1, y - 2));
         }
-        if (genPiece(x, y, board, x + 2, y + 1) != null) {
-            moves.add(genPiece(x, y, board, x + 2, y + 1));
+        if (genPiece(x + 2, y + 1) != null) {
+            moves.add(genPiece(x + 2, y + 1));
         }
-        if (genPiece(x, y, board, x + 2, y - 1) != null) {
-            moves.add(genPiece(x, y, board, x + 2, y - 1));
+        if (genPiece(x + 2, y - 1) != null) {
+            moves.add(genPiece(x + 2, y - 1));
         }
-        if (genPiece(x, y, board, x - 2, y + 1) != null) {
-            moves.add(genPiece(x, y, board, x - 2, y + 1));
+        if (genPiece(x - 2, y + 1) != null) {
+            moves.add(genPiece(x - 2, y + 1));
         }
-        if (genPiece(x, y, board, x - 2, y - 1) != null) {
-            moves.add(genPiece(x, y, board, x - 2, y - 1));
+        if (genPiece(x - 2, y - 1) != null) {
+            moves.add(genPiece(x - 2, y - 1));
         }
 
         return moves;

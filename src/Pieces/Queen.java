@@ -1,74 +1,70 @@
 package Pieces;
 
 import Main.BoardCell;
+import Main.Engine;
 import Main.Move;
 
 import java.util.ArrayList;
 
 public class Queen extends Piece {
-    public Queen(char color) {
-        super(color);
+    public Queen(char color, int x, int y) {
+        super(color, x, y, 'Q');
     }
 
-    public String toString() {
-        return this.color + "Q";
-    }
-
-    @Override
-    public ArrayList<Move> generateMove(int x, int y, BoardCell[][] board) {
+    public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x + i, y) != null) {
-                moves.add(genPiece(x, y, board, x + i, y));
+            if (genPiece(x + i, y) != null) {
+                moves.add(genPiece(x + i, y));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x - i, y) != null) {
-                moves.add(genPiece(x, y, board, x - i, y));
+            if (genPiece(x - i, y) != null) {
+                moves.add(genPiece(x - i, y));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x, y - i) != null) {
-                moves.add(genPiece(x, y, board, x, y - i));
+            if (genPiece(x, y - i) != null) {
+                moves.add(genPiece(x, y - i));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x, y + i) != null) {
-                moves.add(genPiece(x, y, board, x, y + i));
+            if (genPiece(x, y + i) != null) {
+                moves.add(genPiece(x, y + i));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x + i, y + i) != null) {
-                moves.add(genPiece(x, y, board, x + i, y + i));
+            if (genPiece(x + i, y + i) != null) {
+                moves.add(genPiece(x + i, y + i));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x - i, y - i) != null) {
-                moves.add(genPiece(x, y, board, x - i, y - i));
+            if (genPiece(x - i, y - i) != null) {
+                moves.add(genPiece(x - i, y - i));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x - i, y + i) != null) {
-                moves.add(genPiece(x, y, board, x - i, y + i));
+            if (genPiece(x - i, y + i) != null) {
+                moves.add(genPiece(x - i, y + i));
             } else {
                 break;
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (genPiece(x, y, board, x + i, y - i) != null) {
-                moves.add(genPiece(x, y, board, x + i, y - i));
+            if (genPiece(x + i, y - i) != null) {
+                moves.add(genPiece(x + i, y - i));
             } else {
                 break;
             }

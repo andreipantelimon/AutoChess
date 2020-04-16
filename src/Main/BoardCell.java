@@ -2,26 +2,23 @@ package Main;
 
 import Pieces.Piece;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BoardCell {
     public Piece piece;
-    public Piece previousPiece;
+    public Queue<Piece> previousPieceQueue = new LinkedList<>();
 
     public BoardCell() {
         this.piece = null;
-        this.previousPiece = null;
-    }
-
-    public BoardCell(BoardCell b) {
-        this.piece = b.piece;
-        this.previousPiece = b.previousPiece;
     }
 
     public void setPiece(Piece piece) {
         this.piece = piece;
     }
 
-    public void setPreviousPiece(Piece piece) {
-        this.previousPiece = piece;
+    public void addPreviousPiece(Piece piece) {
+        this.previousPieceQueue.add(piece);
     }
 
     public String toString() {
@@ -29,7 +26,7 @@ public class BoardCell {
             return this.piece.toString();
         }
 
-        return "xx";
+        return "xxxxxxxxxx";
     }
 
     public Piece getPiece() {
