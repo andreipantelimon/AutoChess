@@ -33,7 +33,9 @@ public abstract class Piece {
         Move move = new Move();
         Piece piece = board[x][y].piece;
         if (checkInTable(lastx, lasty) && (board[lastx][lasty].piece == null || board[lastx][lasty].piece.color != piece.color)) {
+           // Utils.infoBox("Culoare" + board[x][y].piece.color + " mananca pe " + board[lastx][lasty].piece.color, "PLS");
             move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+            //Utils.infoBox(" " + move.string, "PLS");
             return move;
         }
         return null;

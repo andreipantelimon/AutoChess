@@ -75,37 +75,41 @@ public class Engine {
         return false;
     }
     public boolean checkLines(int i, int ik, int j, int jk, King king) {
+        boolean OK = false;
         for (int k = 1; k < 7; k++) {
             if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
                 if (board[i + ik * k][j + jk * k].piece != null) {
                     if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
                             board[i + ik * k][j + jk * k].piece instanceof Bishop ||
                             board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
-                        return true;
+                        OK = true;
                     } else {
-                        break;
+                        OK = false;
+                        return OK;
                     }
                 }
             }
         }
-        return false;
+        return OK;
     }
 
     public boolean checkDiag(int i, int ik, int j, int jk, King king) {
+        boolean OK = false;
         for (int k = 1; k < 7; k++) {
             if (i + ik * k >= 0 && i + ik * k <= 7 && j + jk * k >= 0 && j + jk * k <= 7) {
                 if (board[i + ik * k][j + jk * k].piece != null) {
                     if (board[i + ik * k][j + jk * k].piece.color != king.color && !(board[i + ik * k][j + jk * k].piece instanceof Horse ||
                             board[i + ik * k][j + jk * k].piece instanceof Rook ||
                             board[i + ik * k][j + jk * k].piece instanceof Pawn)) {
-                        return true;
+                        OK = true;
                     } else {
-                        break;
+                        OK = false;
+                        return OK;
                     }
                 }
             }
         }
-        return false;
+        return OK;
     }
 
     public boolean checkPawn(int i, int j, King king) {
@@ -134,7 +138,7 @@ public class Engine {
                 if (board[i][j].piece != null) {
                     if (board[i][j].piece instanceof King && board[i][j].piece.color == color) {
                         King king = (King) board[i][j].piece;
-                        if (color == 'B') {
+                        if (color == 'W') {
                             if (checkPawn(i + 1, j, king))
                                 return true;
                         } else {
@@ -275,6 +279,7 @@ public class Engine {
         if (move != null) {
             System.out.println("move " + move.string);
             Utils.xboardMoves(board, move.string);
+            //Utils.infoBox(" " "PLS");
         } else {
             System.out.println("resign");
         }
