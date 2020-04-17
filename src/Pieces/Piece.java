@@ -3,10 +3,8 @@ package Pieces;
 import Main.BoardCell;
 import Main.Engine;
 import Main.Move;
-import Main.Utils;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public abstract class Piece {
     public char color;
@@ -25,6 +23,13 @@ public abstract class Piece {
         this.x = x;
         this.y = y;
         this.type = type;
+    }
+
+    public Piece(Piece p) {
+        this.color = p.color;
+        this.x = p.x;
+        this.y = p.y;
+        this.type = p.type;
     }
 
     public String toString() {
@@ -50,16 +55,47 @@ public abstract class Piece {
 //            //System.out.println("resign");
 //            return null;
 //        }
-        if (checkInTable(lastx, lasty)) {
+        if (checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
             if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
-                System.out.println("# -----------------if1");
                     move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
                     return move;
             } else {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
-                    System.out.println("# -----------------if2");
                     move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
                     return move;
+                }
+            }
+        }
+
+        BoardCell[][] copy = new BoardCell[8][8];
+        for (int i = 0; i < 8; i++) {
+            copy[i] = Engine.getInstance().getBoard()[i].clone();
+        }
+
+        if (checkInTable(lastx, lasty) && Engine.getInstance().inCheck) {
+            if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
+                move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                ArrayList<Piece> enginePiecesCopy = new ArrayList<>();
+                ArrayList<Piece> opponentPiecesCopy = new ArrayList<>();
+                Engine.getInstance().applyMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                Engine.getInstance().resetArray(copy, enginePiecesCopy, opponentPiecesCopy);
+                if (Engine.getInstance().checkBoard(enginePiecesCopy, opponentPiecesCopy) != -1) {
+                    Engine.getInstance().inCheck = false;
+                    //Engine.getInstance().undoMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                    return move;
+                }
+            } else {
+                if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
+                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                    ArrayList<Piece> enginePiecesCopy = new ArrayList<>();
+                    ArrayList<Piece> opponentPiecesCopy = new ArrayList<>();
+                    Engine.getInstance().applyMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                    Engine.getInstance().resetArray(copy, enginePiecesCopy, opponentPiecesCopy);
+                    if (Engine.getInstance().checkBoard(enginePiecesCopy, opponentPiecesCopy) != -1) {
+                        Engine.getInstance().inCheck = false;
+                        //Engine.getInstance().undoMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                        return move;
+                    }
                 }
             }
         }

@@ -14,7 +14,7 @@ public class King extends Piece {
 
     @Override
     public Boolean check() {
-        return null;
+        return false;
     }
 
     private void checkMove(BoardCell[][] copy, Move move) {

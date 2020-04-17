@@ -14,74 +14,90 @@ public class Queen extends Piece {
     @Override
     public Boolean check() {
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x + i][y + i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + i][y + i].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y + i].piece.color != this.color){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x + i, y + i)) {
+                if (Engine.getInstance().getBoard()[x + i][y + i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x + i][y + i].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y + i].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x - i][y - i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - i][y - i].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y - i].piece.color != this.color){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x - i, y - i)) {
+                if (Engine.getInstance().getBoard()[x - i][y - i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x - i][y - i].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y - i].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x - i][y + i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - i][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y + 1].piece.color != this.color ){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x - i, y + i)) {
+                if (Engine.getInstance().getBoard()[x - i][y + i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x - i][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y + 1].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x + i][y - i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + i][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y - 1].piece.color != this.color) {
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x + i, y - i)) {
+                if (Engine.getInstance().getBoard()[x + i][y - i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x + i][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y - 1].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x + i][y].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + i][y].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y].piece.color != this.color){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x + i, y)) {
+                if (Engine.getInstance().getBoard()[x + i][y].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x + i][y].piece instanceof King) && Engine.getInstance().getBoard()[x + i][y].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x - i][y].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - i][y].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y].piece.color != this.color){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x - i, y)) {
+                if (Engine.getInstance().getBoard()[x - i][y].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x - i][y].piece instanceof King) && Engine.getInstance().getBoard()[x - i][y].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x][y + i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y + 1].piece.color != this.color ){
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x, y + i)) {
+                if (Engine.getInstance().getBoard()[x][y + i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y + 1].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < 7; i++) {
-            if (Engine.getInstance().getBoard()[x][y - i].piece != null) {
-                if ((Engine.getInstance().getBoard()[x][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y - 1].piece.color != this.color) {
-                    return true;
-                } else {
-                    break;
+            if (checkInTable(x, y - i)) {
+                if (Engine.getInstance().getBoard()[x][y - i].piece != null) {
+                    if ((Engine.getInstance().getBoard()[x][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x][y - 1].piece.color != this.color) {
+                        return true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }

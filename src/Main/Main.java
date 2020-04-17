@@ -34,18 +34,12 @@ public class Main {
                 Engine.getInstance().setSide("black");
 
             } else if (input.equals("go")) {
-                Engine.getInstance().generateMove();
+                Engine.getInstance().startSearch();
 
             } else if(input.equals("black")) {
-                if (Engine.getInstance().getSide().equals("white")) {
-                    Engine.getInstance().switchSides();
-                }
                 Engine.getInstance().setSide("black");
 
             } else if(input.equals("white")) {
-                if (Engine.getInstance().getSide().equals("black")) {
-                    Engine.getInstance().switchSides();
-                }
                 Engine.getInstance().setSide("white");
 
             } else if (input.equals("print")) {
@@ -88,7 +82,7 @@ public class Main {
                 String move = input.split(" ")[1];
                 Utils.xboardMoves(Engine.getInstance().getBoard(), move);
                 Engine.getInstance().printBoard();
-                Engine.getInstance().generateMove();
+                Engine.getInstance().startSearch();
 
             } else if (input.equals(".")) {
                 continue;

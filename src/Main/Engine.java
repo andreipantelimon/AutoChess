@@ -8,8 +8,9 @@ import java.util.Iterator;
 
 public class Engine {
     private static Engine engine = null;
+    public boolean inCheck = false;
     public BoardCell[][] board;
-    private String side = "black";
+    private String side;
     private ArrayList<Piece> enginePieces;
     private ArrayList<Piece> opponentPieces;
     private int engineTime = 0;
@@ -133,22 +134,27 @@ public class Engine {
     }
 
     public void generateAllMoves(ArrayList<Move> allMoves, String side) {
+        if (checkBoard(this.enginePieces, this.opponentPieces) == -1) {
+            this.inCheck = true;
+        }
         if (side.equals(getSide())) {
             for (Piece p : enginePieces) {
-                //System.out.println("# generate as engine:" + p);
-                allMoves.addAll(p.generateMove());
+                if (p.type != 'K') {
+                    allMoves.addAll(p.generateMove());
+                }
             }
         } else {
             for (Piece p : opponentPieces) {
-                //System.out.println("# generate as op:" + p);
-                allMoves.addAll(p.generateMove());
+                if (p.type != 'K') {
+                    allMoves.addAll(p.generateMove());
+                }
             }
         }
     }
 
     public double evaluate(String side) {
         int w2m, materialScore = 0;
-        if (side.equals("black")) {
+        if (side.equals(getSide())) {
             w2m = 1;
         } else {
             w2m = -1;
@@ -201,27 +207,27 @@ public class Engine {
 
     }
 
-    public void applyMove(Move move) {
+    public void applyMove(BoardCell[][] board, Move move, ArrayList<Piece> enginePieces, ArrayList<Piece> opponentPieces) {
         int startY = Utils.getIndexOfLetter(move.string.charAt(0));
         int startX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
         int finalY = Utils.getIndexOfLetter(move.string.charAt(2));
         int finalX = Character.getNumericValue(move.string.charAt(3)) - 1;
 
-        Piece temp = board[startX][startY].piece;
-        if (board[finalX][finalY].piece != null) {
+        Piece temp = board[startX][startY].getPiece();
+        if (board[finalX][finalY].getPiece() != null) {
             board[finalX][finalY].addPreviousPiece(board[finalX][finalY].getPiece());
         }
 
-        board[startX][startY].setPiece(null);
         temp.setX(finalX);
         temp.setY(finalY);
         board[finalX][finalY].setPiece(temp);
+        board[startX][startY].setPiece(null);
 
-        resetArray();
+        resetArray(board, enginePieces, opponentPieces);
     }
 
-    public void undoMove(Move move) {
+    public void undoMove(BoardCell[][] board, Move move, ArrayList<Piece> enginePieces, ArrayList<Piece> opponentPieces) {
         int finalY = Utils.getIndexOfLetter(move.string.charAt(0));
         int finalX = Character.getNumericValue(move.string.charAt(1)) - 1;
 
@@ -229,63 +235,89 @@ public class Engine {
         int startX = Character.getNumericValue(move.string.charAt(3)) - 1;
 
         Piece temp = board[startX][startY].getPiece();
+        temp.setX(finalX);
+        temp.setY(finalY);
+        board[finalX][finalY].setPiece(temp);
+
         if (board[startX][startY].previousPieceQueue.peek() != null) {
             board[startX][startY].setPiece(board[startX][startY].previousPieceQueue.poll());
         } else {
             board[startX][startY].setPiece(null);
         }
 
-        temp.setX(finalX);
-        temp.setY(finalY);
-        board[finalX][finalY].setPiece(temp);
-
-        resetArray();
+        resetArray(board, enginePieces, opponentPieces);
     }
 
-    public Move negamax(String side, int depth) {
+    public double negamax(String nSide, int depth) {
 
         if (checkMate() || depth == 0) {
-            return new Move(evaluate(side));
+            return evaluate(nSide);
         }
 
-        double max = Double.MIN_VALUE;
-        Move bestMove = null;
+        double max = Double.NEGATIVE_INFINITY;
 
-        for (Move move : getAllCurrentMoves(side)) {
-            applyMove(move);
+        ArrayList<Move> moves = getAllCurrentMoves(nSide);
+        for (Move move : moves) {
+            applyMove(this.board, move, this.enginePieces, this.opponentPieces);
 
-            double score;
-            if (side.equals("black")) {
-                score = - (negamax("white", depth - 1).score);
-            } else {
-                score = - (negamax("black", depth - 1).score);
+            double score = Double.NEGATIVE_INFINITY;
+            if (nSide.equals("black")) {
+                score = - negamax("white", depth - 1);
             }
+            if (nSide.equals("white")) {
+                score = - negamax("black", depth - 1);
+            }
+
+            undoMove(this.board, move, this.enginePieces, this.opponentPieces);
 
             if (score > max) {
                 max = score;
-                bestMove = new Move(move);
-                bestMove.score = max;
             }
-
-            undoMove(move);
         }
 
-        return bestMove;
+        return max;
     }
 
     public char getColor() {
         return (getSide().equals("black")? 'B':'W');
     }
 
-    public void generateMove() {
-        Move move;
-        move = negamax(this.side, 1);
-        if (move != null) {
+    public String generateMove(int depth) {
+        String bestMove = null;
+        double score = Double.NEGATIVE_INFINITY;
+
+        ArrayList<Move> moves = getAllCurrentMoves(getSide());
+
+        double max = Double.NEGATIVE_INFINITY;
+
+        for (Move move : moves) {
+            System.out.println("***Move string: " + move.string);
+            applyMove(this.board, move, this.enginePieces, this.opponentPieces);
+
+            if (getSide().equals("black")) {
+                score = - negamax("black", depth - 1);
+            }
+            if (getSide().equals("white")) {
+                score = - negamax("white", depth - 1);
+            }
+
+            undoMove(this.board, move, this.enginePieces, this.opponentPieces);
+
+            if (score > max) {
+                max = score;
+                bestMove = move.string;
+            }
+        }
+        return bestMove;
+    }
+    public void startSearch() {
+        String bestMove = generateMove(2);
+        if (bestMove != null) {
             printBoard();
-            System.out.println("move " + move.string);
-            Utils.xboardMoves(board, move.string);
+            System.out.println("move " + bestMove);
+            Utils.xboardMoves(board, bestMove);
             clearRemains();
-            resetArray();
+            resetArray(this.board, this.enginePieces, this.opponentPieces);
         } else {
             System.out.println("resign");
         }
@@ -317,9 +349,9 @@ public class Engine {
 
     public ArrayList<Move> getAllCurrentMoves(String side) {
         ArrayList<Move> allMoves = new ArrayList<Move>();
-        resetArray();
+        resetArray(this.board, this.enginePieces, this.opponentPieces);
         generateAllMoves(allMoves, side);
-        System.out.println("# " + allMoves);
+        System.out.println("# Side:" + side + " " + allMoves);
         return allMoves;
     }
 
@@ -329,7 +361,7 @@ public class Engine {
         opponentPieces = aux;
     }
 
-    public void resetArray() {
+    public void resetArray(BoardCell[][] board, ArrayList<Piece> enginePieces, ArrayList<Piece> opponentPieces) {
         enginePieces.clear();
         opponentPieces.clear();
 
@@ -354,6 +386,22 @@ public class Engine {
                 }
             }
         }
+    }
+
+    public int checkBoard(ArrayList<Piece> enginePieces, ArrayList<Piece> opponentPieces) {
+      for (Piece p : enginePieces) {
+          if (p.check()) {
+              return 1;
+          }
+      }
+
+      for (Piece p : opponentPieces) {
+          if (p.check()) {
+              return -1;
+          }
+      }
+
+      return 0;
     }
 
     public ArrayList<Piece> getEnginePieces() {
