@@ -12,59 +12,59 @@ public class Horse extends Piece {
     }
 
     @Override
-    public Boolean check() {
+    public Boolean check(BoardCell[][] board) {
         if (checkInTable(x - 1, y + 2)) {
-            if (Engine.getInstance().getBoard()[x - 1][y + 2].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - 1][y + 2].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y + 2].piece.color != this.color) {
+            if (board[x - 1][y + 2].piece != null) {
+                if ((board[x - 1][y + 2].piece instanceof King) && board[x - 1][y + 2].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x - 1, y - 2)) {
-            if (Engine.getInstance().getBoard()[x - 1][y - 2].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - 1][y - 2].piece instanceof King) && Engine.getInstance().getBoard()[x - 1][y - 2].piece.color != this.color) {
+            if (board[x - 1][y - 2].piece != null) {
+                if ((board[x - 1][y - 2].piece instanceof King) && board[x - 1][y - 2].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x + 1, y + 2)) {
-            if (Engine.getInstance().getBoard()[x + 1][y + 2].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + 1][y + 2].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y + 2].piece.color != this.color) {
+            if (board[x + 1][y + 2].piece != null) {
+                if ((board[x + 1][y + 2].piece instanceof King) && board[x + 1][y + 2].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x + 1, y - 2)) {
-            if (Engine.getInstance().getBoard()[x + 1][y - 2].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + 1][y - 2].piece instanceof King) && Engine.getInstance().getBoard()[x + 1][y - 2].piece.color != this.color) {
+            if (board[x + 1][y - 2].piece != null) {
+                if ((board[x + 1][y - 2].piece instanceof King) && board[x + 1][y - 2].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x + 2, y + 1)) {
-            if (Engine.getInstance().getBoard()[x + 2][y + 1].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + 2][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 2][y + 1].piece.color != this.color) {
+            if (board[x + 2][y + 1].piece != null) {
+                if ((board[x + 2][y + 1].piece instanceof King) && board[x + 2][y + 1].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x + 2, y - 1)) {
-            if (Engine.getInstance().getBoard()[x + 2][y - 1].piece != null) {
-                if ((Engine.getInstance().getBoard()[x + 2][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x + 2][y - 1].piece.color != this.color) {
+            if (board[x + 2][y - 1].piece != null) {
+                if ((board[x + 2][y - 1].piece instanceof King) && board[x + 2][y - 1].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x - 2, y + 1)) {
-            if (Engine.getInstance().getBoard()[x - 2][y + 1].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - 2][y + 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 2][y + 1].piece.color != this.color) {
+            if (board[x - 2][y + 1].piece != null) {
+                if ((board[x - 2][y + 1].piece instanceof King) && board[x - 2][y + 1].piece.color != this.color) {
                     return true;
                 }
             }
         }
         if (checkInTable(x - 2, y - 1)) {
-            if (Engine.getInstance().getBoard()[x - 2][y - 1].piece != null) {
-                if ((Engine.getInstance().getBoard()[x - 2][y - 1].piece instanceof King) && Engine.getInstance().getBoard()[x - 2][y - 1].piece.color != this.color) {
+            if (board[x - 2][y - 1].piece != null) {
+                if ((board[x - 2][y - 1].piece instanceof King) && board[x - 2][y - 1].piece.color != this.color) {
                     return true;
                 }
             }

@@ -47,14 +47,6 @@ public abstract class Piece {
 
     public Move genPiece(int lastx, int lasty) {
         Move move = new Move();
-//        if (Utils.check(board)) {
-//            Utils.infoBox("SAH", "DAR NU E");
-//            System.out.println("print");
-//            System.out.println("\n --------------------------------------------------------------------------------------------------------------");
-//            Engine.getInstance().printBoard();
-//            //System.out.println("resign");
-//            return null;
-//        }
         if (checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
             if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
                     move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
@@ -67,34 +59,36 @@ public abstract class Piece {
             }
         }
 
-        BoardCell[][] copy = new BoardCell[8][8];
-        for (int i = 0; i < 8; i++) {
-            copy[i] = Engine.getInstance().getBoard()[i].clone();
-        }
-
         if (checkInTable(lastx, lasty) && Engine.getInstance().inCheck) {
             if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
-                move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                ArrayList<Piece> enginePiecesCopy = new ArrayList<>();
-                ArrayList<Piece> opponentPiecesCopy = new ArrayList<>();
-                Engine.getInstance().applyMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
-                Engine.getInstance().resetArray(copy, enginePiecesCopy, opponentPiecesCopy);
-                if (Engine.getInstance().checkBoard(enginePiecesCopy, opponentPiecesCopy) != -1) {
-                    Engine.getInstance().inCheck = false;
-                    //Engine.getInstance().undoMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
+                Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
+                Engine.getInstance().getBoard()[x][y].setPiece(null);
+                if (Engine.getInstance().checkBoard() != -1) {
+                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
                     return move;
+                } else {
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
                 }
             } else {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
-                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                    ArrayList<Piece> enginePiecesCopy = new ArrayList<>();
-                    ArrayList<Piece> opponentPiecesCopy = new ArrayList<>();
-                    Engine.getInstance().applyMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
-                    Engine.getInstance().resetArray(copy, enginePiecesCopy, opponentPiecesCopy);
-                    if (Engine.getInstance().checkBoard(enginePiecesCopy, opponentPiecesCopy) != -1) {
-                        Engine.getInstance().inCheck = false;
-                        //Engine.getInstance().undoMove(copy, move, enginePiecesCopy, opponentPiecesCopy);
+                    Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(null);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
                         return move;
+                    } else {
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
                     }
                 }
             }
@@ -102,7 +96,7 @@ public abstract class Piece {
         return null;
     }
 
-    public abstract Boolean check ();
+    public abstract Boolean check (BoardCell[][] board);
 
     public abstract ArrayList<Move> generateMove ();
 

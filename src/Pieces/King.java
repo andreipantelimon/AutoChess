@@ -13,35 +13,48 @@ public class King extends Piece {
     }
 
     @Override
-    public Boolean check() {
+    public Boolean check(BoardCell[][] board) {
         return false;
     }
 
-    private void checkMove(BoardCell[][] copy, Move move) {
+    private void checkMove(Move move, int lastx, int lasty) {
         if (move != null) {
-//            Engine.getInstance().applyMove(copy, move);
-//            if (!Utils.check(copy)) {
-//                moves.add(move);
-//            }
-//            Engine.getInstance().undoMove(copy, move);
-            moves.add(move);
+            if (checkInTable(lastx, lasty)) {
+                if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
+                    Engine.getInstance().getBoard()[x][y].setPiece(null);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(this);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        moves.add(move);
+                    }
+                    Engine.getInstance().getBoard()[x][y].setPiece(this);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+                } else {
+                    if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
+                        Piece temp = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                        Engine.getInstance().getBoard()[x][y].setPiece(null);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(this);
+                        if (Engine.getInstance().checkBoard() != -1) {
+                            moves.add(move);
+                        }
+                        Engine.getInstance().getBoard()[x][y].setPiece(this);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(temp);
+                    }
+                }
+            }
         }
     }
 
     public ArrayList<Move> generateMove() {
-        BoardCell[][] copy = new BoardCell[8][8];
         moves.clear();
-        for (int i = 0; i < 8; i++) {
-            copy[i] = Engine.getInstance().getBoard()[i].clone();
-        }
-        checkMove(copy, genPiece(x, y + 1));
-        checkMove(copy, genPiece(x -  1, y + 1));
-        checkMove(copy, genPiece(x + 1, y + 1));
-        checkMove(copy, genPiece(x, y - 1));
-        checkMove(copy, genPiece(x -  1, y - 1));
-        checkMove(copy, genPiece(x + 1, y - 1));
-        checkMove(copy, genPiece(x -  1, y ));
-        checkMove(copy, genPiece(x + 1, y));
+
+        checkMove(genPiece(x, y + 1), x, y + 1);
+        checkMove(genPiece(x -  1, y + 1), x - 1, y + 1);
+        checkMove(genPiece(x + 1, y + 1), x + 1, y + 1);
+        checkMove(genPiece(x, y - 1), x, y - 1);
+        checkMove(genPiece(x -  1, y - 1), x - 1, y - 1);
+        checkMove(genPiece(x + 1, y - 1), x + 1, y - 1);
+        checkMove(genPiece(x -  1, y ), x - 1, y);
+        checkMove(genPiece(x + 1, y), x + 1, y);
 
         return moves;
     }

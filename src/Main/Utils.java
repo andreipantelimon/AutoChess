@@ -26,13 +26,26 @@ public class Utils {
         int finishYPos = Utils.getIndexOfLetter(move.charAt(2));
         int finishXPos = move.charAt(3) - '0' - 1;
 
-        if (board[startXPos][startYPos].getPiece() != null) {
-            Piece tempPiece = board[startXPos][startYPos].getPiece();
+        if (move.length() == 4) {
+            if (board[startXPos][startYPos].getPiece() != null) {
+                Piece tempPiece = board[startXPos][startYPos].getPiece();
 
-            board[startXPos][startYPos].setPiece(null);
-            tempPiece.setX(finishXPos);
-            tempPiece.setY(finishYPos);
-            board[finishXPos][finishYPos].setPiece(tempPiece);
+                board[startXPos][startYPos].setPiece(null);
+                tempPiece.setX(finishXPos);
+                tempPiece.setY(finishYPos);
+                board[finishXPos][finishYPos].setPiece(tempPiece);
+            }
+        }
+
+        if (move.length() == 5) {
+            if (board[startXPos][startYPos].getPiece() != null) {
+                Queen tempPiece = new Queen(board[startXPos][startYPos].getPiece().color, finishXPos, finishYPos);
+
+                board[startXPos][startYPos].setPiece(null);
+                board[finishXPos][finishYPos].setPiece(tempPiece);
+
+                Engine.getInstance().resetArray(board, Engine.getInstance().getEnginePieces(), Engine.getInstance().getOpponentPieces());
+            }
         }
     }
 
