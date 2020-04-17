@@ -328,7 +328,7 @@ public class Engine {
         return bestMove;
     }
     public void startSearch() {
-        String bestMove = generateMove(1);
+        String bestMove = generateMove(2);
         if (bestMove != null) {
             printBoard();
             System.out.println("move " + bestMove);
