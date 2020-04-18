@@ -62,28 +62,28 @@ public class Rook extends Piece {
 
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        for (int i = 1; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             if (genPiece(x + i, y) != null) {
                 moves.add(genPiece(x + i, y));
             } else {
                 break;
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             if (genPiece(x - i, y) != null) {
                 moves.add(genPiece(x - i, y));
             } else {
                 break;
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             if (genPiece(x, y - i) != null) {
                 moves.add(genPiece(x, y - i));
             } else {
                 break;
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             if (genPiece(x, y + i) != null) {
                 moves.add(genPiece(x, y + i));
             } else {

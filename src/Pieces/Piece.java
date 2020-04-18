@@ -7,7 +7,7 @@ import Main.Move;
 import java.util.ArrayList;
 
 public abstract class Piece {
-    public char color;
+    public char color = 'X';
     public int x;
     public int y;
     public char type;
@@ -49,12 +49,35 @@ public abstract class Piece {
         Move move = new Move();
         if (checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
             if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
-                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                    return move;
+                    Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
+                    Engine.getInstance().getBoard()[x][y].setPiece(null);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                        Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                        Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+                        return move;
+                    } else {
+                        Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                        Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+                    }
             } else {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
-                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                    return move;
+                    Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(null);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
+                        return move;
+                    } else {
+                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
+                    }
                 }
             }
         }

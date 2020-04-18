@@ -74,20 +74,19 @@ public class Main {
                 Engine.getInstance().setSide("both");
                 analyzeMode = true;
 
-            } else if (input.startsWith("usermove") && analyzeMode) {
+            } else if (input.startsWith("usermove") && (analyzeMode || Engine.getInstance().getSide().equals("both"))) {
                 String move = input.split(" ")[1];
                 Utils.xboardMoves(Engine.getInstance().getBoard(), move);
 
             } else if (input.startsWith("usermove") && !Engine.getInstance().getSide().equals("both")) {
                 String move = input.split(" ")[1];
                 Utils.xboardMoves(Engine.getInstance().getBoard(), move);
-                Engine.getInstance().printBoard();
                 Engine.getInstance().startSearch();
 
             } else if (input.equals(".")) {
                 continue;
             } else {
-                System.out.println("Error (unknown): " + input);
+                System.out.println("Error (unknown): " + input + " " + Engine.getInstance().getSide());
             }
         }
     }

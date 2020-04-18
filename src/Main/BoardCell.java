@@ -2,12 +2,12 @@ package Main;
 
 import Pieces.Piece;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class BoardCell {
     public Piece piece;
-    public Queue<Piece> previousPieceQueue = new LinkedList<>();
+    public Deque<Piece> previousPieceStack = new ArrayDeque<Piece>();
 
     public BoardCell() {
         this.piece = null;
@@ -18,7 +18,7 @@ public class BoardCell {
     }
 
     public void addPreviousPiece(Piece piece) {
-        this.previousPieceQueue.add(piece);
+        this.previousPieceStack.push(piece);
     }
 
     public String toString() {
