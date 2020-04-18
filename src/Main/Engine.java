@@ -152,23 +152,27 @@ public class Engine {
     public double evaluate(String side) {
         int w2m, materialScore = 0;
         if (side.equals(getSide())) {
-            w2m = 1;
-        } else {
             w2m = -1;
+        } else {
+            w2m = 1;
         }
 
         if (checkMate(side)) {
             return Double.POSITIVE_INFINITY * w2m;
         }
 
-        ArrayList<Move> whiteMoves = new ArrayList<>();
-        generateAllMoves(whiteMoves, "white");
-        ArrayList<Move> blackMoves = new ArrayList<>();
-        generateAllMoves(blackMoves, "black");
-        int wMobility = whiteMoves.size();
-        int bMobility = blackMoves.size();
+        ArrayList<Move> player1Moves = new ArrayList<>();
+        generateAllMoves(player1Moves, side);
+        ArrayList<Move> player2Moves = new ArrayList<>();
+        if (side.equals("black")) {
+            generateAllMoves(player2Moves, "white");
+        } else {
+            generateAllMoves(player2Moves, "black");
+        }
+        int p1Mobility = player1Moves.size();
+        int p2Mobility = player2Moves.size();
 
-        double mobilityScore = 0.1 * (bMobility - wMobility);
+        double mobilityScore = 0.1 * (p1Mobility - p2Mobility);
         for (Piece p : enginePieces) {
             if (p.type == 'K') {
                 materialScore += 200;

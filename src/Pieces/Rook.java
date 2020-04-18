@@ -13,7 +13,7 @@ public class Rook extends Piece {
 
     @Override
     public Boolean check(BoardCell[][] board) {
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             if (checkInTable(x + i, y)) {
                 if (board[x + i][y].piece != null) {
                     if ((board[x + i][y].piece instanceof King) && board[x + i][y].piece.color != this.color) {
@@ -24,7 +24,7 @@ public class Rook extends Piece {
                 }
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             if (checkInTable(x - i, y)) {
                 if (board[x - i][y].piece != null) {
                     if ((board[x - i][y].piece instanceof King) && board[x - i][y].piece.color != this.color) {
@@ -35,7 +35,7 @@ public class Rook extends Piece {
                 }
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             if (checkInTable(x, y + i)) {
                 if (board[x][y + i].piece != null) {
                     if ((board[x][y + i].piece instanceof King) && board[x][y + i].piece.color != this.color) {
@@ -46,7 +46,7 @@ public class Rook extends Piece {
                 }
             }
         }
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             if (checkInTable(x, y - i)) {
                 if (board[x][y - i].piece != null) {
                     if ((board[x][y - i].piece instanceof King) && board[x][y - i].piece.color != this.color) {
@@ -62,28 +62,28 @@ public class Rook extends Piece {
 
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (genPiece(x + i, y) != null) {
                 moves.add(genPiece(x + i, y));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (genPiece(x - i, y) != null) {
                 moves.add(genPiece(x - i, y));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (genPiece(x, y - i) != null) {
                 moves.add(genPiece(x, y - i));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (genPiece(x, y + i) != null) {
                 moves.add(genPiece(x, y + i));
             } else {
