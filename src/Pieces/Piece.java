@@ -69,12 +69,14 @@ public abstract class Piece {
                     }
             } else {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
+                    //System.out.println("Piesa este : " + Engine.getInstance().getBoard()[lastx][lasty].getPiece());
                     Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
                     Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
-                    Engine.getInstance().getBoard()[x][y].setPiece(null);
                     Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);
+                    Engine.getInstance().getBoard()[x][y].setPiece(null);
                     if (Engine.getInstance().checkBoard() != -1) {
                         move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+
                         Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
                         Engine.getInstance().getBoard()[x][y].setPiece(startP);
                         return move;

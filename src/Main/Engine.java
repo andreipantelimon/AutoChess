@@ -324,7 +324,7 @@ public class Engine {
     }
 
     public void startSearch() {
-        Move bestMove = generateMove(3);
+        Move bestMove = generateMove(2);
         if (bestMove != null) {
             System.out.println("move " + bestMove.string);
             Utils.xboardMoves(board, bestMove.string);

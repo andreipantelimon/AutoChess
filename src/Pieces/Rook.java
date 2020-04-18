@@ -65,6 +65,9 @@ public class Rook extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x + i, y) != null) {
                 moves.add(genPiece(x + i, y));
+                if (Engine.getInstance().getBoard()[x + i][y].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -72,6 +75,9 @@ public class Rook extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x - i, y) != null) {
                 moves.add(genPiece(x - i, y));
+                if (Engine.getInstance().getBoard()[x - i][y].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -79,6 +85,9 @@ public class Rook extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x, y - i) != null) {
                 moves.add(genPiece(x, y - i));
+                if (Engine.getInstance().getBoard()[x][y - i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -86,6 +95,9 @@ public class Rook extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x, y + i) != null) {
                 moves.add(genPiece(x, y + i));
+                if (Engine.getInstance().getBoard()[x][y + i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }

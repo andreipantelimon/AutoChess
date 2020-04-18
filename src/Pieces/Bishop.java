@@ -1,6 +1,7 @@
 package Pieces;
 
 import Main.BoardCell;
+import Main.Engine;
 import Main.Move;
 
 import java.util.ArrayList;
@@ -64,6 +65,9 @@ public class Bishop extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x + i, y + i) != null) {
                 moves.add(genPiece(x + i, y + i));
+                if (Engine.getInstance().getBoard()[x + i][y + i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -71,6 +75,9 @@ public class Bishop extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x - i, y - i) != null) {
                 moves.add(genPiece(x - i, y - i));
+                if (Engine.getInstance().getBoard()[x - i][y - i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -78,6 +85,9 @@ public class Bishop extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x - i, y + i) != null) {
                 moves.add(genPiece(x - i, y + i));
+                if (Engine.getInstance().getBoard()[x - i][y + i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
@@ -85,6 +95,9 @@ public class Bishop extends Piece {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x + i, y - i) != null) {
                 moves.add(genPiece(x + i, y - i));
+                if (Engine.getInstance().getBoard()[x + i][y - i].getPiece() != null) {
+                    break;
+                }
             } else {
                 break;
             }
