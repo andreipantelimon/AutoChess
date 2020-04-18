@@ -8354,3 +8354,150 @@ Rb1 {-0,15/2 0,1} Ra8 14. Ra1 {+0,00/2 0,1} Ra7 15. Rb1 {+0,00/2 0,1} Ra8
 16. Ra1 {+0,00/2 0,1} Ra7 17. Rb1 {+0,00/2 0,1}
 {Draw by repetition} 1/2-1/2
 
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "petru"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. e3 f6 2. Bd3 a6 3. g3 h6 4. Nh3 Ra7 5. Ng5 h5 6. h3 f5 7. Bc4 f4 8. Bf7#
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "fairymax"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 f5 {+0,04/2 0,1} 2. Bd2 c6 {+0,09/2 0,1} 3. g3 d5 {+0,02/2 0,1} 4.
+Nf3 Nd7 {-0,01/2 0,1} 5. Na3 Qb6 {-0,01/2 0,1} 6. Bg2 Qxb2 {+0,74/2 0,1} 7.
+Ba5 Qxa3 {+3,24/2 0,1} 8. Qd2 Ngf6 {+3,20/2 0,1} 9. Rb1 b6 {+3,92/2 0,1}
+10. Rb4 bxa5 {+6,16/2 0,1} 11. Kd1 axb4 {+10,65/2 0,1} 12. h3 g6
+{+10,73/2 0,1} 13. h4 c5 {+10,84/2 0,1} 14. h5 Nxh5 {+11,46/2 0,1} 15. Rg1
+Qxa2 {+12,14/2 0,1} 16. Qc1 Qa3 {+12,21/2 0,1} 17. Qb1 f4 {+12,25/2 0,1}
+{Xboard: Forfeit due to invalid move: b1b6 (b1b6 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 f6 {+0,12/2 0,1} 2. Bd2 c5 {+0,07/2 0,1} 3. g3 g6 {+0,01/2 0,1} 4.
+Nf3 Nc6 {+0,00/2 0,1} 5. Na3 Ne5 {-0,03/2 0,1} 6. Nd4 cxd4 {+2,38/2 0,1} 7.
+Qc1 d5 {+2,50/2 0,1} 8. b3 Bf5 {+2,58/2 0,1} 9. Kd1 Qb6 {+2,52/2 0,1} 10.
+Ke1 O-O-O {+2,69/2 0,1} 11. Kd1 Bg4 {+2,49/2 0,1} 12. Rb1 Bg7 {+2,55/2 0,1}
+13. Ra1 Re8 {+2,52/2 0,1} 14. Rb1 Rf8 {+2,52/2 0,1} 15. Ra1 Rf7
+{+2,52/2 0,1} 16. Rb1 Qc6 {+2,52/2 0,1} 17. Ba5 Nh6 {+2,55/2 0,1} 18. Kd2
+Qc5 {+2,56/2 0,1} 19. Ra1 Qxa5+ {+5,51/2 0,1} 20. c3 Nf5 {+5,61/2 0,1} 21.
+Rb1 Qxc3+ {+5,62/2 0,1} 22. Kd1 Nxd3 {+7,51/2 0,1} 23. Nc2 Nxf2#
+{+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 c5 {+0,10/2 0,1} 2. Qd2 h5 {+0,03/2 0,1} 3. Qe3 Qa5+ {+0,05/2 0,1}
+{Xboard: Forfeit due to invalid move: f2f3 (f2f3 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 f5 {+0,15/2 0,1} 2. Bf4 Nf6 {+0,10/2 0,1}
+{Xboard: Forfeit due to invalid move: b8g3 (b8g3 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 d5 {+0,12/2 0,1} 2. Nf3 Be6 {+0,14/2 0,1}
+{Xboard: Forfeit due to invalid move: e8g7 (e8g7 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 f5 {+0,07/2 0,1} 2. Bf4 b5 {+0,06/2 0,1}
+{Xboard: Forfeit due to invalid move: b8a7 (b8a7 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. Nc3 {+0,13/2} f6 2. f3 {+0,09/2 0,1} a6 3. Nh3 {+0,04/2 0,1}
+{xboard exit (Clocks: 305, 302)} *
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 f5 {+0,03/2 0,1} 2. Bf4 c5 {+0,11/2 0,1}
+{Xboard: Forfeit due to invalid move: b8g3 (b8g3 via `0, `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. f4 {+0,10/2} f6 2. a4 {+0,02/2 0,1} a6 3. Nc3 {+0,05/2 0,1} h6 4. Nf3
+{-0,02/2 0,1} Ra7 5. b4 {-0,09/2 0,1} Ra8 6. e4 {-0,09/2 0,1} f5 7. exf5
+{+0,49/2 0,1}
+{Xboard: Forfeit due to invalid move: f5f4 (f5f4 via `0, `0) res=24} 1-0
+
+[Event "Computer Chess Game"]
+[Site "petru-VirtualBox"]
+[Date "2020.04.18"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 Nc6 {+0,13/2 0,1} 2. e3 f6 {+0,08/2 0,1}
+{Xboard: Forfeit due to invalid move: c7a5 (c7a5 via `0, `0) res=24} 0-1
+
