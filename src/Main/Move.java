@@ -9,6 +9,11 @@ public class Move {
         score = -1;
     }
 
+    public Move(String s, double x) {
+        this.string = s;
+        this.score = x;
+    }
+
     public Move(Move m) {
         this.score = m.score;
         this.string = m.string;

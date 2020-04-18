@@ -61,28 +61,28 @@ public class Bishop extends Piece {
 
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             if (genPiece(x + i, y + i) != null) {
                 moves.add(genPiece(x + i, y + i));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             if (genPiece(x - i, y - i) != null) {
                 moves.add(genPiece(x - i, y - i));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             if (genPiece(x - i, y + i) != null) {
                 moves.add(genPiece(x - i, y + i));
             } else {
                 break;
             }
         }
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             if (genPiece(x + i, y - i) != null) {
                 moves.add(genPiece(x + i, y - i));
             } else {

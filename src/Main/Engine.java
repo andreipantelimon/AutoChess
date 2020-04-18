@@ -135,9 +135,6 @@ public class Engine {
     }
 
     public void generateAllMoves(ArrayList<Move> allMoves, String side) {
-        if (checkBoard() == -1) {
-            this.inCheck = true;
-        }
         if (side.equals(getSide())) {
             for (Piece p : enginePieces) {
                 allMoves.addAll(p.generateMove());
@@ -264,12 +261,13 @@ public class Engine {
     public double negamax(String nSide, int depth) {
 
         if (depth == 0) {
-            return evaluate(nSide);
+            return Utils.evaluate(nSide);
         }
 
         double max = Double.NEGATIVE_INFINITY;
 
         ArrayList<Move> moves = getAllCurrentMoves(nSide);
+        //System.out.println("# side: " + nSide + " moves: " + moves);
         for (Move move : moves) {
             applyMove(move);
 
@@ -295,13 +293,15 @@ public class Engine {
         return (getSide().equals("black")? 'B':'W');
     }
 
-    public String generateMove(int depth) {
+    public Move generateMove(int depth) {
         String bestMove = null;
         double score = Double.NEGATIVE_INFINITY;
 
         ArrayList<Move> moves = getAllCurrentMoves(getSide());
 
         double max = Double.NEGATIVE_INFINITY;
+
+        //System.out.println("# side: " + getSide() + " moves: " + moves);
 
         for (Move move : moves) {
             applyMove(move);
@@ -320,14 +320,16 @@ public class Engine {
                 bestMove = move.string;
             }
         }
-        return bestMove;
+        return new Move(bestMove, max);
     }
+
     public void startSearch() {
-        String bestMove = generateMove(3);
+        Move bestMove = generateMove(3);
         if (bestMove != null) {
-            printBoard();
-            System.out.println("move " + bestMove);
-            Utils.xboardMoves(board, bestMove);
+            System.out.println("move " + bestMove.string);
+            Utils.xboardMoves(board, bestMove.string);
+            System.out.println("# Max: " + bestMove.score);
+            //printBoard();
             clearRemains();
             resetArray(this.board, this.enginePieces, this.opponentPieces);
         } else {
@@ -407,6 +409,12 @@ public class Engine {
       }
 
       return 0;
+    }
+
+    public void printMoves() {
+        ArrayList<Move> moves = new ArrayList<>();
+        generateAllMoves(moves, getSide());
+        System.out.println("# Moves: " + moves);
     }
 
     public ArrayList<Piece> getEnginePieces() {

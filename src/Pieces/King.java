@@ -44,6 +44,75 @@ public class King extends Piece {
         }
     }
 
+    public boolean castlingRule() {
+        BoardCell[][] board = Engine.getInstance().getBoard();
+        //Small castling
+        if ((this.x == 7 || this.x == 0) && this.y == 4 && !this.hasMoved) {
+            if (board[x][y + 3].getPiece() != null) {
+                if (board[x][y + 1].getPiece() == null && board[x][y + 2].getPiece() == null
+                        && (board[x][y + 3].getPiece() instanceof Rook) && !board[x][y + 3].getPiece().getHasMoved()) {
+                    Piece start = board[x][y].getPiece();
+                    board[x][y + 1].setPiece(start);
+                    board[x][y].setPiece(null);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        Piece finalP = board[x][y + 1].getPiece();
+                        board[x][y].setPiece(finalP);
+                        board[x][y + 1].setPiece(null);
+                        return true;
+                    } else {
+                        Piece finalP = board[x][y + 1].getPiece();
+                        board[x][y].setPiece(finalP);
+                        board[x][y + 1].setPiece(null);
+                    }
+                }
+            }
+        }
+        //Big castling
+        if ((this.x == 7 || this.x == 0) && this.y == 4 && !this.hasMoved) {
+            if (board[x][y - 4].getPiece() != null) {
+                if (board[x][y - 1].getPiece() == null && board[x][y - 2].getPiece() == null && board[x][y - 3].getPiece() == null
+                        && (board[x][y - 4].getPiece() instanceof Rook) && !board[x][y - 4].getPiece().getHasMoved()) {
+                    Piece start = board[x][y].getPiece();
+                    board[x][y - 1].setPiece(start);
+                    board[x][y].setPiece(null);
+                    if (Engine.getInstance().checkBoard() != -1) {
+                        Piece finalP = board[x][y - 1].getPiece();
+                        board[x][y].setPiece(finalP);
+                        board[x][y - 1].setPiece(null);
+                        return true;
+                    } else {
+                        Piece finalP = board[x][y - 1].getPiece();
+                        board[x][y].setPiece(finalP);
+                        board[x][y - 1].setPiece(null);
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public Move castling(int lastx, int lasty) {
+        Move move = new Move();
+        if (castlingRule() && checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
+            if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
+                Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
+                Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
+                Engine.getInstance().getBoard()[x][y].setPiece(null);
+                if (Engine.getInstance().checkBoard() != -1) {
+                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+                    return move;
+                } else {
+                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+                }
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Move> generateMove() {
         moves.clear();
 
@@ -55,6 +124,8 @@ public class King extends Piece {
         checkMove(genPiece(x + 1, y - 1), x + 1, y - 1);
         checkMove(genPiece(x -  1, y ), x - 1, y);
         checkMove(genPiece(x + 1, y), x + 1, y);
+        //checkMove(castling(x, y + 2), x, y + 2);
+        //checkMove(castling(x, y - 2), x, y - 2);
 
         return moves;
     }

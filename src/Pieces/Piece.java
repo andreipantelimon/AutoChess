@@ -11,11 +11,13 @@ public abstract class Piece {
     public int x;
     public int y;
     public char type;
+    public boolean hasMoved;
 
     public Piece(char color, int x, int y) {
         this.color = color;
         this.x = x;
         this.y = y;
+        this.hasMoved = false;
     }
 
     public Piece(char color, int x, int y, char type) {
@@ -23,6 +25,7 @@ public abstract class Piece {
         this.x = x;
         this.y = y;
         this.type = type;
+        this.hasMoved = false;
     }
 
     public Piece(Piece p) {
@@ -30,6 +33,7 @@ public abstract class Piece {
         this.x = p.x;
         this.y = p.y;
         this.type = p.type;
+        this.hasMoved = false;
     }
 
     public String toString() {
@@ -47,7 +51,7 @@ public abstract class Piece {
 
     public Move genPiece(int lastx, int lasty) {
         Move move = new Move();
-        if (checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
+        if (checkInTable(lastx, lasty)) {
             if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
                     Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
                     Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
@@ -82,40 +86,40 @@ public abstract class Piece {
             }
         }
 
-        if (checkInTable(lastx, lasty) && Engine.getInstance().inCheck) {
-            if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
-                Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
-                Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
-                Engine.getInstance().getBoard()[x][y].setPiece(null);
-                if (Engine.getInstance().checkBoard() != -1) {
-                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
-                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
-                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
-                    return move;
-                } else {
-                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
-                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
-                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
-                }
-            } else {
-                if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
-                    Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
-                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
-                    Engine.getInstance().getBoard()[x][y].setPiece(null);
-                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);
-                    if (Engine.getInstance().checkBoard() != -1) {
-                        move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
-                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
-                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
-                        return move;
-                    } else {
-                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
-                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
-                    }
-                }
-            }
-        }
+//        if (checkInTable(lastx, lasty) && Engine.getInstance().inCheck) {
+//            if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
+//                Piece start = Engine.getInstance().getBoard()[x][y].getPiece();
+//                Engine.getInstance().getBoard()[lastx][lasty].setPiece(start);
+//                Engine.getInstance().getBoard()[x][y].setPiece(null);
+//                if (Engine.getInstance().checkBoard() != -1) {
+//                    move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+//                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+//                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+//                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+//                    return move;
+//                } else {
+//                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+//                    Engine.getInstance().getBoard()[x][y].setPiece(finalP);
+//                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(null);
+//                }
+//            } else {
+//                if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color) {
+//                    Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
+//                    Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
+//                    Engine.getInstance().getBoard()[x][y].setPiece(null);
+//                    Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);
+//                    if (Engine.getInstance().checkBoard() != -1) {
+//                        move.string = toXboard(y) + (x + 1) + toXboard(lasty) + (lastx + 1);
+//                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+//                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
+//                        return move;
+//                    } else {
+//                        Engine.getInstance().getBoard()[lastx][lasty].setPiece(finalP);
+//                        Engine.getInstance().getBoard()[x][y].setPiece(startP);
+//                    }
+//                }
+//            }
+//        }
         return null;
     }
 
@@ -138,5 +142,13 @@ public abstract class Piece {
                 x == piece.x &&
                 y == piece.y &&
                 type == piece.type;
+    }
+
+    public boolean getHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved() {
+        this.hasMoved = true;
     }
 }

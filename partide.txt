@@ -10502,3 +10502,635 @@ c6 {+8,24/2 0,1} Kb6 25. Bd4+ {+8,76/2 0,1} Kc7 26. Qg2 {+8,34/2 0,1} Kd6
 {+15,63/2 0,1} Kd6 30. Qxd8+ {+18,42/2 0,1} Ke6 31. Bc4# {+1000,01/2 0,1}
 {Xboard adjudication: Checkmate} 1-0
 
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 Nc6 {+0,08/2 0,1} 2. Nf3 f6 {+0,09/2 0,1} 3. Ne4 d5 {+0,10/2 0,1} 4.
+Nfg5 h6 {+1,95/2 0,1} 5. a3 hxg5 {+2,69/2 0,1} 6. g3 dxe4 {+4,95/2 0,1} 7.
+b3 Bh3 {+5,21/2 0,1} 8. c3 Bxf1 {+5,32/2 0,1} 9. d3 Bg2 {+8,90/2 0,1} 10.
+dxe4 Qxd1+ {+11,91/2 0,1} 11. Kxd1 Bxh1 {+12,26/2 0,1} 12. Ke1 Bxe4
+{+12,68/2 0,1} 13. Kf1 Rxh2 {+13,18/2 0,1} 14. Kg1 Rh1# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. d4 {+0,15/2} a6 2. c3 {+0,08/2 0,1} a5 3. Nf3 {+0,09/2 0,1} a4 4. Bf4
+{+0,00/2 0,1} a3 5. Nxa3 {+0,62/2 0,1} b6 6. Nb5 {+0,76/2 0,1} d6 7. h4
+{+0,66/2 0,1} e6 8. g4 {+0,66/2 0,1} e5 9. dxe5 {+1,31/2 0,1} d5 10. Bh3
+{+1,35/2 0,1} d4 11. Nbxd4 {+2,16/2 0,1} b5 12. Nxb5 {+2,74/2 0,1} c6 13.
+Qxd8+ {+3,43/2 0,1} Kxd8 14. O-O-O+ {+3,11/2 0,1}
+{Xboard: Forfeit due to invalid move: f7f6 (f7f6 via `0) res=24} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 Nc6 {+0,07/2 0,1} 2. Nf3 f5 {+0,04/2 0,1} 3. Ne4 fxe4 {+2,61/2 0,1}
+4. Nh4 e6 {+2,59/2 0,1} 5. a3 Qxh4 {+5,02/2 0,1} 6. b3 Nf6 {+5,23/2 0,1} 7.
+c3 Bd6 {+5,22/2 0,1} 8. d3 exd3 {+5,72/2 0,1} 9. exd3 Be5 {+5,70/2 0,1} 10.
+h3 Bxc3+ {+7,02/2 0,1} 11. Ke2 Nd4+ {+10,34/2 0,1} 12. Ke3 Nd5#
+{+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "4"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. f4 {+0,15/2} a6 2. Nc3 {+0,05/2 0,1} a5 3. g4 {+0,04/2 0,1} a4 4. Nf3
+{-0,02/2 0,1} a3 5. bxa3 {+0,56/2 0,1} b6 6. Ne4 {+0,65/2 0,1} b5 7. c3
+{+0,73/2 0,1} b4 8. axb4 {+1,43/2 0,1} c6 9. Bg2 {+1,37/2 0,1} c5 10. bxc5
+{+2,04/2 0,1} d6 11. cxd6 {+2,20/2 0,1} e6 12. Ne5 {+3,49/2 0,1} f6 13.
+Nxf6+ {+4,07/2 0,1}
+{Black resigns} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. a3 g5 {+0,06/2 0,1} 2. b3 Nc6 {+0,13/2 0,1} 3. c3 f5 {+0,17/2 0,1} 4. f3
+Nf6 {+0,08/2 0,1} 5. h3 a5 {+0,00/2 0,1} 6. Kf2 b5 {+0,00/2 0,1} 7. Ke1 Ne5
+{+0,00/2 0,1} 8. Kf2 c5 {+0,00/2 0,1} 9. Ke1 Bg7 {-0,03/2 0,1} 10. Kf2 O-O
+{+0,20/2 0,1} 11. Ke1 Bb7 {-0,03/2 0,1} 12. Kf2 Bd5 {+0,08/2 0,1} 13. Ke1
+a4 {+0,06/2 0,1} 14. g3 Bxb3 {+6,34/2 0,1} 15. d3 Bxd1 {+6,53/2 0,1} 16.
+Kd2 Bb3 {+9,13/2 0,1} 17. Ke1 Bh6 {+9,10/2 0,1} 18. Kd2 Bd5 {+9,30/2 0,1}
+19. Ke3 g4+ {+12,23/2 0,1} 20. f4 Bxh1 {+13,27/2 0,1} 21. c4 bxc4
+{+14,34/2 0,1} 22. d4 Nd5+ {+15,35/2 0,1} 23. Kf2 cxd4 {+15,01/2 0,1} 24.
+e3 dxe3+ {+15,49/2 0,1} 25. Ke2 Nf3 {+16,99/2 0,1} 26. Kd1 Nxg1
+{+18,24/2 0,1} 27. Ke1 Qa5+ {+19,92/2 0,1} 28. Nd2 Nf3+ {+22,55/2 0,1} 29.
+Kd1 exd2 {+22,28/2 0,1} 30. h4 Nc3+ {+28,94/2 0,1} 31. Kc2 d1=Q+
+{+32,03/2 0,1} 32. Kb2 Qb3# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. Nf3 {+0,11/2} a6 2. d3 {+0,11/2 0,1} a5 3. c4 {+0,13/2 0,1} a4 4. Nc3
+{+0,63/2 0,1} a3 5. bxa3 {+0,47/2 0,1} b6 6. g4 {+0,66/2 0,1} b5 7. Nxb5
+{+1,30/2 0,1} Nc6 8. Bf4 {+1,58/2 0,1} Nf6 9. Nxc7+ {+7,29/2 0,1}
+{Black resigns} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. a3 f5 {+0,10/2 0,1} 2. b3 a5 {+0,03/2 0,1} 3. c3 Nf6 {+0,11/2 0,1} 4. f3
+Nc6 {+0,10/2 0,1} 5. h3 b5 {+0,00/2 0,1} 6. Kf2 e5 {+0,00/2 0,1} 7. Ke1 Bd6
+{+0,04/2 0,1} 8. Kf2 O-O {+0,20/2 0,1} 9. Ke1 Nd5 {-0,04/2 0,1} 10. Kf2
+Qh4+ {-0,04/2 0,1} 11. g3 Qh6 {-0,03/2 0,1} 12. Ke1 Qg5 {+0,06/2 0,1} 13.
+b4 Qxg3# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 f5 {+0,13/2 0,1} 2. Nf3 Nf6 {+0,13/2 0,1} 3. Ne4 fxe4 {+2,57/2 0,1}
+4. Nd4 c5 {+2,75/2 0,1} 5. a3 cxd4 {+4,97/2 0,1} 6. b3 Nc6 {+5,16/2 0,1} 7.
+c3 Nd5 {+5,16/2 0,1} 8. cxd4 Nxd4 {+5,08/2 0,1} 9. d3 Nc3 {+5,13/2 0,1} 10.
+dxe4 Nxd1 {+11,04/2 0,1} 11. Kd2 Nxb3+ {+15,52/2 0,1} 12. Ke1 Nxf2
+{+16,19/2 0,1} 13. Kxf2 Nxa1 {+15,99/2 0,1} 14. Kg1 d5 {+16,39/2 0,1} 15.
+exd5 Nb3 {+16,29/2 0,1} 16. e3 Nxc1 {+18,36/2 0,1} 17. g3 Qxd5
+{+19,20/2 0,1} 18. h3 Qb3 {+19,88/2 0,1} 19. a4 Qxe3+ {+20,26/2 0,1} 20.
+Kh2 Qd2+ {+20,09/2 0,1} 21. Kg1 Qd4+ {+20,85/2 0,1} 22. Kh2 Qxa4
+{+20,69/2 0,1} 23. Kg1 Qd4+ {+21,00/2 0,1} 24. Kh2 Bf5 {+20,83/2 0,1} 25.
+Kg2 Be4+ {+22,50/2 0,1} 26. Kh2 Qf2+ {+23,64/2 0,1}
+{White resigns} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. a3 a6 2. b3 a5 3. c3 a4 4. d3 b6 5. e3 b5 6. f3 b4 7. g3 c6 8. h3 c5 9.
+bxa4 b3 10. Qxb3 c4 11. Qxc4 d6 12. d4 d5 13. Qxd5 e6 14. e4 e5 15. dxe5 f6
+16. f4 f5 17. exf5 g6 18. g4 g5 19. fxg5 h6 20. h4 h5 21. gxh5 Ke7 22. f6+
+Ke8 23. Nf3 Na6 24. Nbd2 Nb8 25. Bb2 Na6 26. Qa5 Nb8 27. Qxa8 Kd7 28. Qxb8
+Ke6 29. Qxc8+ Kd5 30. f7 Nh6 31. gxh6
+{Black resigns} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 a6 2. e3 a5 3. c3 a4 4. b3 a3 5. Nxa3 b6 6. b4 b5 7. Nxb5 c6 8. f3 c5
+9. bxc5 d6 10. d4 d5 11. e4 e6 12. f4 e5 13. g3 g6 14. g4 g5 15. fxe5 h6
+16. Nd6+ Ke7 17. Nxf7 Kd7 18. Nxg5 Ke7 19. Nh7 h5 20. Nxf8 h4 21. Ng6+ Kd7
+22. Nxh4 Ke7 23. Ng6+ Kd7 24. Nxh8 Ke6 25. Ng6 Kd7 26. Nh8 Ke6 27. Ng6 Kd7
+28. Nh8 Ke6 29. Ng6 Kd7 30. Nh8 Ke6 31. Ng6 Kd7 32. Nf3 Ke6 33. Nd2 dxe4
+34. Nxe4 Kd7 35. Rg1 Ke6 36. Qa4 Na6 37. Qxa6+ Kd7 38. Qxa8 Ke6 39. Qxc8+
+Kf7 40. Qxd8 Ke6 41. Qxg8+ Kd7 42. Qg7+ Ke6 43. Qe7+ Kd5 44. Qd7+ Kxe4 45.
+Qe7 Kd5 46. Qd7+ Ke4 47. Qe7 Kd5 48. Qd6+ Ke4 49. Qd5+ Kxd5 50. c4+ Ke6 51.
+d5+ Kd7 52. e6+ Ke8 53. d6 Kd8 54. d7 Kc7 55. c6 Kd8 56. e7+ Kc7 57. Ne5
+Kd6 58. Nf7+ Kxc6 59. Rb1 Kc5 60. Rb5+ Kc6 61. Rb8 Kc5 62. Rc8+ Kb6 63.
+Rb8+ Kc6 64. Rc8+ Kxd7 65. Rd8+ Kc7 66. Rd7+ Kc6 67. Rd6+ Kc7 68. Rd7+ Kc6
+69. Rd6+ Kc7 70. Rc6+ Kd7 71. Bd3 Ke8 72. Bh7 Kxf7 73. Bf5 Ke8 74. Bg6+
+Kxe7 75. Rf1 Kd8 76. Rf8+ Ke7 77. Ra6 Kxf8 78. Ra8+ Kg7 79. Ra7+ Kf6 80.
+Bg5+ Ke6 81. Bf4 Kf6 82. Bh7 Ke6 83. c5 Kf6 84. g5+ Ke6
+{xboard exit (Clocks: 341, 464)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 d5 {+0,08/2 0,1} 2. Ne4 dxe4 {+2,31/2 0,1} 3. Nh3 c6 {+2,72/2 0,1}
+4. a3 Bf5 {+2,58/2 0,1} 5. b3 Nd7 {+2,57/2 0,1} 6. c3 Ngf6 {+2,56/2 0,1} 7.
+d3 Nd5 {+2,52/2 0,1} 8. Kd2 Ne5 {+2,59/2 0,1} 9. Ke1 exd3 {+3,47/2 0,1} 10.
+Nf4 Nxc3 {+4,66/2 0,1} 11. e3 Nxd1 {+10,80/2 0,1} 12. Nd5 Qxd5
+{+14,17/2 0,1} 13. f3 Qxb3 {+16,46/2 0,1} 14. Kd2 Qc3+ {+18,65/2 0,1} 15.
+Kxd1 Qxa1 {+18,38/2 0,1} 16. Ke1 Qxc1+ {+22,24/2 0,1} 17. Kf2 Qd2+
+{+22,28/2 0,1} 18. Kg1 Qxe3# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 d6 {+0,12/2 0,1} 2. Nh3 Be6 {+0,08/2 0,1} 3. a3 f5 {+0,03/2 0,1} 4.
+b3 Nc6 {+0,00/2 0,1} 5. d3 Nf6 {-0,02/2 0,1} 6. Kd2 Nd5 {-0,02/2 0,1} 7.
+Ke1 Nxc3 {+2,54/2 0,1} 8. Kd2 Nxd1 {+8,85/2 0,1} 9. c3 Bxb3 {+11,65/2 0,1}
+10. Ke1 Nxc3 {+12,50/2 0,1} 11. Kd2 Nd5 {+12,53/2 0,1} 12. Ke1 a5
+{+12,56/2 0,1} 13. Kd2 e5 {+12,58/2 0,1} 14. Ke1 Be7 {+12,55/2 0,1} 15. Kd2
+O-O {+12,74/2 0,1} 16. Ke1 Nd4 {+12,53/2 0,1} 17. Kd2 Bf6 {+12,51/2 0,1}
+18. Ke1 Nc2+ {+16,89/2 0,1} 19. Kd1 Nxa1+ {+17,15/2 0,1} 20. Ke1 Nc2+
+{+17,43/2 0,1} 21. Kd1 Nxa3+ {+17,90/2 0,1} 22. Ke1 Nc2+ {+18,07/2 0,1} 23.
+Kd1 Nce3+ {+18,23/2 0,1} 24. Ke1 Nxf1 {+18,29/2 0,1} 25. e3 e4
+{+19,42/2 0,1} 26. Ke2 exd3+ {+19,79/2 0,1} 27. Kf3 Bd1# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c3 a6
+{xboard exit (Clocks: 300, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "Fairy-Max 5.0b"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. a3
+{xboard exit (Clocks: 302, 298)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. a3 a6 2. b3 a5 3. c3 a4 4. d3 axb3 5. e3 b2 6. f3 bxa1=Q 7. g3 b6 8. h3
+b5 9. c4 bxc4 10. d4 c3 11. e4 c2 12. f4 cxd1=Q+ 13. Kxd1 c6 14. g4 c5 15.
+dxc5 d6 16. e5 dxc5+ 17. Ke1 c4 18. f5 c3
+{xboard exit (Clocks: 308, 335)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. a3 a6 2. b3 a5 3. c3 a4 4. bxa4 b6 5. d3 b5 6. e3 bxa4 7. f3 c6 8. g3 c5
+9. h3 c4 10. dxc4 d6 11. Qxa4+ Nd7 12. e4 d5 13. exd5 e6 14. dxe6 fxe6 15.
+f4 e5 16. fxe5 g6 17. g4 g5 18. h4 gxh4 19. Rxh4 h6 20. Rxh6 Nxh6 21. Be2
+Nxg4 22. Bxg4 Kf7
+{xboard exit (Clocks: 316, 343)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 Nf6 {+0,11/2 0,1} 2. Rb1 Nc6 {+0,10/2 0,1} 3. Ra1 d5 {+0,06/2 0,1}
+4. Rb1 Bf5 {+0,00/2 0,1} 5. Ra1 e5 {-0,07/2 0,1} 6. Rb1 Bd6 {-0,03/2 0,1}
+7. Ra1 O-O {+0,13/2 0,1} 8. Rb1 a5 {-0,07/2 0,1} 9. Ra1 h5 {-0,07/2 0,1}
+10. Rb1 d4 {-0,07/2 0,1} 11. Ra1 dxc3 {+1,61/2 0,1} 12. Rb1 Nb4
+{+2,44/2 0,1} 13. Ra1 Nxc2+ {+8,29/2 0,1}
+{White resigns} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 f5 {+0,15/2 0,1} 2. Rb1 Nc6 {+0,09/2 0,1} 3. Ra1 d5 {+0,04/2 0,1} 4.
+Rb1 d4 {+0,02/2 0,1} 5. Ra1 dxc3 {+1,62/2 0,1} 6. Rb1 Qd5 {+2,48/2 0,1} 7.
+Ra1 cxb2 {+2,41/2 0,1} 8. Rb1 bxc1=Q {+6,26/2 0,1} 9. Rb2 Qdxd2#
+{+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 d5 {+0,15/2 0,1} 2. Nf3 Be6 {+0,07/2 0,1} 3. Rb1 d4 {+0,44/2 0,1} 4.
+Rg1 dxc3 {+1,62/2 0,1} 5. Nd4 Qxd4 {+4,33/2 0,1} 6. bxc3 Qh4 {+4,38/2 0,1}
+7. Rxb7 Qxh2 {+6,28/2 0,1} 8. Rxc7 Qxg1 {+8,06/2 0,1} 9. Rxe7+ Nxe7
+{+11,85/2 0,1} 10. Bb2 Bd5 {+12,28/2 0,1} 11. a4 Bxg2 {+15,33/2 0,1} 12.
+Ba1 Qxf1# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "1/2-1/2"]
+[TimeControl "300+2"]
+
+1. Nc3 c6 {+0,13/2 0,1} 2. Rb1 d6 {+0,10/2 0,1} 3. Ra1 h6 {+0,01/2 0,1} 4.
+Rb1 Bf5 {+0,00/2 0,1} 5. Ra1 Bc8 {+0,00/2 0,1} 6. Rb1 Bf5 {+0,00/2 0,1} 7.
+Ra1 Bc8 {+0,00/2 0,1} 8. Rb1 Bf5 {+0,00/2 0,1}
+{Draw by repetition} 1/2-1/2
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. c4 {+0,13/2} a5 2. d4 {+0,09/2 0,1} a4 3. Nc3 {+0,15/2 0,1} a3 4. bxa3
+{+0,47/2 0,1} b5 5. Nxb5 {+1,29/2 0,1} c5 6. dxc5 {+1,95/2 0,1} d5 7. Qxd5
+{+2,91/2 0,1} e5 8. Qxa8 {+7,25/2 0,1} e4 9. Qxb8 {+9,23/2 0,1} e3 10. Bxe3
+{+10,74/2 0,1} f5 11. Nd6+ {+11,64/2 0,1} Kd7 12. c6+ {+12,23/2 0,1} Ke7
+13. Nxc8+ {+14,89/2 0,1} Kf7 14. c7 {+14,88/2 0,1} f4 15. cxd8=Q
+{+27,24/2 0,1} f3 16. Qb7+ {+31,97/2 0,1} Kg6 17. Qg5# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "1/2-1/2"]
+[TimeControl "300+2"]
+
+1. Nc3 c6 {+0,12/2 0,1} 2. Rb1 f6 {+0,12/2 0,1} 3. Ra1 d6 {+0,04/2 0,1} 4.
+Rb1 Bf5 {+0,00/2 0,1} 5. Ra1 Bc8 {+0,00/2 0,1} 6. Rb1 Bf5 {+0,00/2 0,1} 7.
+Ra1 Bc8 {+0,00/2 0,1} 8. Rb1 Bf5 {+0,00/2 0,1}
+{Draw by repetition} 1/2-1/2
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. Nc3 d6 {+0,10/2 0,1} 2. Rb1 Nf6 {+0,12/2 0,1} 3. Ra1 Nc6 {+0,14/2 0,1}
+4. Rb1 Ng8 {+0,02/2 0,1} 5. Ra1 Bf5 {+0,00/2 0,1} 6. Rb1 Bc8 {+0,00/2 0,1}
+7. Ra1 Nb8 {+0,00/2 0,1} 8. Rb1 Nd7 {+0,06/2 0,1} 9. Ra1 c5 {+0,00/2 0,1}
+10. Rb1 Ngf6 {-0,02/2 0,1} 11. Ra1 Ne5 {-0,08/2 0,1} 12. Rb1 Bf5
+{+0,00/2 0,1} 13. Ra1 Bc8 {+0,00/2 0,1}
+{xboard exit (Clocks: 311, 324)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 f5 {+0,12/2 0,1} 2. Nf3 c6 {+0,07/2 0,1} 3. Rb1 Nf6 {+0,00/2 0,1} 4.
+Rg1 b5 {-0,09/2 0,1} 5. Nd4 b4 {+0,00/2 0,1} 6. b3 bxc3 {+1,75/2 0,1} 7.
+Rb2 cxb2 {+6,11/2 0,1} 8. a4 b1=Q {+13,99/2 0,1} 9. Bb2 Qxb2 {+17,07/2 0,1}
+10. d3 Qc3+ {+20,39/2 0,1} 11. Qd2 Qxd4 {+20,28/2 0,1} 12. Kd1 Qxf2
+{+21,14/2 0,1} 13. Kc1 Qxg1 {+25,58/2 0,1} 14. Kb1 Qxf1+ {+29,27/2 0,1} 15.
+Qc1 Qxg2 {+29,78/2 0,1} 16. Ka1 g6 {+29,99/2 0,1} 17. Kb1 Qxe2
+{+29,96/2 0,1} 18. c4 Qxd3+ {+30,70/2 0,1} 19. Ka1 Qxb3 {+32,14/2 0,1} 20.
+Qc2 Qxc2 {+40,65/2 0,1} 21. h4 Qxc4 {+41,35/2 0,1} 22. Kb1 Qxa4
+{+42,16/2 0,1} 23. h5 Qd1+ {+42,16/2 0,1} 24. Ka2 g5 {+42,18/2 0,1} 25. h6
+a5 {+42,24/2 0,1} 26. Ka3 d5 {+42,28/2 0,1} 27. Ka2 Nbd7 {+42,31/2 0,1} 28.
+Ka3 d4 {+42,31/2 0,1} 29. Kb2 d3 {+42,78/2 0,1} 30. Ka3 d2 {+43,46/2 0,1}
+31. Ka2 Ne5 {+43,52/2 0,1} 32. Ka3 Be6 {+43,63/2 0,1} 33. Kb2 Qc1#
+{+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. Nc3 {+0,11/2} b5 2. Nxb5 {+0,53/2 0,1} c5 3. Nf3 {+0,87/2 0,1} c4 4. d3
+{+0,87/2 0,1} c3 5. Nxc3 {+1,36/2 0,1} d5 6. Bf4 {+1,48/2 0,1} d4 7. Ne4
+{+1,39/2 0,1} e5 8. Nxe5 {+2,10/2 0,1} f5 9. Bg5 {+2,06/2 0,1} Qxg5 10.
+Nxg5 {+7,59/2 0,1} f4 11. c3 {+7,85/2 0,1} f3 12. Ngxf3 {+8,65/2 0,1} a5
+13. Nxd4 {+9,13/2 0,1} a4 14. f4 {+9,21/2 0,1} a3 15. bxa3 {+9,24/2 0,1}
+{Xboard: Forfeit due to invalid move: a8a1 (a8a1 via `0) res=24} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 f5 {+0,15/2 0,1} 2. Nf3 Nc6 {+0,06/2 0,1} 3. Rb1 e5 {+0,03/2 0,1} 4.
+Rg1 e4 {+1,41/2 0,1} 5. Nxe4 fxe4 {+3,27/2 0,1} 6. a4 Bd6 {+3,44/2 0,1} 7.
+b4 exf3 {+3,54/2 0,1} 8. Rb2 Bxh2 {+5,70/2 0,1} 9. exf3 Qe7+ {+8,79/2 0,1}
+10. Qe2 Bxg1 {+8,81/2 0,1} 11. Qe3 a5 {+9,02/2 0,1} 12. bxa5 Qxe3+
+{+9,02/2 0,1} 13. Kd1 Qxf2 {+18,02/2 0,1} 14. Rxb7 Qxf1# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.18"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. Nc3 Nc6 {+0,12/2 0,1} 2. Nf3 Nf6 {+0,13/2 0,1} 3. Rb1 d6 {+0,09/2 0,1}
+4. Rg1 Bf5 {+0,00/2 0,1}
+{xboard exit (Clocks: 302, 307)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 a5 {+0,06/2 0,1} 2. Nf3 f6 {+0,08/2 0,1} 3. Rb1 c5 {+0,02/2 0,1} 4.
+Rg1 Nc6 {+0,02/2 0,1} 5. Ne4 b6 {-0,11/2 0,1} 6. a4 d5 {+0,02/2 0,1} 7. b4
+dxe4 {+2,59/2 0,1} 8. Rb2 exf3 {+5,00/2 0,1} 9. exf3 axb4 {+5,12/2 0,1}
+{Xboard: Forfeit due to invalid move: b2b7 (b2b7 via `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. d4 {+0,15/2} b5 2. a4 {+0,13/2 0,1} bxa4 3. Bf4 {+0,09/2 0,1} a3 4. Nxa3
+{-0,12/2 0,1} c5 5. dxc5 {+0,47/2 0,1} d5 6. Nf3 {+0,72/2 0,1} d4 7. Nxd4
+{+1,36/2 0,1}
+{Xboard: Forfeit due to invalid move: d8d1 (d8d1 via `0) res=24} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "3"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 c5 {+0,14/2 0,1} 2. Nf3 f5 {+0,12/2 0,1} 3. Rb1 Nf6 {+0,13/2 0,1} 4.
+Rg1 Nc6 {+0,00/2 0,1} 5. Ne4 fxe4 {+2,51/2 0,1} 6. Nd4 Nxd4 {+5,07/2 0,1}
+7. a4 b5 {+5,18/2 0,1} 8. axb5 Qc7 {+5,00/2 0,1} 9. b4 Qxh2 {+7,68/2 0,1}
+10. Rb2 Qxg1 {+8,90/2 0,1} 11. bxc5 e5 {+8,81/2 0,1} 12. Rb3 Nxb3
+{+11,44/2 0,1} 13. c4 Nxc1 {+14,37/2 0,1} 14. Qb3 Nxb3 {+25,03/2 0,1} 15.
+Kd1 Qxf1+ {+28,72/2 0,1} 16. Kc2 Nxc5 {+29,14/2 0,1} 17. Kb2 Qxf2
+{+29,81/2 0,1} 18. Ka1 Qxg2 {+30,57/2 0,1} 19. d3 e3 {+31,20/2 0,1} 20. b6
+axb6+ {+32,07/2 0,1} 21. Kb1 Qxe2 {+32,78/2 0,1} 22. Kc1 Ra1#
+{+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 f6 {+0,13/2 0,1} 2. Nf3 c6 {+0,12/2 0,1} 3. Rb1 Qa5 {+0,00/2 0,1} 4.
+Rg1 b5 {-0,09/2 0,1} 5. Ne4 Qxa2 {+0,79/2 0,1} 6. Nd4 Qxb1 {+5,03/2 0,1} 7.
+b4 d5 {+5,94/2 0,1} 8. Bb2 Qxb2 {+8,93/2 0,1} 9. d3 dxe4 {+10,79/2 0,1} 10.
+Kd2 Qxd4 {+13,89/2 0,1} 11. Qe1 Qxb4+ {+13,98/2 0,1} 12. c3 Qa4
+{+13,98/2 0,1} 13. Kc1 Qa1+ {+14,41/2 0,1} 14. Kc2 Qxe1 {+22,47/2 0,1} 15.
+Rh1 exd3+ {+23,16/2 0,1} 16. Kb2 dxe2 {+27,62/2 0,1} 17. Ka2 Qd2+
+{+31,88/2 0,1} 18. Kb1 e1=Q# {+1000,01/2 0,1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. Nc3 Nf6 {+0,12/2 0,1} 2. Nf3 d5 {+0,11/2 0,1} 3. Rb1 Nc6 {+0,14/2 0,1}
+4. Rg1 Bf5 {+0,00/2 0,1} 5. Nxd5 Qxd5 {+1,79/2 0,1} 6. Ne5 Qxa2
+{+4,49/2 0,1} 7. Nd3 Qxb1 {+6,87/2 0,1} 8. Ne5 Bxc2 {+13,22/2 0,1}
+{Xboard: Forfeit due to invalid move: d1b3 (d1b3 via `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. f3 {+0,13/2} b5 2. Na3 {+0,04/2 0,1} b4 3. Nc4 {+0,12/2 0,1} b3 4. axb3
+{+0,70/2 0,1} c5 5. d4 {+0,74/2 0,1} d5 6. Ne3 {+0,79/2 0,1} c4 7. bxc4
+{+1,34/2 0,1}
+{xboard exit (Clocks: 313, 304)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. b4 d6 {+0,11/2 0,1} 2. Bb2 Bf5 {+0,12/2 0,1}
+{Xboard: Forfeit due to invalid move: b2h8 (b2h8 via `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "2"]
+[White "Fairy-Max 5.0b"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+
+1. Nc3 {+0,09/2} a5 2. f3 {+0,12/2 0,1} a4 3. Nd5 {+0,05/2 0,1} Ra7 4. c4
+{+0,00/2 0,1} Nc6 5. g4 {-0,07/2 0,1} Nf6 6. d4 {-0,07/2 0,1} Ne4 7. fxe4
+{+2,40/2 0,1} Rg8 8. Bf4 {+2,60/2 0,1} a3 9. Nxc7+ {+7,09/2 0,1} --
+{Error: first chess program (make run) exited unexpectedly} 1-0
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "1"]
+[White "make"]
+[Black "Fairy-Max 5.0b"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. b4 d6 {+0,12/2 0,1} 2. Bb2 Nc6 {+0,16/2 0,1}
+{Xboard: Forfeit due to invalid move: b2h8 (b2h8 via `0) res=24} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "0-1"]
+[TimeControl "300+2"]
+
+1. d3 a5 2. e3 a4 3. f3 a3 4. bxa3 Nc6 5. c3 Nf6 6. d4 Ra7 7. a4 Nxd4 8.
+cxd4 Rg8 9. e4 Nxe4 10. fxe4 Rxa4 11. Qxa4 b6 12. d5 c5 13. Nf3 c4 14. Qxc4
+b5 15. Qxb5 g5 16. Nxg5 Rg7 17. Nxh7 Rg3 18. Nxf8 Rg7 19. Bc4 Qc7 20. d6
+Qxd6 21. e5 Qd4 22. a4 Qd6 23. g4 Qd4 24. Qxd7+ Kxf8 25. Qxc8+ --
+{Error: first chess program (make run) exited unexpectedly} 0-1
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4 a5 2. b4 a4 3. a3 b5 4. cxb5 c5 5. bxc5 d5 6. d3 d4 7. e3 dxe3 8.
+fxe3 e5 9. e4
+{xboard exit (Clocks: 308, 283)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4 a5 2. e4 a4 3. g4 a3
+{xboard exit (Clocks: 185, 302)} *
+
+[Event "Computer Chess Game"]
+[Site "k1r0n-VirtualBox"]
+[Date "2020.04.19"]
+[Round "-"]
+[White "k1r0n"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d4 b5 2. e4 b4 3. c3 b3 4. axb3 c5 5. dxc5 d5 6. exd5
+{xboard exit (Clocks: 305, 291)} *
+

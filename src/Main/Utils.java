@@ -28,6 +28,7 @@ public class Utils {
 
         if (move.length() == 4) {
             if (board[startXPos][startYPos].getPiece() != null) {
+                board[startXPos][startYPos].getPiece().setHasMoved();
                 Piece tempPiece = board[startXPos][startYPos].getPiece();
 
                 board[startXPos][startYPos].setPiece(null);

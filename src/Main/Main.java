@@ -85,6 +85,8 @@ public class Main {
 
             } else if (input.equals(".")) {
                 continue;
+            } else if (input.equals("printmoves")) {
+                Engine.getInstance().printMoves();
             } else {
                 System.out.println("Error (unknown): " + input + " " + Engine.getInstance().getSide());
             }
