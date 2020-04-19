@@ -127,7 +127,15 @@ public class Engine {
 
     public boolean checkMate(String side) {
         ArrayList<Move> moves = new ArrayList<>();
+//        if (side.equals("black")) {
+//            side = "white";
+//        } else {
+//            if (side.equals("white")) {
+//                side = "black";
+//            }
+//        }
         generateAllMoves(moves, side);
+        //System.out.println("%%%%% MOVES = " + moves);
         if (moves.size() == 0) {
             System.out.println("SAH MAT ATEILOR");
             return true;
@@ -268,7 +276,7 @@ public class Engine {
         double max = Double.NEGATIVE_INFINITY;
 
         ArrayList<Move> moves = getAllCurrentMoves(nSide);
-        //System.out.println("# side: " + nSide + " moves: " + moves);
+        System.out.println("# NEGAMAX side: " + nSide + " moves: " + moves);
         for (Move move : moves) {
             applyMove(move);
 
@@ -302,11 +310,11 @@ public class Engine {
 
         double max = Double.NEGATIVE_INFINITY;
 
-        //System.out.println("# side: " + getSide() + " moves: " + moves);
+        System.out.println("# side: " + getSide() + " moves: " + moves);
 
         for (Move move : moves) {
             applyMove(move);
-
+            System.out.println("# side: " + getSide() + " moves: " + moves);
             if (getSide().equals("black")) {
                 score = - negamax("white", depth - 1);
             }
@@ -325,7 +333,8 @@ public class Engine {
     }
 
     public void startSearch() {
-        Move bestMove = generateMove(3);
+        Move bestMove = generateMove(2);
+        System.out.println("move " + bestMove);
         if (bestMove.string != null) {
             System.out.println("move " + bestMove.string);
             Utils.xboardMoves(board, bestMove.string);
@@ -368,6 +377,7 @@ public class Engine {
         ArrayList<Move> allMoves = new ArrayList<Move>();
         resetArray(this.board, this.enginePieces, this.opponentPieces);
         generateAllMoves(allMoves, side);
+       // System.out.println("ALLMOVES: " + allMoves);
         return allMoves;
     }
 
