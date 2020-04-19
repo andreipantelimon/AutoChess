@@ -12,15 +12,16 @@ public class Queen extends Piece {
 
     @Override
     public Boolean check(BoardCell[][] board) {
-        return multipleCheck(1, 0) ||
+        boolean x = multipleCheck(1, 0) ||
                 multipleCheck(-1, 0) ||
                 multipleCheck(0, 1) ||
-                multipleCheck(0, -1) ||
-                multipleCheck(1, 1) ||
+                multipleCheck(0, -1);
+
+        boolean y = multipleCheck(1, 1) ||
                 multipleCheck(1, -1) ||
                 multipleCheck(-1, 1) ||
                 multipleCheck(-1, -1);
-
+        return x || y;
     }
 
     public ArrayList<Move> generateMove() {

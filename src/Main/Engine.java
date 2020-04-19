@@ -267,59 +267,26 @@ public class Engine {
         resetArray(board, enginePieces, opponentPieces);
     }
 
-    public double negamax(String nSide, int depth) {
+    public Move negamax(String nSide, int depth) {
+        String bestMove = null;
 
         if (depth == 0) {
-            return Utils.evaluate(nSide);
+            return new Move(Utils.evaluate(nSide));
         }
 
         double max = Double.NEGATIVE_INFINITY;
 
         ArrayList<Move> moves = getAllCurrentMoves(nSide);
-        System.out.println("# NEGAMAX side: " + nSide + " moves: " + moves);
+        //System.out.println("# NEGAMAX side: " + nSide + " moves: " + moves);
         for (Move move : moves) {
             applyMove(move);
 
             double score = Double.NEGATIVE_INFINITY;
             if (nSide.equals("black")) {
-                score = - negamax("white", depth - 1);
+                score = - negamax("white", depth - 1).score;
             }
             if (nSide.equals("white")) {
-                score = - negamax("black", depth - 1);
-            }
-
-            undoMove(move);
-
-            if (score > max) {
-                max = score;
-            }
-        }
-
-        return max;
-    }
-
-    public char getColor() {
-        return (getSide().equals("black")? 'B':'W');
-    }
-
-    public Move generateMove(int depth) {
-        String bestMove = null;
-        double score = Double.NEGATIVE_INFINITY;
-
-        ArrayList<Move> moves = getAllCurrentMoves(getSide());
-
-        double max = Double.NEGATIVE_INFINITY;
-
-        System.out.println("# side: " + getSide() + " moves: " + moves);
-
-        for (Move move : moves) {
-            applyMove(move);
-            System.out.println("# side: " + getSide() + " moves: " + moves);
-            if (getSide().equals("black")) {
-                score = - negamax("white", depth - 1);
-            }
-            if (getSide().equals("white")) {
-                score = - negamax("black", depth - 1);
+                score = - negamax("black", depth - 1).score;
             }
 
             undoMove(move);
@@ -329,12 +296,17 @@ public class Engine {
                 bestMove = move.string;
             }
         }
+
         return new Move(bestMove, max);
     }
 
+    public char getColor() {
+        return (getSide().equals("black")? 'B':'W');
+    }
+
     public void startSearch() {
-        Move bestMove = generateMove(2);
-        System.out.println("move " + bestMove);
+        Move bestMove = negamax(getSide(), 3);
+        //System.out.println("move " + bestMove);
         if (bestMove.string != null) {
             System.out.println("move " + bestMove.string);
             Utils.xboardMoves(board, bestMove.string);
@@ -416,7 +388,7 @@ public class Engine {
                         return 1;
                     }
                     if ((board[i][j].getPiece().color != getColor()) && board[i][j].getPiece().check(board)) {
-                        //System.out.println("Piesa care ar da sah este :" + board[i][j].getPiece());
+                        System.out.println("Piesa care ar da sah este :" + board[i][j].getPiece());
                         return -1;
                     }
                 }
