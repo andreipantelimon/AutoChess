@@ -12,17 +12,27 @@ public class Queen extends Piece {
 
     @Override
     public Boolean check(BoardCell[][] board) {
-        Bishop bishop = new Bishop(this.color, this.x, this. y);
-        Rook rook = new Rook(this.color, this.x, this.y);
-        return bishop.check(board) || rook.check(board);
+        return multipleCheck(1, 0) ||
+                multipleCheck(-1, 0) ||
+                multipleCheck(0, 1) ||
+                multipleCheck(0, -1) ||
+                multipleCheck(1, 1) ||
+                multipleCheck(1, -1) ||
+                multipleCheck(-1, 1) ||
+                multipleCheck(-1, -1);
+
     }
 
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        Bishop bishop = new Bishop(this.color, this.x, this. y);
-        Rook rook = new Rook(this.color, this.x, this.y);
-        moves.addAll(bishop.generateMove());
-        moves.addAll(rook.generateMove());
+        multipleMove(moves, 1, 1);
+        multipleMove(moves, 1, -1);
+        multipleMove(moves, -1, -1);
+        multipleMove(moves, -1, 1);
+        multipleMove(moves, 1, 0);
+        multipleMove(moves, -1, 0);
+        multipleMove(moves,0, 1);
+        multipleMove(moves,0, -1);
         return moves;
     }
 }

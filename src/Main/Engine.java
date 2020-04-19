@@ -129,6 +129,7 @@ public class Engine {
         ArrayList<Move> moves = new ArrayList<>();
         generateAllMoves(moves, side);
         if (moves.size() == 0) {
+            System.out.println("SAH MAT ATEILOR");
             return true;
         }
         return false;
@@ -333,6 +334,8 @@ public class Engine {
             clearRemains();
             resetArray(this.board, this.enginePieces, this.opponentPieces);
         } else {
+            //System.out.println("# RESIGN MAP: ");
+            printBoard();
             System.out.println("resign");
         }
     }
@@ -399,10 +402,11 @@ public class Engine {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j].getPiece() != null) {
-                    if (board[i][j].getPiece().color == getColor() && board[i][j].getPiece().check(board)) {
+                    if ((board[i][j].getPiece().color == getColor()) && board[i][j].getPiece().check(board)) {
                         return 1;
                     }
-                    if (board[i][j].getPiece().color != getColor() && board[i][j].getPiece().check(board)) {
+                    if ((board[i][j].getPiece().color != getColor()) && board[i][j].getPiece().check(board)) {
+                        //System.out.println("Piesa care ar da sah este :" + board[i][j].getPiece());
                         return -1;
                     }
                 }

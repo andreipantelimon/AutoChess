@@ -64,8 +64,8 @@ public abstract class Piece {
         BoardCell[][] board = Engine.getInstance().getBoard();
         for (int i = 1; i < 8; i++) {
             if (checkInTable(x + signX * i, y + signY * i)) {
-                if (board[x + signX * i][y + signY * i].piece != null) {
-                    if ((board[x + signX * i][y + signY * i].piece instanceof King) && board[x + signX * i][y + signY * i].piece.color != this.color) {
+                if (board[x + signX * i][y + signY * i].getPiece() != null) {
+                    if ((board[x + signX * i][y + signY * i].getPiece() instanceof King) && board[x + signX * i][y + signY * i].getPiece().color != this.color) {
                         return true;
                     } else {
                         break;
