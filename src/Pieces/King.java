@@ -16,10 +16,31 @@ public class King extends Piece {
     public Boolean check(BoardCell[][] board) {
         return false;
     }
-
+    private boolean checkKing( int nextx, int nexty) {
+        BoardCell[][] board = Engine.getInstance().getBoard();
+        if (checkInTable(nextx, nexty)) {
+            if (board[nextx][nexty].getPiece() != null) {
+                if ((board[nextx][nexty].getPiece() instanceof King) && board[nextx][nexty].getPiece().color != this.color) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean isLegal(int lastx, int lasty) {
+        return (!checkKing(lastx + 1, lasty) &&
+                !checkKing(lastx + 1, lasty + 1) &&
+                !checkKing(lastx + 1, lasty - 1) &&
+                !checkKing(lastx, lasty + 1) &&
+                !checkKing(lastx, lasty - 1) &&
+                !checkKing(lastx - 1, lasty) &&
+                !checkKing(lastx - 1, lasty + 1) &&
+                !checkKing(lastx - 1, lasty - 1));
+    }
     private void checkMove(Move move, int lastx, int lasty) {
         if (move != null) {
-            if (checkInTable(lastx, lasty)) {
+            //System.out.println(move);
+            if (checkInTable(lastx, lasty) && isLegal(lastx, lasty)) {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
                     Engine.getInstance().getBoard()[x][y].setPiece(null);
                     Engine.getInstance().getBoard()[lastx][lasty].setPiece(this);
@@ -124,8 +145,8 @@ public class King extends Piece {
         checkMove(genPiece(x + 1, y - 1), x + 1, y - 1);
         checkMove(genPiece(x -  1, y ), x - 1, y);
         checkMove(genPiece(x + 1, y), x + 1, y);
-        //checkMove(castling(x, y + 2), x, y + 2);
-        //checkMove(castling(x, y - 2), x, y - 2);
+        checkMove(castling(x, y + 2), x, y + 2);
+        checkMove(castling(x, y - 2), x, y - 2);
 
         return moves;
     }

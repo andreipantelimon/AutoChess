@@ -7,7 +7,7 @@ public class Evaluation {
     int rookValue = 500;
     int queenValue = 900;
     int kingValue = 20000;
-    int[][] pawnEvalWhite = {
+    int[][] pawnEvalBlack = {
             {0, 0, 0, 0, 0, 0, 0, 0},
             {50, 50, 50, 50, 50, 50, 50, 50},
             {10, 10, 20, 30, 30, 20, 10, 10},
@@ -17,7 +17,7 @@ public class Evaluation {
             {5, 10, 10, -20, -20, 10, 10, 5},
             {0, 0, 0, 0, 0, 0, 0, 0}
     };
-    int[][] pawnEvalBlack = reverseArray(pawnEvalWhite);
+    int[][] pawnEvalWhite = reverseArray(pawnEvalBlack);
     int[][] horseEval = {
             {-50, -40, -30, -30, -30, -30, -40, -50},
             {-40, -20, 0, 0, 0, 0, -20, -40},
@@ -28,7 +28,7 @@ public class Evaluation {
             {-40, -20, 0, 5, 5, 0, -20, -40},
             {-50, -40, -30, -30, -30, -30, -40, -50}
     };
-    int [][] bishopEvalWhite = {
+    int [][] bishopEvalBlack = {
             {-20,-10,-10,-10,-10,-10,-10,-20},
             {-10,0,0,0,0,0,0,-10},
             {-10,0,5,10,10,5,0,-10},
@@ -39,8 +39,8 @@ public class Evaluation {
             {-20,-10,-10,-10,-10,-10,-10,-20}
 
     };
-    int[][] bishopEvalBlack = reverseArray(bishopEvalWhite);
-    int[][] rookEvalWhite = {
+    int[][] bishopEvalWhite = reverseArray(bishopEvalBlack);
+    int[][] rookEvalBlack = {
             {0,  0,  0,  0,  0,  0,  0,  0},
             {5, 10, 10, 10, 10, 10, 10,  5},
             {-5, 0,  0,  0,  0,  0,  0, -5},
@@ -50,7 +50,7 @@ public class Evaluation {
             {-5, 0,  0,  0,  0,  0,  0, -5},
             {0,  0,  0,  5,  5,  0,  0,  0}
     };
-    int[][] rookEvalBlack = reverseArray(rookEvalWhite);
+    int[][] rookEvalWhite = reverseArray(rookEvalBlack);
     int[][] evalQueen = {
             {-20, -10, -10, -5, -5, -10, -10, -20},
             {-10, 0, 0, 0, 0, 0, 0, -10},
@@ -61,7 +61,7 @@ public class Evaluation {
             {-10, 0, 5, 0, 0, 0, 0, -10},
             {-20, -10, -10, -5, -5, -10, -10, -20}
     };
-    int[][] kingEvalWhite = {
+    int[][] kingEvalBlack = {
             {-30,-40,-40,-50,-50,-40,-40,-30},
             {-30,-40,-40,-50,-50,-40,-40,-30},
             {-30,-40,-40,-50,-50,-40,-40,-30},
@@ -71,10 +71,10 @@ public class Evaluation {
             {20, 20,  0,  0,  0,  0, 20, 20},
             {20, 30, 10,  0,  0, 10, 30, 20}
     };
-    int[][] kingEvalBlack = reverseArray(kingEvalWhite);
+    int[][] kingEvalWhite = reverseArray(kingEvalBlack);
 
-    public void printBoards() {
-        //System.out.println(pawnEvalBlack[1][1]);
+    public Evaluation() {
+
     }
 
     public int countPiece(char type, char color) {
@@ -197,8 +197,7 @@ public class Evaluation {
     }
 
     public double getResult(String side) {
-        printBoards();
-        int evalScore = 0;
+        int evalScore;
         int w2m;
         if (side.equals(Engine.getInstance().getSide())) {
             w2m = 1;
@@ -209,21 +208,32 @@ public class Evaluation {
             return Double.POSITIVE_INFINITY * w2m;
         }
 
-        evalScore += kingValue * ((countPiece('K', 'B') * kingPosition( 'B') - countPiece('K', 'W') * kingPosition('W')) * w2m)
-                + queenValue * ((countPiece('Q', 'B') * queenPosition('B') - countPiece('Q', 'W') * queenPosition('W')) * w2m)
-                + rookValue * ((countPiece('R', 'B') * rookPosition('B') - countPiece('R', 'W') * rookPosition('W')) * w2m)
-                + horseValue * ((countPiece('H', 'B') * horsePosition('B') - countPiece('H', 'W') * horsePosition('W')) * w2m)
-                + bishopValue * ((countPiece('B', 'B') * bishopPosition('B') - countPiece('B', 'W') * bishopPosition('W')) * w2m)
-                + pawnValue * ((countPiece('P', 'B') * pawnPosition('B') - countPiece('P', 'W') * pawnPosition('W')) * w2m);
+        if (Engine.getInstance().checkBoard() == 1) {
+            return 9999 * w2m;
+        }
 
-//        evalScore += kingValue * ((countPiece('K', 'B') - countPiece('K', 'W')) * w2m)
-//                + queenValue * ((countPiece('Q', 'B')- countPiece('Q', 'W')) * w2m)
-//                + rookValue * ((countPiece('R', 'B')- countPiece('R', 'W')) * w2m)
-//                + horseValue * ((countPiece('H', 'B')- countPiece('H', 'W')) * w2m)
-//                + bishopValue * ((countPiece('B', 'B') - countPiece('B', 'W')) * w2m)
-//                + pawnValue * ((countPiece('P', 'B')- countPiece('P', 'W')) * w2m);
+        if (Engine.getInstance().checkBoard() == -1) {
+            return -9999 * w2m;
+        }
 
-        //System.out.println("evalscore: " + evalScore);
+        int materialScore = 0;
+
+        materialScore += kingValue * (countPiece('K', 'B') - countPiece('K', 'W'))
+                + queenValue * (countPiece('Q', 'B')- countPiece('Q', 'W'))
+                + rookValue * (countPiece('R', 'B')- countPiece('R', 'W'))
+                + horseValue * (countPiece('H', 'B')- countPiece('H', 'W'))
+                + bishopValue * (countPiece('B', 'B') - countPiece('B', 'W'))
+                + pawnValue * (countPiece('P', 'B')- countPiece('P', 'W'));
+
+        evalScore = materialScore + kingPosition('B') - kingPosition('W')
+                    + queenPosition('B') - queenPosition('W')
+                    + rookPosition('B') - rookPosition('W')
+                    + horsePosition('B') - horsePosition('W')
+                    + bishopPosition('B') - bishopPosition('W')
+                    + pawnPosition('B') - pawnPosition('W');
+
+        evalScore = evalScore * w2m;
+
         return evalScore;
     }
 

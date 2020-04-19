@@ -10,94 +10,44 @@ public class Horse extends Piece {
     public Horse(char color, int x, int y) {
         super(color, x, y, 'H');
     }
-
-    @Override
-    public Boolean check(BoardCell[][] board) {
-        if (checkInTable(x - 1, y + 2)) {
-            if (board[x - 1][y + 2].piece != null) {
-                if ((board[x - 1][y + 2].piece instanceof King) && board[x - 1][y + 2].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x - 1, y - 2)) {
-            if (board[x - 1][y - 2].piece != null) {
-                if ((board[x - 1][y - 2].piece instanceof King) && board[x - 1][y - 2].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x + 1, y + 2)) {
-            if (board[x + 1][y + 2].piece != null) {
-                if ((board[x + 1][y + 2].piece instanceof King) && board[x + 1][y + 2].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x + 1, y - 2)) {
-            if (board[x + 1][y - 2].piece != null) {
-                if ((board[x + 1][y - 2].piece instanceof King) && board[x + 1][y - 2].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x + 2, y + 1)) {
-            if (board[x + 2][y + 1].piece != null) {
-                if ((board[x + 2][y + 1].piece instanceof King) && board[x + 2][y + 1].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x + 2, y - 1)) {
-            if (board[x + 2][y - 1].piece != null) {
-                if ((board[x + 2][y - 1].piece instanceof King) && board[x + 2][y - 1].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x - 2, y + 1)) {
-            if (board[x - 2][y + 1].piece != null) {
-                if ((board[x - 2][y + 1].piece instanceof King) && board[x - 2][y + 1].piece.color != this.color) {
-                    return true;
-                }
-            }
-        }
-        if (checkInTable(x - 2, y - 1)) {
-            if (board[x - 2][y - 1].piece != null) {
-                if ((board[x - 2][y - 1].piece instanceof King) && board[x - 2][y - 1].piece.color != this.color) {
+    public Boolean horseCheck(int x, int y) {
+        BoardCell[][] board = Engine.getInstance().getBoard();
+        if (checkInTable(x, y)) {
+            if (board[x][y].piece != null) {
+                if ((board[x][y].piece instanceof King) && board[x][y].piece.color != this.color) {
                     return true;
                 }
             }
         }
         return false;
     }
+    @Override
+    public Boolean check(BoardCell[][] board) {
+        return horseCheck(x - 1, y + 2) ||
+                horseCheck( x - 1, y - 2) ||
+                horseCheck( x + 1, y + 2) ||
+                horseCheck( x + 1, y - 2) ||
+                horseCheck( x + 2, y + 1) ||
+                horseCheck( x + 2, y - 1) ||
+                horseCheck( x - 2, y + 1) ||
+                horseCheck( x - 2, y - 1);
+    }
 
+    public void horseMove (ArrayList<Move> moves, int x, int y) {
+        if (genPiece(x, y) != null) {
+            moves.add(genPiece(x, y));
+        }
+    }
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        if (genPiece(x - 1, y + 2) != null) {
-            moves.add(genPiece(x - 1, y + 2));
-        }
-        if (genPiece(x - 1, y - 2) != null) {
-            moves.add(genPiece(x - 1, y - 2));
-        }
-        if (genPiece(x + 1, y + 2) != null) {
-            moves.add(genPiece(x + 1, y + 2));
-        }
-        if (genPiece(x + 1, y - 2) != null) {
-            moves.add(genPiece(x + 1, y - 2));
-        }
-        if (genPiece(x + 2, y + 1) != null) {
-            moves.add(genPiece(x + 2, y + 1));
-        }
-        if (genPiece(x + 2, y - 1) != null) {
-            moves.add(genPiece(x + 2, y - 1));
-        }
-        if (genPiece(x - 2, y + 1) != null) {
-            moves.add(genPiece(x - 2, y + 1));
-        }
-        if (genPiece(x - 2, y - 1) != null) {
-            moves.add(genPiece(x - 2, y - 1));
-        }
+        horseMove(moves,x - 1, y + 2);
+        horseMove(moves,x - 1, y - 2);
+        horseMove(moves, x + 1, y + 2);
+        horseMove(moves, x + 1, y - 2);
+        horseMove(moves, x + 2, y + 1);
+        horseMove(moves, x + 2, y - 1);
+        horseMove(moves, x - 2, y + 1);
+        horseMove(moves, x - 2, y - 1);
 
         return moves;
     }

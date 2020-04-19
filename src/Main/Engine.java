@@ -307,10 +307,10 @@ public class Engine {
             applyMove(move);
 
             if (getSide().equals("black")) {
-                score = - negamax("black", depth - 1);
+                score = - negamax("white", depth - 1);
             }
             if (getSide().equals("white")) {
-                score = - negamax("white", depth - 1);
+                score = - negamax("black", depth - 1);
             }
 
             undoMove(move);
@@ -324,8 +324,8 @@ public class Engine {
     }
 
     public void startSearch() {
-        Move bestMove = generateMove(2);
-        if (bestMove != null) {
+        Move bestMove = generateMove(3);
+        if (bestMove.string != null) {
             System.out.println("move " + bestMove.string);
             Utils.xboardMoves(board, bestMove.string);
             System.out.println("# Max: " + bestMove.score);
@@ -396,19 +396,19 @@ public class Engine {
     }
 
     public int checkBoard() {
-      for (Piece p : enginePieces) {
-          if (p.check(board)) {
-              return 1;
-          }
-      }
-
-      for (Piece p : opponentPieces) {
-          if (p.check(board)) {
-              return -1;
-          }
-      }
-
-      return 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].getPiece() != null) {
+                    if (board[i][j].getPiece().color == getColor() && board[i][j].getPiece().check(board)) {
+                        return 1;
+                    }
+                    if (board[i][j].getPiece().color != getColor() && board[i][j].getPiece().check(board)) {
+                        return -1;
+                    }
+                }
+            }
+        }
+        return 0;
     }
 
     public void printMoves() {

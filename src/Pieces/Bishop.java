@@ -11,97 +11,21 @@ public class Bishop extends Piece {
         super(color, x, y, 'B');
     }
 
+
     @Override
     public Boolean check(BoardCell[][] board) {
-        for (int i = 1; i < 8; i++) {
-            if (checkInTable(x + i, y + i)) {
-                if (board[x + i][y + i].piece != null) {
-                    if ((board[x + i][y + i].piece instanceof King) && board[x + i][y + i].piece.color != this.color) {
-                        return true;
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (checkInTable(x - i, y - i)) {
-                if (board[x - i][y - i].piece != null) {
-                    if ((board[x - i][y - i].piece instanceof King) && board[x - i][y - i].piece.color != this.color) {
-                        return true;
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (checkInTable(x - i, y + i)) {
-                if (board[x - i][y + i].piece != null) {
-                    if ((board[x - i][y + i].piece instanceof King) && board[x - i][y + i].piece.color != this.color) {
-                        return true;
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (checkInTable(x + i, y - i)) {
-                if (board[x + i][y - i].piece != null) {
-                    if ((board[x + i][y - i].piece instanceof King) && board[x + i][y - i].piece.color != this.color) {
-                        return true;
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        return false;
+        return multipleCheck(1, 1) ||
+                multipleCheck(1, -1) ||
+                multipleCheck(-1, 1) ||
+                multipleCheck(-1, -1);
     }
 
     public ArrayList<Move> generateMove() {
         ArrayList<Move> moves = new ArrayList<>();
-        for (int i = 1; i < 8; i++) {
-            if (genPiece(x + i, y + i) != null) {
-                moves.add(genPiece(x + i, y + i));
-                if (Engine.getInstance().getBoard()[x + i][y + i].getPiece() != null) {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (genPiece(x - i, y - i) != null) {
-                moves.add(genPiece(x - i, y - i));
-                if (Engine.getInstance().getBoard()[x - i][y - i].getPiece() != null) {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (genPiece(x - i, y + i) != null) {
-                moves.add(genPiece(x - i, y + i));
-                if (Engine.getInstance().getBoard()[x - i][y + i].getPiece() != null) {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-        for (int i = 1; i < 8; i++) {
-            if (genPiece(x + i, y - i) != null) {
-                moves.add(genPiece(x + i, y - i));
-                if (Engine.getInstance().getBoard()[x + i][y - i].getPiece() != null) {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
+        multipleMove(moves, 1, 1);
+        multipleMove(moves, 1, -1);
+        multipleMove(moves, -1, -1);
+        multipleMove(moves, -1, 1);
 
         return moves;
     }
