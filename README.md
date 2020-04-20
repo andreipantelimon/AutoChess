@@ -7,7 +7,8 @@ Github - [https://github.com/andreipantelimon/AutoChess](https://github.com/andr
 
 Etapa1: Pentru aceasta etapa am implementat interfatarea cu programul Xboard precum si mutarea unei singure piese, a pionului. Main.Engine-ul isi genereaza automat mutari cat poate, iar cand nu mai poate muta niciun pion, acesta va da resign. De asemenea, cand acesta este in sah de la un pion va da resign, fara a incerca sa iasa (aceasta actiune nu merge daca este in sah de la alta piesa).
 
-Etapa2: Pentru etapa 2 am implementat restul de piese 
+Etapa2: Pentru etapa 2 am implementat toate regulile sahului. Piesele genereaza mutarile corect si engine-ul recunoaste toate mutarile primite din xboard, inclusiv en passant, rocada si pawn promotion.
+
 
 # Comenzi
 
@@ -35,5 +36,5 @@ Pentru rulare (din folderul src al proiectului):
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM4NDE5ODY0XX0=
+eyJoaXN0b3J5IjpbMTI0ODgyMzYxNF19
 -->
