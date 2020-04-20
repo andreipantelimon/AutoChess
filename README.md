@@ -26,7 +26,7 @@ Impartire task-uri:
 - Andrei Pantelimon - Interfatarea cu xboard, initializarea board-ului
 ### Etapa 2
 - Petru Temelie - generarea tuturor miscarilor legale, precum si verificarea daca regele este in sah si cum poate acesta sa iasa
-- Andrei Pantelimon - implementarea mini
+- Andrei Pantelimon - implementarea negamax-ului si a functiei de evaluare precum si a logicii generale a engine-ului
 
 # Rularea Engine-ului
 
@@ -44,5 +44,5 @@ Pentru clean:
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1ODU0MDYyXX0=
+eyJoaXN0b3J5IjpbMjA0NzIwMzAwNV19
 -->
