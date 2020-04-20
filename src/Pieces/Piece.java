@@ -44,10 +44,13 @@ public abstract class Piece {
         String board = "abcdefgh";
         return String.valueOf(board.charAt(x));
     }
-
+     // Metoda verifica daca pozitia se afla pe tabla de joc.
     public Boolean checkInTable(int x, int y) {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
+
+    // Metoda este apelata de catre Bishop, Rook si Queen pentru a verifica miscarile legale posibile, in functie
+    // de regulile stabilite pentru fiecare.
     public void multipleMove(ArrayList<Move> moves, int signX, int signY) {
         for (int i = 1; i < 8; i++) {
             if (genPiece(x + signX * i, y + signY * i) != null) {
@@ -60,6 +63,9 @@ public abstract class Piece {
             }
         }
     }
+
+    // Metoda este apelata de catre Bishop, Rook si Queen pentru a verifica daca in raza piesei se afla regele advers, in functie
+    // de regulile stabilite pentru fiecare.
     public Boolean multipleCheck(int signX, int signY) {
         BoardCell[][] board = Engine.getInstance().getBoard();
         for (int i = 1; i < 8; i++) {
@@ -77,6 +83,8 @@ public abstract class Piece {
 
     }
 
+    // Metoda verifica daca pentru pozitia finala exista o mutare valida prin care se ajunge la aceasta
+    // cu piesa din care se apeleaza. Intoarce o mutare valida sau null.
     public Move genPiece(int lastx, int lasty) {
         Move move = new Move();
         if (checkInTable(lastx, lasty)) {
@@ -118,9 +126,10 @@ public abstract class Piece {
 
         return null;
     }
-
+    // Metoda verifica daca piesa curenta din care se apeleaza da sah.
     public abstract Boolean check (BoardCell[][] board);
 
+    // Genereaza mutarile pentru piesa curenta.
     public abstract ArrayList<Move> generateMove ();
 
     public void setX (int x) {

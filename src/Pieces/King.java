@@ -16,6 +16,8 @@ public class King extends Piece {
     public Boolean check(BoardCell[][] board) {
         return false;
     }
+
+    // Metoda verifica daca urmatoarea mutare a regelui nu duce la apropierea regilor la mai putin de o unitate.
     private boolean checkKing( int nextx, int nexty) {
         BoardCell[][] board = Engine.getInstance().getBoard();
         if (checkInTable(nextx, nexty)) {
@@ -25,6 +27,8 @@ public class King extends Piece {
         }
         return false;
     }
+
+    // Apelarea metodei checkKing pentru toate pozitiile urmatoare posibile ale regelui.
     private boolean isLegal(int lastx, int lasty) {
         return (!checkKing(lastx + 1, lasty) &&
                 !checkKing(lastx + 1, lasty + 1) &&
@@ -35,9 +39,9 @@ public class King extends Piece {
                 !checkKing(lastx - 1, lasty + 1) &&
                 !checkKing(lastx - 1, lasty - 1));
     }
+    // Verifica daca prin mutarea regelui se intra in sah. Daca nu, mutarea se adauga la vectorul de mutari.
     private void checkMove(Move move, int lastx, int lasty) {
         if (move != null) {
-            //System.out.println(move);
             if (checkInTable(lastx, lasty) && isLegal(lastx, lasty)) {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece() == null) {
                     Engine.getInstance().getBoard()[x][y].setPiece(null);
@@ -62,7 +66,7 @@ public class King extends Piece {
             }
         }
     }
-
+    // Verifica daca conditia pentru a face rocada este indeplinita.
     public boolean castlingRule() {
         BoardCell[][] board = Engine.getInstance().getBoard();
         //Small castling
@@ -109,6 +113,7 @@ public class King extends Piece {
         }
         return false;
     }
+    // Adauga rocada la mutarile posibile daca este valida.
     public Move castling(int lastx, int lasty) {
         Move move = new Move();
         if (castlingRule() && checkInTable(lastx, lasty) && !Engine.getInstance().inCheck) {
