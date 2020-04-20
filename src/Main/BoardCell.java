@@ -7,7 +7,7 @@ import java.util.Deque;
 
 public class BoardCell {
     public Piece piece;
-    public Deque<Piece> previousPieceStack = new ArrayDeque<Piece>();
+    public Deque<Piece> previousPieceStack = new ArrayDeque<>();
 
     public BoardCell() {
         this.piece = null;

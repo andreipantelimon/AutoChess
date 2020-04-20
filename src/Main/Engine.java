@@ -4,7 +4,7 @@ import Pieces.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.Objects;
 
 public class Engine {
     private static Engine engine = null;
@@ -126,10 +126,7 @@ public class Engine {
     }
 
     public boolean checkMate(ArrayList<Move> moves) {
-        if (moves.size() == 0) {
-            return true;
-        }
-        return false;
+        return moves.size() == 0;
     }
 
     public void generateAllMoves(ArrayList<Move> allMoves, String side) {
@@ -182,7 +179,7 @@ public class Engine {
         board[finalX][finalY].setPiece(temp);
 
         if (board[startX][startY].previousPieceStack.peek() != null) {
-            if (board[startX][startY].previousPieceStack.peek().color != 'X') {
+            if (Objects.requireNonNull(board[startX][startY].previousPieceStack.peek()).color != 'X') {
                 board[startX][startY].setPiece(board[startX][startY].previousPieceStack.poll());
             } else {
                 board[startX][startY].setPiece(null);

@@ -20,9 +20,7 @@ public class King extends Piece {
         BoardCell[][] board = Engine.getInstance().getBoard();
         if (checkInTable(nextx, nexty)) {
             if (board[nextx][nexty].getPiece() != null) {
-                if ((board[nextx][nexty].getPiece() instanceof King) && board[nextx][nexty].getPiece().color != this.color) {
-                    return true;
-                }
+                return (board[nextx][nexty].getPiece() instanceof King) && board[nextx][nexty].getPiece().color != this.color;
             }
         }
         return false;
@@ -145,8 +143,8 @@ public class King extends Piece {
         checkMove(genPiece(x + 1, y - 1), x + 1, y - 1);
         checkMove(genPiece(x -  1, y ), x - 1, y);
         checkMove(genPiece(x + 1, y), x + 1, y);
-        checkMove(castling(x, y + 2), x, y + 2);
-        checkMove(castling(x, y - 2), x, y - 2);
+        //checkMove(castling(x, y + 2), x, y + 2);
+        //checkMove(castling(x, y - 2), x, y - 2);
 
         return moves;
     }
