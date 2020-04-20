@@ -3,6 +3,7 @@ package Main;
 import Pieces.*;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Utils {
@@ -94,8 +95,8 @@ public class Utils {
     }
 
 
-    public static double evaluate(String side) {
+    public static double evaluate(String side, ArrayList<Move> moves) {
         Evaluation eval = new Evaluation();
-        return eval.getResult(side);
+        return eval.getResult(side, moves);
     }
 }

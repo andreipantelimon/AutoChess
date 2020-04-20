@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.ArrayList;
+
 public class Evaluation {
     int pawnValue = 100;
     int horseValue = 320;
@@ -196,24 +198,20 @@ public class Evaluation {
         return position;
     }
 
-    public double getResult(String side) {
+    public double getResult(String side, ArrayList<Move> moves) {
         int evalScore;
         int w2m;
-        if (side.equals(Engine.getInstance().getSide())) {
-            w2m = 1;
-        } else {
+        if (Engine.getInstance().getSide().equals("black")) {
             w2m = -1;
+        } else {
+            w2m = 1;
         }
-        if (Engine.getInstance().checkMate(side)) {
+        if (Engine.getInstance().checkMate(moves)) {
             return Double.POSITIVE_INFINITY * w2m;
         }
 
-        if (Engine.getInstance().checkBoard() == 1) {
+        if (Engine.getInstance().checkBoard() != 0) {
             return 9999 * w2m;
-        }
-
-        if (Engine.getInstance().checkBoard() == -1) {
-            return -9999 * w2m;
         }
 
         int materialScore = 0;

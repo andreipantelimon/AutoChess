@@ -125,19 +125,8 @@ public class Engine {
         }
     }
 
-    public boolean checkMate(String side) {
-        ArrayList<Move> moves = new ArrayList<>();
-//        if (side.equals("black")) {
-//            side = "white";
-//        } else {
-//            if (side.equals("white")) {
-//                side = "black";
-//            }
-//        }
-        generateAllMoves(moves, side);
-        //System.out.println("%%%%% MOVES = " + moves);
+    public boolean checkMate(ArrayList<Move> moves) {
         if (moves.size() == 0) {
-            System.out.println("SAH MAT ATEILOR");
             return true;
         }
         return false;
@@ -153,69 +142,6 @@ public class Engine {
                 allMoves.addAll(p.generateMove());
             }
         }
-    }
-
-    public double evaluate(String side) {
-        int w2m, materialScore = 0;
-        if (side.equals(getSide())) {
-            w2m = -1;
-        } else {
-            w2m = 1;
-        }
-
-        if (checkMate(side)) {
-            return Double.POSITIVE_INFINITY * w2m;
-        }
-
-        ArrayList<Move> player1Moves = new ArrayList<>();
-        generateAllMoves(player1Moves, side);
-        ArrayList<Move> player2Moves = new ArrayList<>();
-        if (side.equals("black")) {
-            generateAllMoves(player2Moves, "white");
-        } else {
-            generateAllMoves(player2Moves, "black");
-        }
-        int p1Mobility = player1Moves.size();
-        int p2Mobility = player2Moves.size();
-
-        double mobilityScore = 0.1 * (p1Mobility - p2Mobility);
-        for (Piece p : enginePieces) {
-            if (p.type == 'K') {
-                materialScore += 200;
-            }
-            if (p.type == 'Q') {
-                materialScore += 9;
-            }
-            if (p.type == 'R') {
-                materialScore += 5;
-            }
-            if (p.type == 'B' || p.type == 'H') {
-                materialScore += 3;
-            }
-            if (p.type == 'P') {
-                materialScore += 1;
-            }
-        }
-
-        for (Piece p : opponentPieces) {
-            if (p.type == 'K') {
-                materialScore -= 200;
-            }
-            if (p.type == 'Q') {
-                materialScore -= 9;
-            }
-            if (p.type == 'R') {
-                materialScore -= 5;
-            }
-            if (p.type == 'B' || p.type == 'H') {
-                materialScore -= 3;
-            }
-            if (p.type == 'P') {
-                materialScore -= 1;
-            }
-        }
-        return (materialScore + mobilityScore) * w2m;
-
     }
 
     public void applyMove(Move move) {
@@ -270,14 +196,14 @@ public class Engine {
     public Move negamax(String nSide, int depth) {
         String bestMove = null;
 
-        if (depth == 0) {
-            return new Move(Utils.evaluate(nSide));
+        ArrayList<Move> moves = getAllCurrentMoves(nSide);
+
+        if (checkMate(moves) || depth == 0) {
+            return new Move(Utils.evaluate(nSide, moves));
         }
 
         double max = Double.NEGATIVE_INFINITY;
 
-        ArrayList<Move> moves = getAllCurrentMoves(nSide);
-        //System.out.println("# NEGAMAX side: " + nSide + " moves: " + moves);
         for (Move move : moves) {
             applyMove(move);
 
@@ -306,17 +232,12 @@ public class Engine {
 
     public void startSearch() {
         Move bestMove = negamax(getSide(), 3);
-        //System.out.println("move " + bestMove);
         if (bestMove.string != null) {
             System.out.println("move " + bestMove.string);
             Utils.xboardMoves(board, bestMove.string);
-            System.out.println("# Max: " + bestMove.score);
-            //printBoard();
             clearRemains();
             resetArray(this.board, this.enginePieces, this.opponentPieces);
         } else {
-            //System.out.println("# RESIGN MAP: ");
-            printBoard();
             System.out.println("resign");
         }
     }
@@ -349,7 +270,6 @@ public class Engine {
         ArrayList<Move> allMoves = new ArrayList<Move>();
         resetArray(this.board, this.enginePieces, this.opponentPieces);
         generateAllMoves(allMoves, side);
-       // System.out.println("ALLMOVES: " + allMoves);
         return allMoves;
     }
 
@@ -388,7 +308,6 @@ public class Engine {
                         return 1;
                     }
                     if ((board[i][j].getPiece().color != getColor()) && board[i][j].getPiece().check(board)) {
-                        System.out.println("Piesa care ar da sah este :" + board[i][j].getPiece());
                         return -1;
                     }
                 }
