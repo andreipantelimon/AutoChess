@@ -21,21 +21,28 @@ In acest moment, in Main.Engine sunt implementate urmatoarele comenzi conform do
 
 
 Impartire task-uri:
+### Etapa 1
 - Petru Temelie - generarea, efectuarea mutarilor si verificarea daca este in sah engine-ul
 - Andrei Pantelimon - Interfatarea cu xboard, initializarea board-ului
+### Etapa 2
+- Petru Temelie - generarea tuturor miscarilor legale, precum si verificarea daca regele este in sah si cum poate acesta sa iasa
+- Andrei Pantelimon - implementarea mini
 
 # Rularea Engine-ului
 
 Ca limbaj de programare am ales sa folosim Java, deoarece am gandit bot-ul mai Object-Oriented. 
 
  Pentru compilare (din folderul src al proiectului):
-` javac Main.Main.java`
+` make build`
 
 Pentru rulare (din folderul src al proiectului):
-` java Main.Main`
+` make run`
+
+Pentru clean:
+` make clean`
 
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM4NTQ1OTcyXX0=
+eyJoaXN0b3J5IjpbLTU1ODU0MDYyXX0=
 -->
