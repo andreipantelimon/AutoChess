@@ -97,7 +97,6 @@ public abstract class Piece {
                 }
             } else {
                 if (Engine.getInstance().getBoard()[lastx][lasty].getPiece().color != this.color && !(Engine.getInstance().getBoard()[lastx][lasty].getPiece() instanceof King)) {
-                    //System.out.println("Piesa este : " + Engine.getInstance().getBoard()[lastx][lasty].getPiece());
                     Piece startP = Engine.getInstance().getBoard()[x][y].getPiece();
                     Piece finalP = Engine.getInstance().getBoard()[lastx][lasty].getPiece();
                     Engine.getInstance().getBoard()[lastx][lasty].setPiece(startP);

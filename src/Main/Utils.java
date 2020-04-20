@@ -69,11 +69,25 @@ public class Utils {
             if (board[startXPos][startYPos].getPiece() != null) {
                 board[startXPos][startYPos].getPiece().setHasMoved();
                 Piece tempPiece = board[startXPos][startYPos].getPiece();
-
-                board[startXPos][startYPos].setPiece(null);
-                tempPiece.setX(finishXPos);
-                tempPiece.setY(finishYPos);
-                board[finishXPos][finishYPos].setPiece(tempPiece);
+                if (tempPiece instanceof Pawn && startYPos != finishYPos) {
+                    if (board[finishXPos][finishYPos].getPiece() == null) {
+                        board[startXPos][startYPos].setPiece(null);
+                        tempPiece.setX(finishXPos);
+                        tempPiece.setY(finishYPos);
+                        board[finishXPos][finishYPos].setPiece(tempPiece);
+                        board[startXPos][finishYPos].setPiece(null);
+                    } else {
+                        board[startXPos][startYPos].setPiece(null);
+                        tempPiece.setX(finishXPos);
+                        tempPiece.setY(finishYPos);
+                        board[finishXPos][finishYPos].setPiece(tempPiece);
+                    }
+                } else {
+                    board[startXPos][startYPos].setPiece(null);
+                    tempPiece.setX(finishXPos);
+                    tempPiece.setY(finishYPos);
+                    board[finishXPos][finishYPos].setPiece(tempPiece);
+                }
             }
         }
 
