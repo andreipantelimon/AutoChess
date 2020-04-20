@@ -1,11 +1,13 @@
 ﻿
-# AutoChess - Etapa 1
+# AutoChess - Etapa 2
 
 Echipa - Andrei Pantelimon & Temelie Petru
 Grupa - 325CA
 Github - [https://github.com/andreipantelimon/AutoChess](https://github.com/andreipantelimon/AutoChess) (Repository Privat)
 
-Pentru aceasta etapa am implementat interfatarea cu programul Xboard precum si mutarea unei singure piese, a pionului. Main.Engine-ul isi genereaza automat mutari cat poate, iar cand nu mai poate muta niciun pion, acesta va da resign. De asemenea, cand acesta este in sah de la un pion va da resign, fara a incerca sa iasa (aceasta actiune nu merge daca este in sah de la alta piesa).
+Etapa1: Pentru aceasta etapa am implementat interfatarea cu programul Xboard precum si mutarea unei singure piese, a pionului. Main.Engine-ul isi genereaza automat mutari cat poate, iar cand nu mai poate muta niciun pion, acesta va da resign. De asemenea, cand acesta este in sah de la un pion va da resign, fara a incerca sa iasa (aceasta actiune nu merge daca este in sah de la alta piesa).
+
+Etapa2: Pentru etapa 2 am implementat restul de piese 
 
 # Comenzi
 
@@ -32,3 +34,6 @@ Pentru rulare (din folderul src al proiectului):
 
  
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNjM4NDE5ODY0XX0=
+-->
